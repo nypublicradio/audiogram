@@ -71,6 +71,10 @@ You can set both a `backgroundColor` and a `backgroundImage`, in which case the 
 * `foregroundColor` - A convenience option for setting `waveColor` and `captionColor` to the same thing.
 * `maxDuration` - Maximum duration of an audiogram, in seconds (e.g. set this to `30` to enforce the 30-second limit for Twitter)
 
+### Making changes
+
+After you've edited `settings/themes.json`, you'll want to run either `npm run rebuild` or `npm start` to rebundle the new themes for the editor.
+
 ### A note about layout
 
 When designing your own themes, keep in mind that web browsers and social apps put a variety of overlays on videos when they're paused or playing, like a progress bar at the bottom or a fat play button in the middle. Try to space things out so that important parts of your design aren't obscured.
