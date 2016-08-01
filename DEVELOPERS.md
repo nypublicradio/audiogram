@@ -74,26 +74,30 @@ The width and height for a video are defined in `settings/themes.json`.  If you 
 
 The current specs for different services are as follows:
 
-Dimensions:
-Twitter: 1280x720
-Facebook: 1280x720
-Instagram: 640x640 (or any square up to 1280 on a side)
+**Dimensions**
+
+Twitter: 1280x720  
+Facebook: 1280x720  
+Instagram: 640x640 (or any square up to 1280 on a side)  
 Tumblr: displayed at 500px width, height is variable
 
-Max File Size:
-Twitter: 15MB
-Facebook: 2.3GB
-Instagram: unclear, but large
+**Max File Size**
+
+Twitter: 15MB  
+Facebook: 2.3GB  
+Instagram: unclear, but large  
 Tumblr: cumulative max upload of 100MB per day
 
-Max Length:
-Twitter: 30 seconds
-Facebook: 60 minutes
-Instagram: 15 seconds
+**Max Length**
+
+Twitter: 30 seconds  
+Facebook: 60 minutes  
+Instagram: 15 seconds  
 Tumblr: cumulative max length of 5 minutes uploaded per day
 
-Encoding:
-Twitter: H.264-MP4-AAC
-Facebook: H.264-MP4-AAC
-Instagram: H.264-MP4-AAC
+**Encoding**
+
+Twitter: H.264-MP4-AAC  
+Facebook: H.264-MP4-AAC  
+Instagram: H.264-MP4-AAC  
 Tumblr: H.264-MP4-AAC
