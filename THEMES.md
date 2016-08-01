@@ -30,7 +30,7 @@ To see what specs different social media platforms want, see the [Developer note
 
 Background options:
 
-* `backgroundImage` - What image to put in the background of every frame, it should be a PNG image in `settings/backgrounds/`
+* `backgroundImage` - What image to put in the background of every frame, it should be a file in `settings/backgrounds/`
 * `backgroundColor` - A CSS color to fill the background of every frame (e.g. `pink` or `#ff00ff`). The default is white.
 
 If a `backgroundImage` is defined, its dimensions should match the theme's width and height and the file should be in `settings/backgrounds/`. So for example, you could add:
