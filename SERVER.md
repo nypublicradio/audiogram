@@ -88,6 +88,8 @@ module.exports = {
 
 Now make sure all the instances have those settings and your webserver located at `1.2.3.4` runs the `bin/server` task and the rest run the `bin/worker` task.
 
+By default, audio and video files uploaded to S3 are public. They have 32-character random filenames, so the odds of someone stumbling onto one by URL are... low, but if this is a problem, read about it in the [Developer notes](DEVELOPERS.md#make-s3-files-private).
+
 ### All settings
 
 `workingDirectory` - a path to a folder where Audiogram can put temporary files (if it doesn't exist, it will be created automatically). This is REQUIRED.
