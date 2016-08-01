@@ -75,6 +75,11 @@
     "waveColor": "#fff",
     "captionFont": "bold italic 52px 'Source Sans Pro'"
   },
+  "Pixelated": {
+    "backgroundColor": "#ecd078",
+    "foregroundColor": "#c02942",
+    "pattern": "pixel"
+  },
   "Square with background image": {
     "width": 640,
     "height": 640,
