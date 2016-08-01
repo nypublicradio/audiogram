@@ -54,7 +54,7 @@
   "Bricks": {
     "backgroundColor": "#8771aa",
     "foregroundColor": "#fff",
-    "pattern": "bricks",
+    "pattern": "bricks"
   },
   "Equalizer on the bottom": {
     "backgroundColor": "#222",
