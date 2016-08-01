@@ -1,0 +1,138 @@
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+q,
+small,
+strong,
+sub,
+sup,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+article,
+aside,
+figure,
+figure img,
+figcaption,
+hgroup,
+footer,
+header,
+nav,
+section,
+video,
+object,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  display: block;
+}
+
+a img {
+  border: 0;
+}
+
+figure {
+  position: relative;
+}
+
+figure img {
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  color: #000000;
+  font-size: 16px;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+}
+
+select,
+input,
+text,
+option,
+button {
+  font-size: 16px;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.clear {
+  clear: both;
+}
+
+div.container {
+  margin: 1rem auto 0 auto;
+}
+
+canvas,audio,svg {
+  vertical-align: top;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.hidden {
+  display: none;
+}

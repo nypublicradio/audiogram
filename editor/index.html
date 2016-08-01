@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Audiogram</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/editor.css" rel="stylesheet" type="text/css">
+  </head>
+  <body class="loading">
+    <div class="container">
+      <h1>Audiogram</h1>
+      <div id="loading">
+        <div id="loading-bars">
+          <div class="r1"></div><div class="r2"></div><div class="r3"></div><div class="r4"></div><div class="r5"></div>
+        </div>
+        <div id="loading-message">Loading...</div>
+      </div><!-- #loading -->
+      <div id="loaded">
+        <div id="error"></div>
+        <div class="row form-row" id="row-audio">
+          <label for="input-audio">Audio</label>
+          <input id="input-audio" name="audio" type="file" />
+        </div>
+        <div class="row form-row" id="row-theme">
+          <label for="input-theme">Theme</label>
+          <select id="input-theme" name="theme"></select>
+        </div>
+        <div class="row form-row" id="row-caption">
+          <label for="input-caption">
+            Caption
+            <div class="note">Add two spaces in a row to force a line break.</div>
+          </label>
+          <input id="input-caption" name="caption" type="text" autocomplete="off" placeholder="Add a caption" />
+        </div>
+        <div id="preview">
+          <div style="background-color: black;">
+            <div id="canvas">
+              <canvas width="640" height="360"></canvas>
+              <div id="preview-label">Preview</div>
+            </div>
+          </div>
+          <div id="minimap" class="hidden">
+            <svg width="640" height="80" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <clipPath id="clip">
+                  <rect height="80" width="640" x="0" y="0"></rect>
+                </clipPath>
+              </defs>
+              <g class="waveform background">
+                <line x1="0" x2="640" y1="40" y2="40"></line>
+                <path></path>
+              </g>
+              <g class="waveform foreground" clip-path="url(#clip)">
+                <line x1="0" x2="640" y1="40" y2="40"></line>
+                <path></path>
+              </g>
+              <g class="brush"></g>
+              <g class="time">
+                <line x1="0" x2="0" y1="0" y2="80"></line>
+              </g>
+            </svg>
+            <div id="controls">
+              <span id="tip">Click and drag over the waveform to clip audio<br />Use space bar to play/pause</span>
+              <span id="duration"><strong></strong> seconds selected</span>
+              <button id="play"><i class="fa fa-play"></i>Play</button>
+              <button id="pause" class="hidden"><i class="fa fa-pause"></i>Pause</button>
+              <button id="restart"><i class="fa fa-step-backward"></i>Restart</button>
+            </div>
+          </div>
+        </div>
+        <div id="audio">
+          <audio controls>
+            <source />
+          </audio>
+        </div>
+        <div id="video">
+          <video width="640" height="360" controls>
+            <source type="video/mp4" />
+          </video>
+        </div>
+        <div class="row" id="row-submit">
+          <button type="button" id="return" class="left"><i class="fa fa-edit"></i>Return to editor</button>
+          <button type="button" id="submit" class="right hidden"><i class="fa fa-cloud-upload"></i>Generate</button>
+          <a id="download" class="button right" href="#" target="_blank"><i class="fa fa-download"></i>Download</a>
+          <div class="clear"></div>
+        </div>
+      </div><!-- #loaded -->
+    </div><!-- .container -->
+    <script src="js/bundle.js"></script>
+  </body>
+</html>

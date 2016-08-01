@@ -1,0 +1,52 @@
+{
+  "name": "audiogram",
+  "version": "0.9.0",
+  "description": "Turn audio into a shareable video.",
+  "main": "index.js",
+  "scripts": {
+    "start": "bin/server",
+    "worker": "bin/worker",
+    "postinstall": "mkdir -p editor/js && browserify client/index.js > editor/js/bundle.js",
+    "rebuild": "npm run postinstall",
+    "watch": "mkdir -p editor/js && watchify client/index.js -o editor/js/bundle.js",
+    "debug": "npm run postinstall && DEBUG=1 npm start",
+    "test": "tape 'test/**/*-test.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nypublicradio/audiogram.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Noah Veltman",
+    "url": "https://twitter.com/veltman"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.2.39",
+    "browserify": "^13.0.0",
+    "compression": "^1.6.1",
+    "d3": "^4.1.1",
+    "dotenv": "^2.0.0",
+    "express": "^4.13.3",
+    "jquery": "^2.2.1",
+    "mkdirp": "^0.5.1",
+    "morgan": "^1.7.0",
+    "multer": "^1.1.0",
+    "node-ffprobe": "^1.2.2",
+    "node-uuid": "^1.4.7",
+    "redis": "^2.4.2",
+    "rimraf": "^2.5.0",
+    "smartquotes": "^1.0.0",
+    "underscore": "^1.8.3",
+    "canvas": "git+https://github.com/chearon/node-canvas.git#b62dd3a9fa",
+    "waveform": "git+https://github.com/veltman/node-waveform.git#8b1a22f109",
+    "webaudio-peaks": "0.0.5",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "supertest": "^1.2.0",
+    "tape": "^4.6.0",
+    "watchify": "^3.7.0"
+  }
+}

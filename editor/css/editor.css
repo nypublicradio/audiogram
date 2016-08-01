@@ -1,0 +1,303 @@
+div.container {
+  width: 640px;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-weight: 500;
+  margin-top: 2rem;
+  font-size: 48px;
+}
+
+.red {
+  color: #c00;
+}
+
+/* Buttons/controls */
+button,
+.button {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #333;
+  background-color: #fff;
+  margin: 3px;
+  outline: 0;
+  font-size: 16px;
+}
+
+#download {
+  padding: 9px 12px 6px 12px;
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+#download:hover {
+  background-color: #31b0d5;
+  border-color: #269abc;
+}
+
+button:hover,
+input[type='submit']:hover {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+
+button:active,
+#download:active,
+input[type='submit']:active {
+  box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+}
+
+#tip {
+  color: #333;
+  font-size: 13px;
+  text-align: left;
+  float: left;
+  margin-top: 3px;
+}
+
+#duration {
+  display: inline-block;
+  padding-top: 6px;
+  margin-bottom: 0;
+  font-weight: 400;
+  vertical-align: middle;
+  color: #333;
+  font-size: 13px;
+  margin-right: 3px;
+}
+
+.note {
+  color: #999;
+  font-size: 12px;
+}
+
+#play {
+  width: 66px;
+}
+
+#controls {
+  text-align: right;
+}
+
+#controls i.fa {
+  margin-right: 4px;
+}
+
+i.fa {
+  margin-right: 6px;
+}
+
+i.fa-play {
+    position: relative;
+    bottom: 1px;
+}
+
+#controls button {
+  padding: 3px 6px;
+  font-size: 13px;
+}
+
+#error {
+  color: #c00;
+  font-weight: 600;
+}
+
+.row.error input,
+.row.error label {
+  color: #c00;
+}
+
+/* Form */
+.row {
+  margin: 1rem 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+select {
+  margin-top: 6px;
+  padding: 6px;
+}
+
+input[type='text'] {
+  width: 100%;
+  padding: 6px;
+  color: #666;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 0 0 0;
+}
+
+/* Preview canvas */
+#canvas {
+  position: relative;
+}
+
+#preview-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  opacity: 0.2;
+  font-size: 28px;
+}
+
+#canvas,
+#video {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Minimap */
+svg {
+  border-top: 1px solid #444;
+  background-color: #dedede;
+}
+
+g.background path {
+  fill: #999;
+}
+
+g.background line {
+  stroke: #999;
+}
+
+g.foreground path {
+  fill: #de1e3d;
+}
+
+g.foreground line {
+  stroke: #de1e3d;
+}
+
+g.brush .extent {
+  fill: none;
+  stroke: none;
+}
+
+g.brush line {
+  stroke-width: 3px;
+  stroke: #de1e3d;
+}
+
+g.time {
+  pointer-events: none;
+}
+
+g.time line {
+  stroke-width: 1px;
+  stroke: #0eb8ba;
+}
+
+/* UI states */
+#audio {
+  display: none;
+}
+
+#loading,
+#error,
+#video,
+#download,
+#return,
+.loading #loaded,
+.rendered #preview,
+.rendered #submit,
+.rendered .form-row {
+  display: none;
+}
+
+.loading #loading,
+.error #error,
+.rendered #video {
+  display: block;
+}
+
+.rendered #download,
+.rendered #return {
+  display: inline-block;
+}
+
+/* Loading styles */
+#loading-message {
+  font-size: 24px;
+  text-align: center;
+  color: #de1e3d;
+}
+
+#loading-bars {
+  margin: 60px auto 40px auto;
+  width: 200px;
+  height: 120px;
+  text-align: center;
+  font-size: 10px;
+}
+
+#loading-bars > div {
+  background-color: #de1e3d;
+  height: 100%;
+  width: 16px;
+  margin-right: 3px;
+  display: inline-block;
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+#loading-bars .r2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+#loading-bars .r3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+#loading-bars .r4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+#loading-bars .r5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+  margin-right: 0;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}

@@ -1,0 +1,57 @@
+#!/usr/bin/env node
+var dotenv = require("dotenv").config({silent: true}),
+    Audiogram = require("../audiogram/"),
+    transports = require("../lib/transports/");
+
+// Can only register fonts once, double-registering throws an error
+require("../lib/register-fonts.js");
+
+pluckJob();
+
+function pluckJob(){
+
+  transports.getJob(function(err, settings){
+
+    if (err) {
+      throw err;
+    }
+
+    if (settings) {
+
+      return render(settings);
+
+    }
+
+    setTimeout(pluckJob, delay());
+
+  });
+
+}
+
+function render(settings) {
+
+  var audiogram = new Audiogram(settings);
+
+  audiogram.render(function(err){
+
+    if (err) {
+      audiogram.status("error");
+      audiogram.set("error", err);
+      throw err;
+    }
+
+    audiogram.status("ready");
+
+    if (process.env.SPAWNED) {
+      return transports.quit();
+    }
+
+    setTimeout(pluckJob, delay());
+
+  });
+
+}
+
+function delay() {
+   return transports.workerDelay ? transports.workerDelay() : 0;
+}

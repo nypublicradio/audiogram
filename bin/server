@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+var dotenv = require("dotenv").config({silent: true}),
+    logger = require("../lib/logger/"),
+    server = require("../server/");
+
+var port = +process.argv[2] || 8888;
+
+server.listen(port);
+
+logger.log("Listening on " + port);
