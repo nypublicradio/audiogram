@@ -1,6 +1,6 @@
 ## Audiogram themes
 
-Themes are defined as one big JSON dictionary in `settings/themes.json`.
+Themes are defined as one big JSON dictionary in `settings/themes.json` ([link](settings/themes.json)).
 
 All themes inherit the settings of the `default` theme, and setting an option for another theme will extend/override the same property.
 
@@ -13,7 +13,7 @@ Each theme should be a unique name as the key and then a set of options.  For ex
   }
 ```
 
-The best way to get a feel for this is probably to look at the included `themes.json` and compare it to how the themes look in the editor.
+The best way to get a feel for this is probably to look at the included themes file ([link](settings/themes.json)) and compare it to how the themes look in the editor.
 
 ### Required options
 
@@ -83,7 +83,7 @@ When designing your own themes, keep in mind that web browsers and social apps p
 
 By default, Audiogram will already have access to fonts on your system.  This might be fine for local use, but it will become a problem on a server without the fonts you're used to, or if you want to use a specific font across lots of installations.
 
-The good news is that you can load custom fonts directly with the `fonts` list in `settings/index.js`. Each font in the array is an object with `family` (the font family name in `captionFont`) and `file`, the absolute path to the font file.  For example:
+The good news is that you can load custom fonts directly with the `fonts` list in `settings/index.js` ([link](settings/index.js#L25-L31)). Each font in the array is an object with `family` (the font family name in `captionFont`) and `file`, the absolute path to the font file.  For example:
 
 ```js
 fonts: [

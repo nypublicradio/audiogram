@@ -28,7 +28,7 @@ Audiogram actually consists of two pieces, the "server" and the "worker."  The s
 
 The server handles the editor and submissions, and the worker does the heavy lifting of rendering a video file.  By default, when a new submission comes in, the server will start a new worker right away.  This is fine for light use, but if ten people all requested a long audiogram at the same time, things might get messy.
 
-The way to break this traffic jam is to make sure you also installed Redis (see [installation instructions](INSTALL.md)) and then add two additional settings in `settings/index.js`:
+The way to break this traffic jam is to make sure you also installed Redis (see [installation instructions](INSTALL.md)) and then add two additional settings in `settings/index.js` ([link](settings/index.js)):
 
 ```js
 redisHost: "127.0.0.1",
