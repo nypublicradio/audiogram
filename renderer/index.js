@@ -15,6 +15,12 @@ module.exports = function(context) {
     options.backgroundColor = options.backgroundColor || "#fff";
     options.waveColor = options.waveColor || options.foregroundColor || "#000";
     options.captionColor = options.captionColor || options.foregroundColor || "#000";
+    if (typeof options.waveTop !== "number") {
+      options.waveTop = 0;
+    }
+    if (typeof options.waveBottom !== "number") {
+      options.waveBottom = options.height;
+    }
     this.wrapText = textWrapper(context, options);
     this.options = options;
     this.waveform = options.waveform || [sample.slice(0, options.samplesPerFrame)];

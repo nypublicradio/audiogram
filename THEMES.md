@@ -79,11 +79,11 @@ When designing your own themes, keep in mind that web browsers and social apps p
 
 By default, Audiogram will already have access to fonts on your system.  This might be fine for local use, but it will become a problem on a server without the fonts you're used to, or if you want to use a specific font across lots of installations.
 
-The good news is that you can load custom fonts directly with the `fonts` list in `settings/index.js`. Each font in the array is an object with `name` (the font family name in `captionFont`) and `file`, the absolute path to the font file.  For example:
+The good news is that you can load custom fonts directly with the `fonts` list in `settings/index.js`. Each font in the array is an object with `family` (the font family name in `captionFont`) and `file`, the absolute path to the font file.  For example:
 
 ```js
 fonts: [
-  { name: "Gotham", file: "/where/to/find/Gotham.ttf" }
+  { family: "Gotham", file: "/where/to/find/Gotham.ttf" }
 ]
 ```
 
@@ -91,8 +91,8 @@ Now you can specify a caption font like `32px Gotham` and it should work.  You c
 
 ```js
 fonts: [
-  { name: "Gotham", file: "/where/to/find/Gotham-Bold.ttf", weight: "bold" },
-  { name: "Gotham", file: "/where/to/find/Gotham-Italic.ttf", style: "italic" }
+  { family: "Gotham", file: "/where/to/find/Gotham-Bold.ttf", weight: "bold" },
+  { family: "Gotham", file: "/where/to/find/Gotham-Italic.ttf", style: "italic" }
 ]
 ```
 
