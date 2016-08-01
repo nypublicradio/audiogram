@@ -24,7 +24,7 @@ The following options are required (they aren't required for every theme, as lon
 * `framesPerSecond` - desired video framerate (e.g. `20`)
 * `samplesPerFrame` - How many data points to use for the waveform. More points = a more detailed wave. (e.g. `128`)
 
-To see what specs different social media platforms want, see the [Developer notes](DEVELOPERS.md).
+To see what specs different social media platforms want, see the [Developer notes](DEVELOPERS.md#use-different-dimensions-besides-1280x720).
 
 ### Background options
 
@@ -56,7 +56,7 @@ You can set both a `backgroundColor` and a `backgroundImage`, in which case the 
 * `captionLineSpacing` - How many extra pixels to put between caption lines. You'll want to adjust this for whatever font and font size you're using.
 * `captionLeft` - How many pixels from the left edge to place the caption
 * `captionRight` - How many pixels from the right edge to place the caption
-* `captionBottom` or `captionTop` - How many pixels from the bottom or top edge to place the caption. Determines whether the caption text will be top- or bottom-aligned. If both are set, the caption will be roughly vertically centered between them, though this [isn't perfect](https://github.com/nypublicradio/audiogram/issues/20).
+* `captionBottom` or `captionTop` - How many pixels from the bottom or top edge to place the caption. Determines whether the caption text will be top- or bottom-aligned. If both are set, the caption will be roughly vertically centered between them, give or take a few pixels depending on the font.
 
 ### Wave options
 

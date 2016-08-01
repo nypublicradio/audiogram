@@ -10,7 +10,7 @@ Follow the [installation instructions](INSTALL.md) for your local computer, and 
 
 Installing on Mac/Windows might put you in dependency hell. Installing on Linux tends to go more smoothly.
 
-The simplest alternative is to start a remote server running Ubuntu 14.04 or 15.04 and follow the [Ubuntu installation instructions](INSTALL.md) instead to install it there.
+The simplest alternative is to start a remote server running Ubuntu 14.04 or 15.04 and follow the [Ubuntu installation instructions](INSTALL.md#ubuntu-1404-installation) instead to install it there.
 
 You can run the server there with `npm start` or directly run `/where/you/installed/audiogram/bin/server`.
 
@@ -149,7 +149,7 @@ module.exports = {
 
 If you run Audiogram on a remote server, you need to make sure you can access it.  For example, if you're using Amazon EC2, you need to allow inbound HTTP traffic on port 8888, or whichever port you're using instead.
 
-The flip side is that you probably want to make sure other people CAN'T access it.  Otherwise a random person (or more likely a random robot) can view your Audiogram editor in their browser, and possibly spam it or worse.  The simplest way to do this is to limit access by IP address so that, for example, only computers in your office can access it.  But you can also add whatever authentication middleware you want. For some thoughts on how to do that, check out the [Developer Notes](DEVELOPERS.md).
+The flip side is that you probably want to make sure other people CAN'T access it.  Otherwise a random person (or more likely a random robot) can view your Audiogram editor in their browser, and possibly spam it or worse.  The simplest way to do this is to limit access by IP address so that, for example, only computers in your office can access it.  But you can also add whatever authentication middleware you want. For some thoughts on how to do that, check out the [Developer Notes](DEVELOPERS.md#require-users-to-log-in).
 
 If you've set `redisHost` to a specific destination, you also need to make sure that all your instances can connect to it over port 6379.
 
