@@ -69,7 +69,7 @@ You can set both a `backgroundColor` and a `backgroundImage`, in which case the 
 
 * `name` - What name to show in the dropdown menu in the editor (the default is the key)
 * `foregroundColor` - A convenience option for setting `waveColor` and `captionColor` to the same thing.
-* `maxDuration` - Maximum duration of an audiogram, in seconds (e.g. set this to `30` to enforce the 30-second limit for Twitter)
+* `maxDuration` - Maximum duration of an audiogram, in seconds (e.g. set this to `30` to enforce a 30-second time limit). The default is `300` (5 minutes).
 
 ### Making changes
 
