@@ -21,7 +21,6 @@ var path = require("path");
 module.exports = {
   workingDirectory: path.join(__dirname, "..", "tmp"),
   storagePath: path.join(__dirname, "..", "media"),
-  maxUploadSize: 25000000,
   fonts: [
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Regular.ttf") },
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Light.ttf"), weight: 300 },

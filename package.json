@@ -1,6 +1,6 @@
 {
   "name": "audiogram",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Turn audio into a shareable video.",
   "main": "index.js",
   "scripts": {
