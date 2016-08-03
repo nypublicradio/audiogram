@@ -13,6 +13,7 @@ RUN ln -s `which nodejs` /usr/bin/node
 # Non-privileged user
 RUN useradd -m audiogram
 USER audiogram
+WORKDIR /home/audiogram
 
 # Clone repo
 RUN git clone https://github.com/nypublicradio/audiogram.git
