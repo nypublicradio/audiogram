@@ -102,7 +102,7 @@ By default, audio and video files uploaded to S3 are public. They have 32-charac
 
 `worker` - if this is truthy, then new submissions will be added to a queue instead of rendered immediately.
 
-`maxUploadSize` - this prevents people from uploading giant files.  The default is `25000000` bytes.
+`maxUploadSize` - this prevents people from uploading giant files.  For example, a value of `25000000` will limit file uploads to roughly 25 MB.
 
 ### Full examples
 
