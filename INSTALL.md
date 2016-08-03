@@ -15,11 +15,13 @@ This would theoretically work on Windows, but it hasn't been tested.
 
 ## Ubuntu 14.04+ installation
 
+Note: if you're using something with very little memory, like a Digital Ocean micro droplet, it might cause an installation problem on the last step. See [Linux troubleshooting](INSTALL.md#linux-troubleshooting) below for how to fix it.
+
 An example bootstrap script for installing Audiogram on Ubuntu looks like this:
 
 ```sh
 # 14.04 only: add PPAs for FFmpeg and Libgroove
-# Not required for 15.04
+# Not required for 15.04+
 sudo add-apt-repository ppa:mc3man/trusty-media --yes
 sudo apt-add-repository ppa:andrewrk/libgroove --yes
 
@@ -45,13 +47,15 @@ sudo apt-get install redis-server --yes
 # Fix nodejs/node legacy binary nonsense
 sudo ln -s `which nodejs` /usr/bin/node
 
-# Upgrade node to the latest stable version
-# Or use a different method of your choosing (e.g. nvm)
-# Any node version later than v0.11.2 should work
+# Check the version of Node
+node -v
+
+# If the installed Node version is >= v0.11.2, you can skip the next step
+# If it's < v0.11.2, upgrade Node to the latest stable version
+# If you use this method, you'll probably need to reconnect afterwards
+# to see the new Node version reflected
 sudo npm install -g n
 sudo n stable
-
-# You'll probably need to reconnect to see the new Node version reflected
 
 # Clone the audiogram repo
 git clone https://github.com/nypublicradio/audiogram.git
@@ -144,3 +148,30 @@ If FFmpeg installation is failing, you can try following the [compilation guide]
 ### Installing node-canvas dependencies manually
 
 You can try installing the node-canvas dependencies with their detailed [Installation instructions](https://github.com/Automattic/node-canvas/wiki/_pages).  You don't need to install `node-canvas` itself, just everything up to that point.
+
+## Linux troubleshooting
+
+### Memory issues
+
+If you're installing Audiogram on a machine with very little memory, like a Digital Ocean micro droplet (512 MB), the `npm install` might fail mysteriously, or when you try to run Audiogram, you get an error message about `/node_modules/waveform/build/Release/waveform` missing because the installation didn't finish.
+
+There are three ways to solve this:
+
+1. Upgrade to something with more memory (1 GB should be enough)
+
+2. Remove `canvas` from the dependencies in `package.json`, run `npm install`, and then install `canvas` separately (it's the memory hog):
+
+```sh
+sed -i '/canvas/d' package.json
+npm install
+npm install git+https://github.com/chearon/node-canvas.git#b62dd3a9fa
+```
+
+3. Install clang to reduce npm's memory usage, and reinstall:
+
+```sh
+sudo apt-get update
+sudo apt-get install clang
+export CXX=clang++
+npm install --clang=1
+```
