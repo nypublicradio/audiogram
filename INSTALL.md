@@ -9,9 +9,11 @@ Audiogram has a number of dependencies:
 
 If you're using a particularly fancy distributed setup you'll also need to install [Redis](http://redis.io/).
 
-Installation has been tested on Ubuntu 14.04 and 15.04. It has also been tested on various Mac OS X environments, with various degrees of Homebrew Hell involved.
+Installation has been tested on Ubuntu 14.04, 15.04, and 16.04. It has also been tested on various Mac OS X environments, with various degrees of Homebrew Hell involved.
 
 This would theoretically work on Windows, but it hasn't been tested.
+
+You can skip almost all of the installation if you use [Docker](#docker-installation).
 
 ## Ubuntu 14.04+ installation
 
@@ -105,6 +107,31 @@ cd audiogram
 
 # Install from NPM
 npm install
+```
+
+## Docker installation
+
+If you use [Docker](https://www.docker.com/products/docker), you can build an image from the included Dockerfile.
+
+
+
+You can clone the repo and build an image, or build it directly from the repo:
+
+```sh
+git clone https://github.com/nypublicradio/audiogram.git
+cd audiogram
+docker build -t audiogram .
+```
+
+or
+
+```sh
+docker build -t https://github.com/nypublicradio/audiogram.git
+
+Now you can run Audiogram in a container using that image:
+
+```sh
+docker run -p 8888:8888 -t -i audiogram
 ```
 
 ## Mac troubleshooting
