@@ -109,11 +109,13 @@ cd audiogram
 npm install
 ```
 
+## Windows installation
+
+Installing these dependencies on Windows is pretty dicey.  If you're running Windows 10, you'll probably have better luck installing [Docker for Windows](https://docs.docker.com/docker-for-windows/) and then following the [Docker instructions](INSTALL.md#docker-installation) below. Otherwise your best bet is probably to [install it on a remote Linux server](SERVER.md#im-the-only-one-using-it-and-installing-it-on-macwindows-was-a-real-drag).
+
 ## Docker installation
 
 If you use [Docker](https://www.docker.com/products/docker), you can build an image from the included Dockerfile.
-
-
 
 You can clone the repo and build an image, or build it directly from the repo:
 
