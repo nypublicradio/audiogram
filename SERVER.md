@@ -6,7 +6,9 @@ When you install Audiogram, how you probably want to install/configure it depend
 
 Follow the [installation instructions](INSTALL.md) for your local computer, and you're good to go. You probably don't need to touch the default configuration.
 
-### I'm the only one using it, and installing it on Mac/Windows was a real drag
+If you're struggling with the installation, you can try using [Docker](https://github.com/nypublicradio/audiogram/blob/master/INSTALL.md#docker-installation), which will run Audiogram in a container so that you don't have to manually install stuff.
+
+### I'm the only one using it and installing it on Mac/Windows was a real drag
 
 Installing on Mac/Windows might put you in dependency hell. Installing on Linux tends to go more smoothly.
 
