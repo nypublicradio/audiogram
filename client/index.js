@@ -162,6 +162,8 @@ function updateAudioFile() {
     d3.select("#minimap").classed("hidden", true);
     preview.file(null);
     setClass(null);
+    audio.pause();
+    video.kill();
     return true;
   }
 
