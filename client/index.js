@@ -157,13 +157,14 @@ function updateAudioFile() {
 
   d3.select("#row-audio").classed("error", false);
 
+  audio.pause();
+  video.kill();
+
   // Skip if empty
   if (!this.files || !this.files[0]) {
     d3.select("#minimap").classed("hidden", true);
     preview.file(null);
     setClass(null);
-    audio.pause();
-    video.kill();
     return true;
   }
 

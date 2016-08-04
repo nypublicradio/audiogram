@@ -83,9 +83,6 @@ function redraw() {
 
 function loadAudio(f, cb) {
 
-  audio.pause();
-  video.kill();
-
   d3.queue()
     .defer(getWaveform, f)
     .defer(audio.src, f)
