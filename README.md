@@ -41,6 +41,8 @@ If you want to use a different port number, you can supply it in the command. Fo
 
 ## The editor
 
+![Audiogram Editor](https://cloud.githubusercontent.com/assets/2120446/17450988/7e6c4ea2-5b31-11e6-8f90-b32fec6864c3.gif)
+
 When you first open the editor in your browser, you need to choose an audio file.  This should be a `.mp3` or `.wav` file (some other audio formats will probably work, but no promises).
 
 You'll see a preview of your audiogram at the bottom. You can select a theme from the dropdown menu.
@@ -51,24 +53,19 @@ Below the preview, there is a tiny audio editor.  If you only want to use part o
 
 When you're ready to get your video, click "Generate." You may have to wait up to a a minute or two for this process to finish, but the page will give you status updates along the way.  When it's done, you can view the video or download it with the "Download" button.
 
-[explanatory GIFs TK]
+## Customizing Audiogram
 
-## Customizing the themes
+Audiogram defines the visual details like dimensions, colors, and spacing using "themes." This repo includes a few basic themes meant to give you a sense of what's possible, but you'll probably want to make your own. This will allow you to use your own colors and logos and fonts, or choose other dimensions (e.g. vertical video). For details, [read more about Audiogram themes](THEMES.md).
 
-A theme defines all of the visual details for an audiogram: dimensions, colors, spacing, and more.  This repo includes a few basic demo themes. In all likelihood, you'll want to use your own designs and tweak the colors, spacing, fonts, and so on.  For details on this, [read more about Themes](THEMES.md).
-
-## Advanced: more customization
-
-There are lots of things you might want to modify to better suit your needs.  For details on where you might want to nip and tuck the code for more significant modifications, read the [Developer Notes](DEVELOPER.md).
+If you're comfortable writing a bit of JavaScript, you can also modify Audiogram more substantially to suit your needs.  The [Developer notes](DEVELOPERS.md) have some pointers for changes you might want to make, and what files to focus on.  For example, you could [use some other shape besides the built in patterns](https://github.com/nypublicradio/audiogram/blob/master/DEVELOPERS.md#use-different-animations-besides-the-wavebarsbricks), [use a different video format](https://github.com/nypublicradio/audiogram/blob/master/DEVELOPERS.md#fiddle-with-ffmpeg-options-eg-use-different-encoders), or [get fancy with gradients](https://github.com/nypublicradio/audiogram/blob/master/DEVELOPERS.md#extend-themes).
 
 ## Wishlist
 
 This project is a work in progress.  If you have ideas or run into problems, open an issue! [Better captioning](https://github.com/nypublicradio/audiogram/issues/8) is a high priority. Here are some possible future improvements:
 
-* [Support custom image upload backgrounds for individual audiograms](https://github.com/nypublicradio/audiogram/issues/7)
+* [Support emoji](https://github.com/nypublicradio/audiogram/issues/15)
 * [Receive an email when your audiogram is ready](https://github.com/nypublicradio/audiogram/issues/5)
 * [Direct posting to Twitter, Facebook, etc.](https://github.com/nypublicradio/audiogram/issues/4)
-* [Bundle this as an Electron app](https://github.com/nypublicradio/audiogram/issues/6)
 * [Get a time estimate while waiting for your video](https://github.com/nypublicradio/audiogram/issues/3)
 * [Drag-and-drop uploads](https://github.com/nypublicradio/audiogram/issues/2)
 * [Use the WebAudio API for more of the heavy lifting](https://github.com/nypublicradio/audiogram/issues/1)

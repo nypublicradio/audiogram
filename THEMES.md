@@ -17,7 +17,7 @@ The best way to get a feel for this is probably to look at the included themes f
 
 ### Required options
 
-The following options are required (they aren't required for every theme, as long as they're present in `default`):
+The following options are required (they aren't required for every theme as long as they're present in `default`):
 
 * `width` - desired video width in pixels (e.g. `1280`)
 * `height` - desired video height in pixels (e.g. `720`)
@@ -75,10 +75,6 @@ You can set both a `backgroundColor` and a `backgroundImage`, in which case the 
 
 After you've edited `settings/themes.json`, you'll want to run either `npm run rebuild` or `npm start` to rebundle the new themes for the editor.
 
-### A note about layout
-
-When designing your own themes, keep in mind that web browsers and social apps put a variety of overlays on videos when they're paused or playing, like a progress bar at the bottom or a fat play button in the middle. Try to space things out so that important parts of your design aren't obscured.
-
 ### A note about fonts
 
 By default, Audiogram will already have access to fonts on your system.  This might be fine for local use, but it will become a problem on a server without the fonts you're used to, or if you want to use a specific font across lots of installations.
@@ -107,3 +103,20 @@ The bad news is that the font handling in the library Audiogram relies on has a 
 2. Ensure that the font name defined in the font file's metadata matches the font name you're using (e.g. if your font definition says "32px Gotham", make sure that when you open your font file in something like Font Forge and look at the metadata, the font name is also "Gotham" and not some variant.
 
 3. Use TrueType fonts (.ttf) rather than other formats.
+
+
+### A note about layout
+
+When designing your own themes, keep in mind that web browsers and social apps put a variety of overlays on videos when they're paused or playing, like a progress bar at the bottom or a fat play button in the middle. Try to space things out so that important parts of your design aren't obscured.
+
+These diagrams show you what gets covered up in various web players for a 1280x720 video (the in-app players are generally more minimalistic):
+
+![Facebook - embedded, hovering](https://cloud.githubusercontent.com/assets/2120446/17449695/3f1e008a-5b2a-11e6-8a5a-f30b80141f7e.png)
+
+![Facebook - embedded, paused](https://cloud.githubusercontent.com/assets/2120446/17449742/7b547bec-5b2a-11e6-9107-ee79620c7612.png)
+
+![Facebook - in feed, hovering](https://cloud.githubusercontent.com/assets/2120446/17449722/5e841f5e-5b2a-11e6-9cca-e4072b6f3eb7.png)
+
+![Twitter - in feed, hovering](https://cloud.githubusercontent.com/assets/2120446/17449733/70d706b2-5b2a-11e6-9bbf-3659c36a4f41.png)
+
+![Tumblr - hovering](https://cloud.githubusercontent.com/assets/2120446/17449725/6637ff5e-5b2a-11e6-90bc-62743b13860a.png)

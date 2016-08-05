@@ -1,6 +1,6 @@
 Audiogram was developed for our particular needs but hopefully it should be reasonably hackable besides the options provided.  Here are some examples of possible customization that involve writing/editing the code and notes on how you could get started.
 
-## Use different animations besides the wave/bars
+## Use different animations besides the wave/bars/bricks
 
 The code that handles drawing a waveform involves three pieces:
 
@@ -54,6 +54,26 @@ As of now the rule of thumb is that the rendering process will take about a seco
 The `node-canvas` step that draws an individual image for each frame accounts for roughly 80% of the rendering time, and is defined in `audiogram/draw-frames.js` and `renderer/index.js`. We've experimented with other approaches (for example, only rendering the foreground of each image and then combining each frame with the background image using ImageMagick), but none made a dent in the overall speed or resource usage.
 
 The FFmpeg step accounts for most of the remaining rendering time, and is defined in `audiogram/combine-frames.js`. If you're an FFmpeg expert and have thoughts on how to more intelligently render the final video, please let us know! You may at least be able to see some improvements by forcing FFmpeg to use several threads with the `-threads` flag on a multicore machine.
+
+## Extend themes
+
+The current renderer (in `renderer/`) looks for certain theme settings defined in `settings/themes.json` when it's drawing the frames for a video.  You could extend a theme with your own option names, and then reference them in the renderer.
+
+As an example, if you wanted to fill the wave with a gradient instead of a solid color, you could add the new option `waveColor2` to a theme and add this bit of extra logic into `renderer/patterns.js`:
+
+```js
+// If there's a second wave color, use a gradient instead
+if (options.waveColor2) {
+  var gradient = context.createLinearGradient(0, 0, options.width, 0);
+
+  gradient.addColorStop(0, options.waveColor);
+  gradient.addColorStop(1, options.waveColor2);
+
+  context.fillStyle = gradient;
+  context.strokeStyle = gradient;
+
+}
+```
 
 ## Use different dimensions besides 1280x720
 
