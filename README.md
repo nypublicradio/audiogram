@@ -59,7 +59,7 @@ A theme defines all of the visual details for an audiogram: dimensions, colors, 
 
 ## Advanced: more customization
 
-There are lots of things you might want to modify to better suit your needs.  For details on where you might want to nip and tuck the code for more significant modifications, read the [Developer Notes](DEVELOPER.md).
+There are lots of things you might want to modify to better suit your needs.  For details on where you might want to nip and tuck the code for more significant modifications, read the [Developer Notes](DEVELOPERS.md).
 
 ## Wishlist
 
