@@ -17,7 +17,7 @@ function trimAudio(options, cb) {
 
   }
 
-  var cmd = "ffmpeg -i " + options.origin + " -ss " + (options.startTime || 0) + " -t " + (options.endTime - options.startTime) + " -acodec libmp3lame -b:a 128k " + options.destination;
+  var cmd = "ffmpeg -i \"" + options.origin + "\" -ss " + (options.startTime || 0) + " -t " + (options.endTime - options.startTime) + " -acodec libmp3lame -b:a 128k \"" + options.destination + "\"";
 
   exec(cmd, cb);
 
