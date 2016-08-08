@@ -9,7 +9,7 @@
     "postinstall": "mkdir -p editor/js && browserify client/index.js > editor/js/bundle.js",
     "rebuild": "npm run postinstall",
     "watch": "mkdir -p editor/js && watchify client/index.js -o editor/js/bundle.js",
-    "debug": "npm run postinstall && DEBUG=1 npm start",
+    "debug": "npm run postinstall && DEBUG=1 bin/server",
     "test": "tape 'test/**/*-test.js'"
   },
   "repository": {
