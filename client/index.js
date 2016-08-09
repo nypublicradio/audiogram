@@ -87,6 +87,8 @@ function poll(id) {
         if (result && result.status && result.status === "ready" && result.url) {
           video.update(result.url, preview.theme().name);
           setClass("rendered");
+        } else if (result.status === "error") {
+          error(result.error);
         } else {
           d3.select("#loading-message").text(statusMessage(result));
           poll(id);
@@ -106,6 +108,10 @@ function error(msg) {
 
   if (typeof msg !== "string") {
     msg = JSON.stringify(msg);
+  }
+
+  if (!msg) {
+    msg = "Unknown error";
   }
 
   d3.select("#loading-message").text("Loading...");
