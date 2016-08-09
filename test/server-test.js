@@ -69,7 +69,7 @@ tape("404 2", function(test) {
 tape("Server static background", function(test) {
 
   request(server)
-    .get("/img/nyc.png")
+    .get("/settings/backgrounds/nyc.png")
     .expect(200)
     .expect("Content-Type", /image/)
     .end(function(err, res){

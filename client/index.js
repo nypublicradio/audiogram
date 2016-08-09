@@ -1,11 +1,22 @@
 var d3 = require("d3"),
     $ = require("jquery"),
-    themes = require("../settings/themes.json"),
     preview = require("./preview.js"),
     video = require("./video.js"),
     audio = require("./audio.js");
 
-preloadImages();
+d3.json("/settings/themes.json", function(err, themes){
+
+  if (err) {
+    throw err;
+  }
+
+  for (var key in themes) {
+    themes[key] = $.extend({}, themes.default, themes[key]);
+  }
+
+  preloadImages(themes);
+
+});
 
 function submitted() {
 
@@ -76,6 +87,8 @@ function poll(id) {
         if (result && result.status && result.status === "ready" && result.url) {
           video.update(result.url, preview.theme().name);
           setClass("rendered");
+        } else if (result.status === "error") {
+          error(result.error);
         } else {
           d3.select("#loading-message").text(statusMessage(result));
           poll(id);
@@ -95,6 +108,10 @@ function error(msg) {
 
   if (typeof msg !== "string") {
     msg = JSON.stringify(msg);
+  }
+
+  if (!msg) {
+    msg = "Unknown error";
   }
 
   d3.select("#loading-message").text("Loading...");
@@ -192,11 +209,10 @@ function updateCaption() {
 }
 
 function updateTheme() {
-  var extended = $.extend({}, themes.default, d3.select(this.options[this.selectedIndex]).datum());
-  preview.theme(extended);
+  preview.theme(d3.select(this.options[this.selectedIndex]).datum());
 }
 
-function preloadImages() {
+function preloadImages(themes) {
 
   // preload images
   var imageQueue = d3.queue();
@@ -215,22 +231,22 @@ function preloadImages() {
 
   imageQueue.awaitAll(initialize);
 
-  function getImage(theme,cb) {
+  function getImage(theme, cb) {
 
     if (!theme.backgroundImage) {
-      return cb(null,theme);
+      return cb(null, theme);
     }
 
     theme.backgroundImageFile = new Image();
     theme.backgroundImageFile.onload = function(){
-      return cb(null,theme);
+      return cb(null, theme);
     };
     theme.backgroundImageFile.onerror = function(e){
       console.warn(e);
-      return cb(null,theme);
+      return cb(null, theme);
     };
 
-    theme.backgroundImageFile.src = "img/" + theme.backgroundImage;
+    theme.backgroundImageFile.src = "/settings/backgrounds/" + theme.backgroundImage;
 
   }
 

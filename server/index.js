@@ -62,8 +62,20 @@ if (!serverSettings.s3Bucket) {
 // Check the status of a current video
 app.get("/status/:id/", status);
 
-// Serve background images and everything else statically
-app.use("/img/", express.static(path.join(__dirname, "..", "settings", "backgrounds")));
+
+// Serve background images and themes JSON statically
+app.use("/settings/", function(req, res, next) {
+
+  // Limit to themes.json and bg images
+  if (req.url.match(/^\/?themes.json$/i) || req.url.match(/^\/?backgrounds\/[^/]+$/i)) {
+    return next();
+  }
+
+  return res.status(404).send("Cannot GET " + path.join("/settings", req.url));
+
+}, express.static(path.join(__dirname, "..", "settings")));
+
+// Serve editor files statically
 app.use(express.static(path.join(__dirname, "..", "editor")));
 
 app.use(errorHandlers);
