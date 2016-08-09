@@ -128,7 +128,7 @@ docker build -t audiogram .
 or
 
 ```sh
-docker build -t https://github.com/nypublicradio/audiogram.git
+docker build -t audiogram https://github.com/nypublicradio/audiogram.git
 ```
 
 Now you can run Audiogram in a container using that image:
