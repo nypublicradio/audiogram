@@ -75,10 +75,6 @@ Note that if you change `waveLeft` or `waveRight` to something other than full-w
 * `foregroundColor` - A convenience option for setting `waveColor` and `captionColor` to the same thing.
 * `maxDuration` - Maximum duration of an audiogram, in seconds (e.g. set this to `30` to enforce a 30-second time limit). The default is `300` (5 minutes).
 
-### Making changes
-
-After you've edited `settings/themes.json`, you'll want to run either `npm run rebuild` or `npm start` to rebundle the new themes for the editor.
-
 ### A note about fonts
 
 By default, Audiogram will already have access to fonts on your system.  This might be fine for local use, but it will become a problem on a server without the fonts you're used to, or if you want to use a specific font across lots of installations.
