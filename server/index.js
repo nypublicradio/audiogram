@@ -66,12 +66,12 @@ app.get("/status/:id/", status);
 // Serve background images and themes JSON statically
 app.use("/settings/", function(req, res, next) {
 
-  // Keep server settings off limits
-  if (req.url.match(/\.js$/i)) {
-    return res.status(404).send("Cannot GET " + path.join("/settings", req.url));
+  // Limit to themes.json and bg images
+  if (req.url.match(/^\/?themes.json$/i) || req.url.match(/^\/?backgrounds\/[^/]+$/i)) {
+    return next();
   }
 
-  next();
+  return res.status(404).send("Cannot GET " + path.join("/settings", req.url));
 
 }, express.static(path.join(__dirname, "..", "settings")));
 
