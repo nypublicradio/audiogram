@@ -12,15 +12,17 @@ module.exports = function(context) {
   renderer.context = context;
 
   renderer.update = function(options) {
+
+    // TODO cleaner defaults
     options.backgroundColor = options.backgroundColor || "#fff";
     options.waveColor = options.waveColor || options.foregroundColor || "#000";
     options.captionColor = options.captionColor || options.foregroundColor || "#000";
-    if (typeof options.waveTop !== "number") {
-      options.waveTop = 0;
-    }
-    if (typeof options.waveBottom !== "number") {
-      options.waveBottom = options.height;
-    }
+
+    if (typeof options.waveTop !== "number") options.waveTop = 0;
+    if (typeof options.waveBottom !== "number") options.waveBottom = options.height;
+    if (typeof options.waveLeft !== "number") options.waveLeft = 0;
+    if (typeof options.waveRight !== "number") options.waveRight = options.width;
+
     this.wrapText = textWrapper(context, options);
     this.options = options;
     this.waveform = options.waveform || [sample.slice(0, options.samplesPerFrame)];

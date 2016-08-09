@@ -63,7 +63,11 @@ You can set both a `backgroundColor` and a `backgroundImage`, in which case the 
 * `pattern` - What waveform shape to draw. Current options are `wave`, `bars`, `roundBars`, `pixel`, `bricks`, and `equalizer` (default: `wave`)
 * `waveTop` - How many pixels from the top edge to start the waveform (default: `0`)
 * `waveBottom` - How many pixels from the top edge to end the waveform (default: same as `height`)
+* `waveLeft` - How many pixels from the left edge to start the waveform (default: `0`)
+* `waveRight` - How many pixels from the right edge to start the waveform (default: same as `width`)
 * `waveColor` - A CSS color, what color the wave should be. The default is black.
+
+Note that if you change `waveLeft` or `waveRight` to something other than full-width, you'll probably want to tweak `samplesPerFrame` too or else things will get pretty squished.
 
 ### Additional options
 

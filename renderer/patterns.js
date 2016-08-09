@@ -1,7 +1,7 @@
 var d3 = require("d3");
 
 module.exports = {
-  wave: curve(d3.curveCardinal.tension(0)),
+  wave: curve(d3.curveCardinal.tension(0.1)),
   pixel: curve(d3.curveStep),
   roundBars: bars(true),
   bars: bars(),
@@ -28,7 +28,7 @@ function curve(interpolator) {
     var x = d3.scalePoint()
       .padding(0.1)
       .domain(d3.range(data.length))
-      .rangeRound([0, options.width]);
+      .rangeRound([options.waveLeft, options.waveRight]);
 
     var height = d3.scaleLinear()
       .domain([0, 1])
@@ -46,8 +46,8 @@ function curve(interpolator) {
 
     }).reverse();
 
-    top.unshift([0, baseline]);
-    top.push([options.width, baseline]);
+    top.unshift([options.waveLeft, baseline]);
+    top.push([options.waveRight, baseline]);
 
     // Fill waveform
     context.beginPath();
@@ -80,7 +80,7 @@ function bars(round) {
       .paddingInner(0.5)
       .paddingOuter(0.01)
       .domain(d3.range(data.length))
-      .rangeRound([0, options.width]);
+      .rangeRound([options.waveLeft, options.waveRight]);
 
     var height = d3.scaleLinear()
       .domain([0, 1])
@@ -119,7 +119,7 @@ function bricks(rainbow) {
       .paddingInner(0.1)
       .paddingOuter(0.01)
       .domain(d3.range(data.length))
-      .rangeRound([0, options.width]);
+      .rangeRound([options.waveLeft, options.waveRight]);
 
     var height = d3.scaleLinear()
       .domain([0, 1])
