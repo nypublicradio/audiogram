@@ -209,8 +209,7 @@ function updateCaption() {
 }
 
 function updateTheme() {
-  var extended = d3.select(this.options[this.selectedIndex]).datum();
-  preview.theme(extended);
+  preview.theme(d3.select(this.options[this.selectedIndex]).datum());
 }
 
 function preloadImages(themes) {
