@@ -117,6 +117,8 @@ Installing these dependencies on Windows is an uphill battle.  If you're running
 
 If you use [Docker](https://www.docker.com/products/docker), you can build an image from the included Dockerfile.
 
+In addition to installing Docker, you'll need to install Git.  You can do this by installing [GitHub Desktop](https://desktop.github.com/).
+
 You can clone the repo and build an image, or build it directly from the repo:
 
 ```sh
