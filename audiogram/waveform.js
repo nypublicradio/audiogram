@@ -34,7 +34,6 @@ function getWaveform(filename, options, cb) {
 
     stream.on("end", function(output){
       var processed = processSamples(samples, Math.floor(data.duration * options.framesPerSecond), options.samplesPerFrame);
-      console.log(processed[0]);
       return cb(null, processed);
     });
 
@@ -48,6 +47,7 @@ function processSamples(samples, numFrames, samplesPerFrame) {
   var perFrame = Math.floor(samples.length / numFrames),
       perPoint = Math.floor(perFrame / samplesPerFrame),
       range = d3.range(samplesPerFrame),
+      maxFrame,
       min = max = 0;
 
   var unadjusted = d3.range(numFrames).map(function(frame){
@@ -65,7 +65,11 @@ function processSamples(samples, numFrames, samplesPerFrame) {
       }
 
       min = Math.min(min, localMin);
-      max = Math.max(max, localMax);
+
+      if (localMax > max) {
+        max = localMax;
+        maxFrame = frame;
+      }
 
       return [localMin, localMax];
 
@@ -73,13 +77,19 @@ function processSamples(samples, numFrames, samplesPerFrame) {
 
   });
 
-  console.log(unadjusted[0]);
+  // Scale up to -1 or 1
+  var adjustment = 1 / Math.max(Math.abs(min), Math.abs(max));
 
-  return unadjusted.map(function(frame){
+  var adjusted = unadjusted.map(function(frame){
     return frame.map(function(point){
-      return [-point[0] / min, point[1] / max];
+      return [adjustment * point[0], adjustment * point[1]];
     });
   });
+
+  // Make first and last frame peaky
+  adjusted[0] = adjusted[numFrames - 1] = adjusted[maxFrame];
+
+  return adjusted;
 
 }
 
