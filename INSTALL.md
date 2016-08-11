@@ -33,9 +33,8 @@ sudo apt-get update --yes && sudo apt-get upgrade --yes
 # Git
 # node-canvas dependencies (Cairo, Pango, libgif, libjpeg)
 # FFmpeg
-# node-waveform dependencies (libgroove, zlib, libpng)
 sudo apt-get install git nodejs npm \
-libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++ \
+libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev libpng-dev build-essential g++ \
 ffmpeg \
 --yes
 
