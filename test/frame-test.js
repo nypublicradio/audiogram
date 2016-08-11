@@ -19,7 +19,14 @@ tape.test("Draw frame", function(test){
     foregroundColor: "#fff",
     waveTop: 340,
     waveBottom: 380,
-    waveform: [[0, 1, 0], [1, 0.1, 1]]
+    waveform: [
+      [
+        [0, 0], [-1, 1], [0, 0]
+      ],
+      [
+        [-1, 1], [-0.1, 0.1], [-1, 1]
+      ]
+    ]
   };
 
   initializeCanvas(options, function(err, renderer){
@@ -48,7 +55,14 @@ tape.test("Default colors", function(test){
     height: 720,
     waveTop: 340,
     waveBottom: 380,
-    waveform: [[0, 1, 0], [1, 0.1, 1]]
+    waveform: [
+      [
+        [0, 0], [-1, 1], [0, 0]
+      ],
+      [
+        [-1, 1], [-0.1, 0.1], [-1, 1]
+      ]
+    ]
   };
 
   initializeCanvas(options, function(err, renderer){
@@ -79,7 +93,14 @@ tape.test("Square frame", function(test){
     foregroundColor: "#fff",
     waveTop: 340,
     waveBottom: 380,
-    waveform: [[0, 1, 0], [1, 0.1, 1]]
+    waveform: [
+      [
+        [0, 0], [-1, 1], [0, 0]
+      ],
+      [
+        [-1, 1], [-0.1, 0.1], [-1, 1]
+      ]
+    ]
   };
 
   initializeCanvas(options, function(err, renderer){
