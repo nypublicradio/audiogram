@@ -35,12 +35,9 @@ Audiogram.prototype.getWaveform = function(cb) {
 
   this.status("waveform");
 
-  getWaveform(this.audioPath, {
-    samplesPerFrame: this.settings.samplesPerFrame,
-    maxDuration: this.settings.maxDuration
-  }, function(err, waveform){
+  getWaveform(this.audioPath, this.settings, function(err, waveform){
 
-    self.set("numFrames", self.numFrames = self.settings.waveform.length);
+    self.set("numFrames", self.numFrames = waveform.length);
 
     return cb(err, self.settings.waveform = waveform);
 
