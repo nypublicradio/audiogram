@@ -63,6 +63,7 @@ Audiogram.prototype.getWaveform = function(cb) {
   this.status("waveform");
 
   getWaveform(this.audioPath, {
+    channels: this.channels,
     numFrames: this.numFrames,
     samplesPerFrame: this.settings.samplesPerFrame
   }, function(err, waveform){
