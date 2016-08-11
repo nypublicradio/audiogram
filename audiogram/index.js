@@ -5,7 +5,6 @@ var path = require("path"),
     serverSettings = require("../settings/"),
     transports = require("../lib/transports/"),
     logger = require("../lib/logger/"),
-    probe = require("./probe.js"),
     getWaveform = require("./waveform.js"),
     initializeCanvas = require("./initialize-canvas.js"),
     drawFrames = require("./draw-frames.js"),
@@ -29,32 +28,6 @@ function Audiogram(settings) {
 
 }
 
-// Probe an audio file for its duration and # of channels, compute the number of frames required
-Audiogram.prototype.probe = function(cb) {
-
-  var self = this;
-
-  this.status("probing");
-
-  probe(this.audioPath, function(err, data){
-
-    if (err) {
-      return cb(err);
-    }
-
-    if (self.settings.maxDuration && self.settings.maxDuration < data.duration) {
-      cb("Exceeds max duration of " + self.settings.maxDuration + "s");
-    }
-
-    self.set("numFrames", self.numFrames = Math.floor(data.duration * self.settings.framesPerSecond));
-    self.channels = data.channels;
-
-    cb(null);
-
-  });
-
-};
-
 // Get the waveform data from the audio file, split into frames
 Audiogram.prototype.getWaveform = function(cb) {
 
@@ -63,10 +36,11 @@ Audiogram.prototype.getWaveform = function(cb) {
   this.status("waveform");
 
   getWaveform(this.audioPath, {
-    channels: this.channels,
-    numFrames: this.numFrames,
-    samplesPerFrame: this.settings.samplesPerFrame
+    samplesPerFrame: this.settings.samplesPerFrame,
+    maxDuration: this.settings.maxDuration
   }, function(err, waveform){
+
+    self.set("numFrames", self.numFrames = self.settings.waveform.length);
 
     return cb(err, self.settings.waveform = waveform);
 
