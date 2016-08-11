@@ -1,9 +1,12 @@
-var waveform = require("waveform"),
-    d3 = require("d3");
+var d3 = require("d3"),
+    getPCM = require("../lib/pcm.js");
 
 function getWaveform(filename, options, cb) {
 
-  var numSamples = options.numFrames * options.samplesPerFrame;
+
+
+  options.numFrames
+  options.samplesPerFrame;
 
   var waveformOptions = {
     "scan": false,

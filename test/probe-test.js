@@ -5,7 +5,7 @@ var tape = require("tape"),
 
 require("mkdirp").sync(path.join(__dirname, "tmp"));
 
-var probe = require("../audiogram/probe.js"),
+var probe = require("../lib/probe.js"),
     trimAudio = require("../audiogram/trim.js");
 
 tape("MP3 probe", function(test) {
