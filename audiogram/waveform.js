@@ -1,6 +1,6 @@
 var probe = require("../lib/probe.js"),
     d3 = require("d3"),
-    pcm = require("../lib/pcm.js");
+    pcmStream = require("../lib/pcm.js");
 
 function getWaveform(filename, options, cb) {
 
@@ -14,7 +14,7 @@ function getWaveform(filename, options, cb) {
       return cb("Exceeds max duration of " + options.maxDuration + "s");
     }
 
-    var stream = pcm(filename, {
+    var stream = pcmStream(filename, {
           channels: options.channels
         }),
         samples = [];
