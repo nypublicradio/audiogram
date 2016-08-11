@@ -36,6 +36,20 @@ tape("WAV probe", function(test) {
 
 });
 
+tape("Mono probe", function(test) {
+
+  probe(path.join(__dirname, "data/short.wav"), function(err, data){
+
+    test.error(err);
+    test.equal(typeof data.duration, "number");
+    test.equal(data.channels, 1);
+    test.assert(Math.abs(data.duration - 0.01) < 0.01);
+    test.end();
+
+  });
+
+});
+
 tape("Probe error", function(test) {
 
   probe(path.join(__dirname, "..", "README.md"), function(err){
