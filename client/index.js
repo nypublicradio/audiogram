@@ -266,8 +266,8 @@ function statusMessage(result) {
       return "Downloading audio for processing";
     case "trim":
       return "Trimming audio";
-    case "duration":
-      return "Checking duration";
+    case "probing":
+      return "Probing audio file";
     case "waveform":
       return "Analyzing waveform";
     case "renderer":

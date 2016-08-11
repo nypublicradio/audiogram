@@ -25,6 +25,7 @@
   "dependencies": {
     "aws-sdk": "^2.2.39",
     "browserify": "^13.0.0",
+    "canvas": "git+https://github.com/chearon/node-canvas.git#b62dd3a9fa",
     "compression": "^1.6.1",
     "d3": "^4.1.1",
     "dotenv": "^2.0.0",
@@ -39,7 +40,6 @@
     "rimraf": "^2.5.0",
     "smartquotes": "^1.0.0",
     "underscore": "^1.8.3",
-    "canvas": "git+https://github.com/chearon/node-canvas.git#b62dd3a9fa",
     "waveform": "git+https://github.com/veltman/node-waveform.git#8b1a22f109",
     "webaudio-peaks": "0.0.5",
     "winston": "^2.2.0"
