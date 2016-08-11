@@ -33,7 +33,8 @@ function getWaveform(filename, options, cb) {
     stream.on("error", cb);
 
     stream.on("end", function(output){
-      var processed = processSamples(samples, options.numFrames, options.samplesPerFrame);
+      var processed = processSamples(samples, Math.floor(data.duration * options.framesPerSecond), options.samplesPerFrame);
+      console.log(processed[0]);
       return cb(null, processed);
     });
 
@@ -60,11 +61,11 @@ function processSamples(samples, numFrames, samplesPerFrame) {
 
       for (var i = 0, l = pointSamples.length; i < l; i++) {
         localMin = Math.min(localMin, pointSamples[i]);
-        localMax = Math.min(localMax, pointSamples[i]);
+        localMax = Math.max(localMax, pointSamples[i]);
       }
 
       min = Math.min(min, localMin);
-      max = Math.min(max, localMax);
+      max = Math.max(max, localMax);
 
       return [localMin, localMax];
 
@@ -72,9 +73,11 @@ function processSamples(samples, numFrames, samplesPerFrame) {
 
   });
 
+  console.log(unadjusted[0]);
+
   return unadjusted.map(function(frame){
     return frame.map(function(point){
-      return [point[0] / min, point[1] / max];
+      return [-point[0] / min, point[1] / max];
     });
   });
 
