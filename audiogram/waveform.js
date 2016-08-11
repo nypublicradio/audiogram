@@ -77,7 +77,7 @@ function processSamples(samples, numFrames, samplesPerFrame) {
 
   });
 
-  // Scale up to -1 or 1
+  // Scale up to -1 / 1
   var adjustment = 1 / Math.max(Math.abs(min), Math.abs(max));
 
   var adjusted = unadjusted.map(function(frame){

@@ -36,13 +36,13 @@ function curve(interpolator) {
 
     var top = data.map(function(d,i){
 
-      return [x(i), baseline - height(d)];
+      return [x(i), baseline - height(d[1])];
 
     });
 
     var bottom = data.map(function(d,i){
 
-      return [x(i), baseline + height(d)];
+      return [x(i), baseline + height(-d[0])];
 
     }).reverse();
 
@@ -90,16 +90,17 @@ function bars(round) {
 
     data.forEach(function(val, i){
 
-      var h = height(val),
-          x = barX(i);
+      var h = height(-val[0]) + height(val[1]),
+          x = barX(i),
+          y = baseline - height(val[1]);
 
-      context.fillRect(x, baseline - h, barWidth, h * 2);
+      context.fillRect(x, y, barWidth, h);
 
       if (round) {
         context.beginPath();
-        context.arc(x + barWidth / 2, baseline - h, barWidth / 2, 0, 2 * Math.PI);
-        context.moveTo(x + barWidth / 2, baseline + h);
-        context.arc(x + barWidth / 2, baseline + h, barWidth / 2, 0, 2 * Math.PI);
+        context.arc(x + barWidth / 2, y, barWidth / 2, 0, 2 * Math.PI);
+        context.moveTo(x + barWidth / 2, y + h);
+        context.arc(x + barWidth / 2, y + h, barWidth / 2, 0, 2 * Math.PI);
         context.fill();
       }
 
@@ -132,7 +133,7 @@ function bricks(rainbow) {
 
     data.forEach(function(val, i){
 
-      var bricks = Math.max(1, Math.floor(height(val) / (brickHeight + brickGap))),
+      var bricks = Math.max(1, Math.floor(height(val[1]) / (brickHeight + brickGap))),
           x = barX(i);
 
       d3.range(bricks).forEach(function(b){

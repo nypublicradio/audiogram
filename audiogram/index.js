@@ -132,9 +132,6 @@ Audiogram.prototype.render = function(cb) {
     q.defer(this.trimAudio.bind(this), this.settings.start || 0, this.settings.end);
   }
 
-  // Get the audio's duration for computing number of frames
-  q.defer(this.probe.bind(this));
-
   // Get the audio waveform data
   q.defer(this.getWaveform.bind(this));
 
