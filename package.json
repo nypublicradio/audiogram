@@ -40,7 +40,6 @@
     "rimraf": "^2.5.0",
     "smartquotes": "^1.0.0",
     "underscore": "^1.8.3",
-    "waveform": "git+https://github.com/veltman/node-waveform.git#8b1a22f109",
     "webaudio-peaks": "0.0.5",
     "winston": "^2.2.0"
   },
