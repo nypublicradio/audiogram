@@ -6,8 +6,11 @@ var fs = require("fs"),
 function drawFrames(renderer, options, cb) {
 
   var frameQueue = queue(10),
-      canvas = new Canvas(options.width, options.height),
-      context = canvas.getContext("2d");
+      canvases = [];
+
+  for (var i = 0; i < 10; i++) {
+    canvases.push(new Canvas(options.width, options.height));
+  }
 
   for (var i = 0; i < options.numFrames; i++) {
     frameQueue.defer(drawFrame, i);
@@ -17,22 +20,36 @@ function drawFrames(renderer, options, cb) {
 
   function drawFrame(frameNumber, frameCallback) {
 
+    var canvas = canvases.pop(),
+        context = canvas.getContext("2d");
+
     renderer.drawFrame(context, {
       caption: options.caption,
       waveform: options.waveform[frameNumber],
       frame: frameNumber
     });
 
-    fs.writeFile(path.join(options.frameDir, zeropad(frameNumber + 1, 6) + ".png"), canvas.toBuffer(), function(err) {
+    canvas.toBuffer(function(err, buf){
+
       if (err) {
-        return frameCallback(err);
+        return cb(err);
       }
 
-      if (options.tick) {
-        options.tick();
-      }
+      fs.writeFile(path.join(options.frameDir, zeropad(frameNumber + 1, 6) + ".png"), buf, function(writeErr) {
 
-      return frameCallback(null);
+        if (writeErr) {
+          return frameCallback(writeErr);
+        }
+
+        if (options.tick) {
+          options.tick();
+        }
+
+        canvases.push(canvas);
+
+        return frameCallback(null);
+
+      });
 
     });
 
