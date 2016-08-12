@@ -4,39 +4,27 @@ var probe = require("../lib/probe.js"),
 
 function getWaveform(filename, options, cb) {
 
-  probe(filename, function(err, data) {
+  var stream = pcmStream(filename, {
+        channels: options.channels
+      }),
+      samples = [];
 
-    if (err) {
-      return cb(err);
+  stream.on("data",function(sample, channel){
+
+    // Average multiple channels
+    if (channel > 0) {
+      samples[samples.length - 1] = ((samples[samples.length - 1] * channel) + sample) / (channel + 1);
+    } else {
+      samples.push(sample);
     }
 
-    if (options.maxDuration && options.maxDuration < data.duration) {
-      return cb("Exceeds max duration of " + options.maxDuration + "s");
-    }
+  });
 
-    var stream = pcmStream(filename, {
-          channels: options.channels
-        }),
-        samples = [];
+  stream.on("error", cb);
 
-    stream.on("data",function(sample, channel){
-
-      // Average multiple channels
-      if (channel > 0) {
-        samples[samples.length - 1] = ((samples[samples.length - 1] * channel) + sample) / (channel + 1);
-      } else {
-        samples.push(sample);
-      }
-
-    });
-
-    stream.on("error", cb);
-
-    stream.on("end", function(output){
-      var processed = processSamples(samples, Math.floor(data.duration * options.framesPerSecond), options.samplesPerFrame);
-      return cb(null, processed);
-    });
-
+  stream.on("end", function(output){
+    var processed = processSamples(samples, options.numFrames, options.samplesPerFrame);
+    return cb(null, processed);
   });
 
 }

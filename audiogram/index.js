@@ -5,6 +5,8 @@ var path = require("path"),
     serverSettings = require("../settings/"),
     transports = require("../lib/transports/"),
     logger = require("../lib/logger/"),
+    Profiler = require("../lib/profiler.js"),
+    probe = require("../lib/probe.js"),
     getWaveform = require("./waveform.js"),
     initializeCanvas = require("./initialize-canvas.js"),
     drawFrames = require("./draw-frames.js"),
@@ -24,6 +26,8 @@ function Audiogram(settings) {
   this.videoPath = path.join(this.dir, "video.mp4");
   this.frameDir = path.join(this.dir, "frames");
 
+  this.profiler = new Profiler();
+
   return this;
 
 }
@@ -33,13 +37,31 @@ Audiogram.prototype.getWaveform = function(cb) {
 
   var self = this;
 
-  this.status("waveform");
+  this.status("probing");
 
-  getWaveform(this.audioPath, this.settings, function(err, waveform){
+  probe(this.audioPath, function(err, data){
 
-    self.set("numFrames", self.numFrames = waveform.length);
+    if (err) {
+      return cb(err);
+    }
 
-    return cb(err, self.settings.waveform = waveform);
+    if (self.settings.maxDuration && self.settings.maxDuration < data.duration) {
+      return cb("Exceeds max duration of " + self.settings.maxDuration + "s");
+    }
+
+    self.profiler.size(data.duration);
+    self.set("numFrames", self.numFrames = Math.floor(data.duration * self.settings.framesPerSecond));
+    self.status("waveform");
+
+    getWaveform(self.audioPath, {
+      numFrames: self.numFrames,
+      samplesPerFrame: self.settings.samplesPerFrame
+    }, function(waveformErr, waveform){
+
+      return cb(waveformErr, self.settings.waveform = waveform);
+
+    });
+
 
   });
 
@@ -154,6 +176,8 @@ Audiogram.prototype.render = function(cb) {
       self.set("url", transports.getURL(self.id));
     }
 
+    logger.debug(self.profiler.print());
+
     return cb(err);
 
   });
@@ -170,6 +194,7 @@ Audiogram.prototype.set = function(field, value) {
 
 // Convenience method for .set("status")
 Audiogram.prototype.status = function(value) {
+  this.profiler.start(value);
   return this.set("status", value);
 };
 
