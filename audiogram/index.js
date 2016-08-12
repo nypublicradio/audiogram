@@ -115,8 +115,12 @@ Audiogram.prototype.drawFrames = function(cb) {
     self.status("frames");
 
     drawFrames(renderer, {
+      width: self.settings.width,
+      height: self.settings.height,
       numFrames: self.numFrames,
       frameDir: self.frameDir,
+      caption: self.settings.caption,
+      waveform: self.settings.waveform,
       tick: function() {
         transports.incrementField(self.id, "framesComplete");
       }

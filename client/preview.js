@@ -2,11 +2,11 @@ var d3 = require("d3"),
     audio = require("./audio.js"),
     video = require("./video.js"),
     minimap = require("./minimap.js"),
+    sampleWave = require("./sample-wave.js"),
+    getRenderer = require("../renderer/"),
     getWaveform = require("./waveform.js");
 
 var context = d3.select("canvas").node().getContext("2d");
-
-var renderer = require("../renderer/")(context);
 
 var theme,
     caption,
@@ -74,10 +74,15 @@ function redraw() {
 
   video.kill();
 
-  renderer.update(theme);
-  renderer.caption = caption;
-  renderer.backgroundImage = theme.backgroundImageFile || null;
-  renderer.drawFrame(0);
+  var renderer = getRenderer(theme);
+
+  renderer.backgroundImage(theme.backgroundImageFile || null);
+
+  renderer.drawFrame(context, {
+    caption: caption,
+    waveform: sampleWave,
+    frame: 0
+  });
 
 }
 
