@@ -30,7 +30,10 @@ function pluckJob(){
 
 function render(settings) {
 
-  var audiogram = new Audiogram(settings);
+  var audiogram = new Audiogram(settings.id);
+
+  // TODO rename to theme
+  audiogram.settings = settings;
 
   audiogram.render(function(err){
 

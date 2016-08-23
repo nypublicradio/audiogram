@@ -25,9 +25,6 @@ tape.test("Draw frame", function(test){
   initializeCanvas(options, function(err, renderer){
 
     test.error(err);
-    test.assert(renderer.context.canvas instanceof Canvas);
-    test.assert(renderer.context.canvas.width === options.width);
-    test.assert(renderer.context.canvas.height === options.height);
 
     drawFrames(renderer, {
       numFrames: 2,
@@ -54,9 +51,6 @@ tape.test("Default colors", function(test){
   initializeCanvas(options, function(err, renderer){
 
     test.error(err);
-    test.assert(renderer.context.canvas instanceof Canvas);
-    test.assert(renderer.context.canvas.width === options.width);
-    test.assert(renderer.context.canvas.height === options.height);
 
     drawFrames(renderer, {
       numFrames: 2,
@@ -85,9 +79,6 @@ tape.test("Square frame", function(test){
   initializeCanvas(options, function(err, renderer){
 
     test.error(err);
-    test.assert(renderer.context.canvas instanceof Canvas);
-    test.assert(renderer.context.canvas.width === options.width);
-    test.assert(renderer.context.canvas.height === options.height);
 
     drawFrames(renderer, {
       numFrames: 2,

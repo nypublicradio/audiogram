@@ -12,12 +12,10 @@ var path = require("path"),
     combineFrames = require("./combine-frames.js"),
     trimAudio = require("./trim.js");
 
-function Audiogram(settings) {
+function Audiogram(id) {
 
   // Unique audiogram ID
-  this.id = settings.id;
-
-  this.settings = settings;
+  this.id = id;
 
   // File locations to use
   this.dir = path.join(serverSettings.workingDirectory, this.id);
@@ -66,7 +64,7 @@ Audiogram.prototype.getWaveform = function(cb) {
     samplesPerFrame: this.settings.samplesPerFrame
   }, function(err, waveform){
 
-    return cb(err, self.settings.waveform = waveform);
+    return cb(err, self.waveform = waveform);
 
   });
 
@@ -120,7 +118,7 @@ Audiogram.prototype.drawFrames = function(cb) {
       numFrames: self.numFrames,
       frameDir: self.frameDir,
       caption: self.settings.caption,
-      waveform: self.settings.waveform,
+      waveform: self.waveform,
       tick: function() {
         transports.incrementField(self.id, "framesComplete");
       }
