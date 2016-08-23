@@ -45,16 +45,13 @@ function submitted() {
 
   var formData = new FormData();
 
-  var settings = $.extend({}, theme, {
-    caption: caption,
-    start: selection.start,
-    end: selection.end
-  });
-
-  delete settings.backgroundImageFile;
-
   formData.append("audio", file);
-  formData.append("settings", JSON.stringify(settings));
+  if (selection.start || selection.end) {
+    formData.append("start", selection.start);
+    formData.append("end", selection.end);
+  }
+  formData.append("theme", JSON.stringify($.extend({}, theme, { backgroundImageFile: null })));
+  formData.append("caption", caption);
 
   setClass("loading");
   d3.select("#loading-message").text("Uploading audio...");

@@ -10,15 +10,15 @@ pluckJob();
 
 function pluckJob(){
 
-  transports.getJob(function(err, settings){
+  transports.getJob(function(err, job){
 
     if (err) {
       throw err;
     }
 
-    if (settings) {
+    if (job) {
 
-      return render(settings);
+      return render(job);
 
     }
 
@@ -28,12 +28,11 @@ function pluckJob(){
 
 }
 
-function render(settings) {
+function render(job) {
 
-  var audiogram = new Audiogram(settings.id);
+  var audiogram = new Audiogram(job.id);
 
-  // TODO rename to theme
-  audiogram.settings = settings;
+  audiogram.settings = job;
 
   audiogram.render(function(err){
 

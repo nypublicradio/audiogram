@@ -19,6 +19,7 @@ function Audiogram(id) {
 
   // File locations to use
   this.dir = path.join(serverSettings.workingDirectory, this.id);
+
   this.audioPath = path.join(this.dir, "audio");
   this.videoPath = path.join(this.dir, "video.mp4");
   this.frameDir = path.join(this.dir, "frames");
@@ -40,11 +41,11 @@ Audiogram.prototype.getDuration = function(cb) {
       return cb(err);
     }
 
-    if (self.settings.maxDuration && self.settings.maxDuration < duration) {
-      cb("Exceeds max duration of " + self.settings.maxDuration + "s");
+    if (self.settings.theme.maxDuration && self.settings.theme.maxDuration < duration) {
+      cb("Exceeds max duration of " + self.settings.theme.maxDuration + "s");
     }
 
-    self.set("numFrames", self.numFrames = Math.floor(duration * self.settings.framesPerSecond));
+    self.set("numFrames", self.numFrames = Math.floor(duration * self.settings.theme.framesPerSecond));
 
     cb(null);
 
@@ -61,7 +62,7 @@ Audiogram.prototype.getWaveform = function(cb) {
 
   getWaveform(this.audioPath, {
     numFrames: this.numFrames,
-    samplesPerFrame: this.settings.samplesPerFrame
+    samplesPerFrame: this.settings.theme.samplesPerFrame
   }, function(err, waveform){
 
     return cb(err, self.waveform = waveform);
@@ -104,7 +105,7 @@ Audiogram.prototype.drawFrames = function(cb) {
 
   this.status("renderer");
 
-  initializeCanvas(this.settings, function(err, renderer){
+  initializeCanvas(this.settings.theme, function(err, renderer){
 
     if (err) {
       return cb(err);
@@ -113,8 +114,8 @@ Audiogram.prototype.drawFrames = function(cb) {
     self.status("frames");
 
     drawFrames(renderer, {
-      width: self.settings.width,
-      height: self.settings.height,
+      width: self.settings.theme.width,
+      height: self.settings.theme.height,
       numFrames: self.numFrames,
       frameDir: self.frameDir,
       caption: self.settings.caption,
@@ -137,7 +138,7 @@ Audiogram.prototype.combineFrames = function(cb) {
     framePath: path.join(this.frameDir, "%06d.png"),
     audioPath: this.audioPath,
     videoPath: this.videoPath,
-    framesPerSecond: this.settings.framesPerSecond
+    framesPerSecond: this.settings.theme.framesPerSecond
   }, cb);
 
 };

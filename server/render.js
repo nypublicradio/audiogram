@@ -9,7 +9,7 @@ function validate(req, res, next) {
 
   try {
 
-    req.body.settings = JSON.parse(req.body.settings);
+    req.body.theme = JSON.parse(req.body.theme);
 
   } catch(e) {
 
@@ -22,12 +22,12 @@ function validate(req, res, next) {
   }
 
   // Start at the beginning, or specified time
-  if (req.body.settings.start) {
-    req.body.settings.start = +req.body.settings.start;
+  if (req.body.start) {
+    req.body.start = +req.body.start;
   }
 
-  if (req.body.settings.end) {
-    req.body.settings.end = +req.body.settings.end;
+  if (req.body.end) {
+    req.body.end = +req.body.end;
   }
 
   return next();
@@ -45,11 +45,7 @@ function route(req, res) {
     }
 
     // Queue up the job with a timestamp
-    transports.addJob({
-      created: (new Date()).getTime(),
-      settings: req.body.settings,
-      caption: req.body.caption
-    });
+    transports.addJob(_.extend({ id: id, created: (new Date()).getTime() }, req.body));
 
     res.json({ id: id });
 
