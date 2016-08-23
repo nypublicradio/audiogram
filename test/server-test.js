@@ -84,7 +84,7 @@ tape("Max size", function(test) {
   request(server)
     .post("/submit/")
     .attach("audio", longSample)
-    .field("settings", "{}")
+    .field("theme", "{}")
     .expect(500)
     .end(function(err, res){
       test.assert(res.text.match(/uploads are limited/i));
@@ -98,7 +98,7 @@ tape("Missing file", function(test) {
   request(server)
     .post("/submit/")
     .type("json")
-    .field("settings", "{}")
+    .field("theme", "{}")
     .expect(500)
     .end(function(err, res){
       test.assert(res.text.match(/audio/i));
@@ -112,7 +112,7 @@ tape("Broken settings", function(test) {
   request(server)
     .post("/submit/")
     .type("multipart/form-data")
-    .field("settings", "a")
+    .field("theme", "a")
     .expect(500)
     .end(function(err, res){
       test.assert(res.text.match(/settings/i));
@@ -128,7 +128,7 @@ tape("Successful submission", function(test) {
   request(server)
     .post("/submit/")
     .attach("audio", shortSample)
-    .field("settings", JSON.stringify({ test: true }))
+    .field("theme", JSON.stringify({ test: true }))
     .expect(200)
     .end(function(err, res){
 
