@@ -9,7 +9,6 @@ module.exports = function(req, res) {
     .await(function(err, jobs, hash) {
 
       if (err) {
-        res.status(500).json("Unknown error.");
         throw err;
       }
 
