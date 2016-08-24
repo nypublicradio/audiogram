@@ -159,7 +159,7 @@ Audiogram.prototype.render = function(cb) {
 
   // If the audio needs to be clipped, clip it first and update the path
   if (this.settings.start || this.settings.end) {
-    q.defer(this.trimAudio.bind(this), this.settings.start || 0, this.settings.end);
+    q.defer(this.trimAudio.bind(this), this.settings.start || 0, this.settings.end || null);
   }
 
   // Get the audio's duration for computing number of frames
