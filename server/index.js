@@ -10,6 +10,7 @@ var express = require("express"),
 var logger = require("../lib/logger/"),
     render = require("./render.js"),
     status = require("./status.js"),
+    fonts = require("./fonts.js"),
     errorHandlers = require("./error.js");
 
 // Settings
@@ -49,6 +50,13 @@ app.post("/submit/", [multer(fileOptions).single("audio"), render.validate, rend
 // If not using S3, serve videos locally
 if (!serverSettings.s3Bucket) {
   app.use("/video/", express.static(path.join(serverSettings.storagePath, "video")));
+}
+
+// Serve custom fonts
+app.get("/fonts/fonts.css", fonts.css);
+
+if (serverSettings.fonts) {
+  app.use("/fonts/:font", fonts.font);
 }
 
 // Check the status of a current video
