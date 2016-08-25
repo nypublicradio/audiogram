@@ -13,7 +13,7 @@ var logger = require("../lib/logger/"),
     errorHandlers = require("./error.js");
 
 // Settings
-var serverSettings = require("../settings/");
+var serverSettings = require("../lib/settings/");
 
 var app = express();
 
@@ -43,20 +43,12 @@ if (serverSettings.maxUploadSize) {
   };
 }
 
-if (typeof serverSettings.workingDirectory !== "string") {
-  throw new TypeError("No workingDirectory set in settings/index.js");
-}
-
 // On submission, check upload, validate input, and start generating a video
 app.post("/submit/", [multer(fileOptions).single("audio"), render.validate, render.route]);
 
 // If not using S3, serve videos locally
 if (!serverSettings.s3Bucket) {
-  if (typeof serverSettings.storagePath !== "string") {
-    throw new TypeError("No storagePath set in settings/index.js");
-  }
-  var storagePath =  path.isAbsolute(serverSettings.storagePath) ? serverSettings.storagePath : path.join(__dirname, "..", serverSettings.storagePath);
-  app.use("/video/", express.static(path.join(storagePath, "video")));
+  app.use("/video/", express.static(path.join(serverSettings.storagePath, "video")));
 }
 
 // Check the status of a current video

@@ -1,4 +1,4 @@
-var serverSettings = require("../settings/");
+var serverSettings = require("../lib/settings/");
 
 module.exports = function(err, req, res, next) {
 

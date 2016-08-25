@@ -1,4 +1,4 @@
-var serverSettings = require("../settings/"),
+var serverSettings = require("../lib/settings/"),
     spawn = require("child_process").spawn,
     path = require("path"),
     _ = require("underscore"),
