@@ -76,7 +76,7 @@ function processSamples(samples, numFrames, samplesPerFrame) {
 
   var adjusted = unadjusted.map(function(frame){
     return frame.map(function(point){
-      return [adjustment * point[0], adjustment * point[1]];
+      return point.map(function(p){ return adjustment * p; });
     });
   });
 

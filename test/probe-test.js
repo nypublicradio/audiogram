@@ -22,6 +22,20 @@ tape("MP3 probe", function(test) {
 
 });
 
+tape("Mono probe", function(test) {
+
+  probe(path.join(__dirname, "data/glazed-donut-mono.mp3"), function(err, data){
+
+    test.error(err);
+    test.equal(typeof data.duration, "number");
+    test.equal(data.channels, 1);
+    test.assert(Math.abs(data.duration - 26.67) < 0.1);
+    test.end();
+
+  });
+
+});
+
 tape("WAV probe", function(test) {
 
   probe(path.join(__dirname, "data/glazed-donut.wav"), function(err, data){
