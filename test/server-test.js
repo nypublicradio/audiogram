@@ -4,11 +4,14 @@ var tape = require("tape"),
     queue = require("d3").queue,
     request = require("supertest");
 
+var fonts = require("../lib/settings/").fonts;
+
 var serverSettings = require("./patch-settings")({
   workingDirectory: path.join(__dirname, "tmp", "working"),
   maxUploadSize: 100000,
   storagePath: path.join(__dirname, "tmp", "storage"),
-  worker: true
+  worker: true,
+  fonts: fonts
 });
 
 var server = require("../server");
@@ -59,6 +62,44 @@ tape("404 2", function(test) {
   request(server)
     .get("/something.html")
     .expect(404)
+    .end(function(err, res){
+      test.error(err);
+      test.end();
+    });
+
+});
+
+tape("404 3", function(test) {
+
+  request(server)
+    .get("/fonts/something")
+    .expect(404)
+    .end(function(err, res){
+      test.error(err);
+      test.end();
+    });
+
+});
+
+tape("Font stylesheet", function(test) {
+
+  request(server)
+    .get("/fonts/fonts.css")
+    .expect(200)
+    .expect("Content-Type", /css/)
+    .end(function(err, res){
+      test.error(err);
+      test.end();
+    });
+
+});
+
+tape("Font file", function(test) {
+
+  request(server)
+    .get("/fonts/custom-0.ttf")
+    .expect(200)
+    .expect("Content-Type", /ttf/)
     .end(function(err, res){
       test.error(err);
       test.end();

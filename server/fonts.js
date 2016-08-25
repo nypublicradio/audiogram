@@ -1,4 +1,4 @@
-var fonts = require("../lib/settings/").fonts;
+var fonts = require("../lib/settings/").fonts || [];
 
 var bySlug = {};
 
@@ -29,7 +29,7 @@ function sendFont(req, res) {
     return res.sendFile(font.file);
   }
 
-  res.status(500).send("Cannot GET " + req.baseUrl);
+  res.status(404).send("Cannot GET " + req.baseUrl);
 
 }
 
