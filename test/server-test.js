@@ -4,15 +4,12 @@ var tape = require("tape"),
     queue = require("d3").queue,
     request = require("supertest");
 
-var fonts = require("../lib/settings/").fonts;
+var serverSettings = require("../lib/settings/");
 
-var serverSettings = require("./patch-settings")({
-  workingDirectory: path.join(__dirname, "tmp", "working"),
-  maxUploadSize: 100000,
-  storagePath: path.join(__dirname, "tmp", "storage"),
-  worker: true,
-  fonts: fonts
-});
+serverSettings.workingDirectory = path.join(__dirname, "tmp", "working");
+serverSettings.storagePath = path.join(__dirname, "tmp", "storage");
+serverSettings.maxUploadSize = 100000;
+serverSettings.worker = true;
 
 var server = require("../server");
 
