@@ -29,7 +29,7 @@ module.exports = function(req, res) {
         hash = { status: "unknown" };
       }
 
-      ["duration","numFrames","framesComplete"].forEach(function(key) {
+      ["numFrames", "framesComplete"].forEach(function(key) {
         if (key in hash) {
           hash[key] = +hash[key];
         }

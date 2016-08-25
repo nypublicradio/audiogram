@@ -1,16 +1,16 @@
 var exec = require("child_process").exec,
-    getDuration = require("./duration.js");
+    probe = require("../lib/probe.js");
 
 function trimAudio(options, cb) {
 
   if (!options.endTime) {
 
-    return getDuration(options.origin, function(err, duration){
+    return probe(options.origin, function(err, data){
       if (err) {
         return cb(err);
       }
 
-      options.endTime = duration;
+      options.endTime = data.duration;
       trimAudio(options, cb);
 
     });

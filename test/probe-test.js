@@ -5,38 +5,54 @@ var tape = require("tape"),
 
 require("mkdirp").sync(path.join(__dirname, "tmp"));
 
-var getDuration = require("../audiogram/duration.js"),
+var probe = require("../lib/probe.js"),
     trimAudio = require("../audiogram/trim.js");
 
-tape("MP3 duration", function(test) {
+tape("MP3 probe", function(test) {
 
-  getDuration(path.join(__dirname, "data/glazed-donut.mp3"), function(err, duration){
+  probe(path.join(__dirname, "data/glazed-donut.mp3"), function(err, data){
 
     test.error(err);
-    test.equal(typeof duration, "number");
-    test.assert(Math.abs(duration - 26.67) < 0.1);
+    test.equal(typeof data.duration, "number");
+    test.equal(data.channels, 2);
+    test.assert(Math.abs(data.duration - 26.67) < 0.1);
     test.end();
 
   });
 
 });
 
-tape("WAV duration", function(test) {
+tape("WAV probe", function(test) {
 
-  getDuration(path.join(__dirname, "data/glazed-donut.wav"), function(err, duration){
+  probe(path.join(__dirname, "data/glazed-donut.wav"), function(err, data){
 
     test.error(err);
-    test.equal(typeof duration, "number");
-    test.assert(Math.abs(duration - 1.83) < 0.1);
+    test.equal(typeof data.duration, "number");
+    test.equal(data.channels, 2);
+    test.assert(Math.abs(data.duration - 1.83) < 0.1);
     test.end();
 
   });
 
 });
 
-tape("Duration error", function(test) {
+tape("Mono probe", function(test) {
 
-  getDuration(path.join(__dirname, "..", "README.md"), function(err){
+  probe(path.join(__dirname, "data/short.wav"), function(err, data){
+
+    test.error(err);
+    test.equal(typeof data.duration, "number");
+    test.equal(data.channels, 1);
+    test.assert(Math.abs(data.duration - 0.01) < 0.01);
+    test.end();
+
+  });
+
+});
+
+tape("Probe error", function(test) {
+
+  probe(path.join(__dirname, "..", "README.md"), function(err){
 
     test.ok(err);
     test.end();
@@ -55,12 +71,12 @@ tape("Trim start", function(test) {
 
   queue(1)
     .defer(trimAudio, options)
-    .defer(getDuration, options.destination)
-    .await(function(err, _, duration){
+    .defer(probe, options.destination)
+    .await(function(err, _, data){
 
       test.error(err);
-      test.equal(typeof duration, "number");
-      test.assert(Math.abs(duration - 20) < 0.1);
+      test.equal(typeof data.duration, "number");
+      test.assert(Math.abs(data.duration - 20) < 0.1);
       test.end();
 
     });
@@ -77,12 +93,12 @@ tape("Trim end", function(test) {
 
   queue(1)
     .defer(trimAudio, options)
-    .defer(getDuration, options.destination)
-    .await(function(err, _, duration){
+    .defer(probe, options.destination)
+    .await(function(err, _, data){
 
       test.error(err);
-      test.equal(typeof duration, "number");
-      test.assert(Math.abs(duration - 20) < 0.1);
+      test.equal(typeof data.duration, "number");
+      test.assert(Math.abs(data.duration - 20) < 0.1);
       test.end();
 
     });
@@ -100,12 +116,12 @@ tape("Trim start & end", function(test) {
 
   queue(1)
     .defer(trimAudio, options)
-    .defer(getDuration, options.destination)
-    .await(function(err, _, duration){
+    .defer(probe, options.destination)
+    .await(function(err, _, data){
 
       test.error(err);
-      test.equal(typeof duration, "number");
-      test.assert(Math.abs(duration - 5) < 0.1);
+      test.equal(typeof data.duration, "number");
+      test.assert(Math.abs(data.duration - 5) < 0.1);
       test.end();
 
     });
@@ -122,25 +138,11 @@ tape("Trim invalid", function(test) {
     endTime: 4
   };
 
-  queue(1)
-    .defer(trimAudio, options)
-    .defer(getDuration, options.destination)
-    .await(function(err, _, duration){
-
-      test.ok(err);
-      test.end();
-
-    });
-
-});
-
-// Cleanup
-tape.onFinish(function(){
-  require("rimraf")(path.join(__dirname, "tmp"), function(err){
-    if (err) {
-      throw err;
-    }
+  trimAudio(options, function(err){
+    test.ok(err);
+    test.end();
   });
+
 });
 
 // Cleanup

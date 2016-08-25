@@ -10,7 +10,14 @@ require("mkdirp").sync(path.join(__dirname, "tmp", "frames"));
 
 var frameDir = path.join(__dirname, "tmp", "frames");
 
-var waveform = [[0, 1, 0], [1, 0.1, 1]];
+var waveform = [
+  [
+    [0, 0], [-1, 1], [0, 0]
+  ],
+  [
+    [-1, 1], [-0.1, 0.1], [-1, 1]
+  ]
+];
 
 function tester(options) {
 

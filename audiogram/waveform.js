@@ -1,59 +1,89 @@
-var waveform = require("waveform"),
-    d3 = require("d3");
+var probe = require("../lib/probe.js"),
+    d3 = require("d3"),
+    pcmStream = require("../lib/pcm.js");
 
 function getWaveform(filename, options, cb) {
 
-  var numSamples = options.numFrames * options.samplesPerFrame;
+  var stream = pcmStream(filename, {
+        channels: options.channels
+      }),
+      samples = [];
 
-  var waveformOptions = {
-    "scan": false,
-    "waveformjs": "-",
-    "wjs-width": numSamples,
-    "wjs-precision": 2,
-    "wjs-plain": true,
-    "encoding": "utf8"
-  };
+  stream.on("data",function(sample, channel){
 
-  waveform(filename, waveformOptions, function(err, buf) {
-
-    if (err) {
-      return cb(err);
+    // Average multiple channels
+    if (channel > 0) {
+      samples[samples.length - 1] = ((samples[samples.length - 1] * channel) + sample) / (channel + 1);
+    } else {
+      samples.push(sample);
     }
-
-    cb(null, processWaveform(JSON.parse(buf)));
 
   });
 
-  // Slice one-dimensional waveform data into array of arrays, one array per frame
-  function processWaveform(waveformData) {
+  stream.on("error", cb);
 
-    var max = -Infinity,
-        maxFrame;
+  stream.on("end", function(output){
+    var processed = processSamples(samples, options.numFrames, options.samplesPerFrame);
+    return cb(null, processed);
+  });
 
-    waveformData.forEach(function(d, i){
-      if (d > max) {
-        max = d;
-        maxFrame = Math.floor(i / options.samplesPerFrame);
-      }
+}
+
+function processSamples(samples, numFrames, samplesPerFrame) {
+
+  // TODO spread out slop across frames
+  var perFrame = Math.floor(samples.length / numFrames),
+      perPoint = Math.floor(perFrame / samplesPerFrame),
+      range = d3.range(samplesPerFrame),
+      maxFrame,
+      maxMedian = min = max = 0;
+
+  var unadjusted = d3.range(numFrames).map(function(frame){
+
+    var frameSamples = samples.slice(frame * perFrame, (frame + 1) * perFrame),
+        points = range.map(function(point){
+
+          var pointSamples = frameSamples.slice(point * perPoint, (point + 1) * perPoint),
+              localMin = localMax = 0;
+
+          for (var i = 0, l = pointSamples.length; i < l; i++) {
+            if (pointSamples[i] < localMin) localMin = pointSamples[i];
+            if (pointSamples[i] > localMax) localMax = pointSamples[i];
+          }
+
+          if (localMin < min) min = localMin;
+          if (localMax > max) max = localMax;
+
+          // Min value, max value, and midpoint value
+          return [localMin, localMax, pointSamples[Math.floor(pointSamples.length / 2)]];
+
+        }),
+        median = d3.median(points.map(function(point){
+          return point[1] - point[0];
+        }));
+
+    if (median > maxMedian) {
+      maxMedian = median;
+      maxFrame = frame;
+    }
+
+    return points;
+
+  });
+
+  // Scale up to -1 / 1
+  var adjustment = 1 / Math.max(Math.abs(min), Math.abs(max));
+
+  var adjusted = unadjusted.map(function(frame){
+    return frame.map(function(point){
+      return [adjustment * point[0], adjustment * point[1]];
     });
+  });
 
-    // Scale peaks to 1
-    var scaled = d3.scaleLinear()
-      .domain([0, max])
-      .range([0, 1]);
+  // Make first and last frame peaky
+  adjusted[0] = adjusted[numFrames - 1] = adjusted[maxFrame];
 
-    var waveformFrames = d3.range(options.numFrames).map(function getFrame(frameNumber) {
-
-      return waveformData.slice(options.samplesPerFrame * frameNumber, options.samplesPerFrame * (frameNumber + 1)).map(scaled);
-
-    });
-
-    // Set the first and last frame's waveforms to something peak-y for better thumbnails
-    waveformFrames[0] = waveformFrames[waveformFrames.length - 1] = waveformFrames[maxFrame];
-
-    return waveformFrames;
-
-  }
+  return adjusted;
 
 }
 
