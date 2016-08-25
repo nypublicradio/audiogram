@@ -86,6 +86,7 @@ tape("Font stylesheet", function(test) {
   request(server)
     .get("/fonts/fonts.css")
     .expect(200)
+    .expect(/font-face/)
     .expect("Content-Type", /css/)
     .end(function(err, res){
       test.error(err);
