@@ -54,9 +54,10 @@ if (!serverSettings.s3Bucket) {
 
 // Serve custom fonts
 app.get("/fonts/fonts.css", fonts.css);
+app.get("/fonts/fonts.js", fonts.js);
 
 if (serverSettings.fonts) {
-  app.use("/fonts/:font", fonts.font);
+  app.get("/fonts/:font", fonts.font);
 }
 
 // Check the status of a current video
