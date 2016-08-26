@@ -18,6 +18,7 @@ env:
 before_install:
   - npm explore npm -g -- npm install node-gyp@latest
   - sudo add-apt-repository ppa:mc3man/trusty-media --yes
+  - sudo apt-get update
   - sudo apt-get install ffmpeg
 sudo: required
 dist: trusty
