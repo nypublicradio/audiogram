@@ -13,9 +13,11 @@ addons:
       - libpango1.0-dev
       - libgif-dev
       - g++-4.9
-      - ffmpeg
 env:
   - CXX=g++-4.9
 before_install:
   - npm explore npm -g -- npm install node-gyp@latest
-sudo: false
+  - sudo add-apt-repository ppa:mc3man/trusty-media --yes
+  - sudo apt-get install ffmpeg
+sudo: required
+dist: trusty
