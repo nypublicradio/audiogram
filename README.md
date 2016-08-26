@@ -1,6 +1,6 @@
 # Audiogram
 
-[![Build Status](https://travis-ci.org/nypublicradio/audiogram.svg?branch=ci)](https://travis-ci.org/nypublicradio/audiogram)
+[![Build Status](https://travis-ci.org/nypublicradio/audiogram.svg?branch=alpha)](https://travis-ci.org/nypublicradio/audiogram)
 
 🔊 -> 🎥
 
