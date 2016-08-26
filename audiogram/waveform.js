@@ -36,30 +36,29 @@ function processSamples(samples, numFrames, samplesPerFrame) {
       perPoint = Math.floor(perFrame / samplesPerFrame),
       range = d3.range(samplesPerFrame),
       maxFrame,
-      maxMedian = min = max = 0;
+      maxMedian = max = 0;
 
   var unadjusted = d3.range(numFrames).map(function(frame){
 
     var frameSamples = samples.slice(frame * perFrame, (frame + 1) * perFrame),
         points = range.map(function(point){
 
-          var pointSamples = frameSamples.slice(point * perPoint, (point + 1) * perPoint),
-              localMin = localMax = 0;
+          var pointSamples = frameSamples.slice(point * perPoint, (point + 1) * perPoint);
 
-          for (var i = 0, l = pointSamples.length; i < l; i++) {
-            if (pointSamples[i] < localMin) localMin = pointSamples[i];
-            if (pointSamples[i] > localMax) localMax = pointSamples[i];
+          var rms = Math.sqrt(d3.sum(pointSamples.map(function(d){
+            return d * d;
+          })) / perPoint);
+
+          if (rms > max) {
+            max = rms;
           }
 
-          if (localMin < min) min = localMin;
-          if (localMax > max) max = localMax;
-
           // Min value, max value, and midpoint value
-          return [localMin, localMax, pointSamples[Math.floor(pointSamples.length / 2)]];
+          return [-rms, rms, pointSamples[Math.floor(pointSamples.length / 2)]];
 
         }),
         median = d3.median(points.map(function(point){
-          return point[1] - point[0];
+          return point[1];
         }));
 
     if (median > maxMedian) {
@@ -72,7 +71,7 @@ function processSamples(samples, numFrames, samplesPerFrame) {
   });
 
   // Scale up to -1 / 1
-  var adjustment = 1 / Math.max(Math.abs(min), Math.abs(max));
+  var adjustment = 1 / max;
 
   var adjusted = unadjusted.map(function(frame){
     return frame.map(function(point){
