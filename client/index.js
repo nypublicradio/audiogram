@@ -6,8 +6,25 @@ var d3 = require("d3"),
 
 d3.json("/settings/themes.json", function(err, themes){
 
-  if (err) {
-    throw err;
+  var errorMessage;
+
+  // Themes are missing or invalid
+  if (err || !d3.keys(themes).filter(function(d){ return d !== "default"; }).length) {
+    if (err instanceof SyntaxError) {
+      errorMessage = "Error in settings/themes.json:<br/><code>" + err.toString() + "</code>";
+    } else if (err instanceof ProgressEvent) {
+      errorMessage = "Error: no settings/themes.json.";
+    } else if (err) {
+      errorMessage = "Error: couldn't load settings/themes.json.";
+    } else {
+      errorMessage = "No themes found in settings/themes.json.";
+    }
+    d3.select("#loading-bars").remove();
+    d3.select("#loading-message").html(errorMessage);
+    if (err) {
+      throw err;
+    }
+    return;
   }
 
   for (var key in themes) {
