@@ -28,7 +28,7 @@ tape("Waveform", function(test) {
 
       test.assert(waveform.every(function(frame){
         return frame.length === options.samplesPerFrame && frame.every(function(f){
-          return f.length === 3 && f.every(function(d){ return typeof d === "number"; }) && f[0] <= 0 && f[0] >= -1 && f[1] >= 0 && f[1] <= 1 && f[2] >= -1 && f[2] <= 1;
+          return f.length === 2 && f.every(function(d){ return typeof d === "number"; }) && f[0] >= 0 && f[0] <= 1 && f[1] >= -1 && f[1] <= 1;
         });
       }));
 

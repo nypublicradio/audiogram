@@ -36,13 +36,13 @@ function curve(interpolator) {
 
     var top = data.map(function(d,i){
 
-      return [x(i), baseline - height(d[1])];
+      return [x(i), baseline - height(d[0])];
 
     });
 
     var bottom = data.map(function(d,i){
 
-      return [x(i), baseline + height(-d[0])];
+      return [x(i), baseline + height(d[0])];
 
     }).reverse();
 
@@ -90,9 +90,9 @@ function bars(round) {
 
     data.forEach(function(val, i){
 
-      var h = height(-val[0]) + height(val[1]),
+      var h = height(val[0]) * 2,
           x = barX(i),
-          y = baseline - height(val[1]);
+          y = baseline - height(val[0]);
 
       context.fillRect(x, y, barWidth, h);
 
@@ -133,7 +133,7 @@ function bricks(rainbow) {
 
     data.forEach(function(val, i){
 
-      var bricks = Math.max(1, Math.floor(height(val[1]) / (brickHeight + brickGap))),
+      var bricks = Math.max(1, Math.floor(height(val[0]) / (brickHeight + brickGap))),
           x = barX(i);
 
       d3.range(bricks).forEach(function(b){

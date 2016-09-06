@@ -36,46 +36,44 @@ function processSamples(samples, numFrames, samplesPerFrame) {
       perPoint = Math.floor(perFrame / samplesPerFrame),
       range = d3.range(samplesPerFrame),
       maxFrame,
-      maxMedian = max = 0;
+      maxRms = maxMid = 0;
 
   var unadjusted = d3.range(numFrames).map(function(frame){
 
     var frameSamples = samples.slice(frame * perFrame, (frame + 1) * perFrame),
         points = range.map(function(point){
 
-          var pointSamples = frameSamples.slice(point * perPoint, (point + 1) * perPoint);
+          var pointSamples = frameSamples.slice(point * perPoint, (point + 1) * perPoint),
+              midpoint = pointSamples[Math.floor(pointSamples.length / 2)];
 
           var rms = Math.sqrt(d3.sum(pointSamples.map(function(d){
             return d * d;
           })) / perPoint);
 
-          if (rms > max) {
-            max = rms;
+          if (rms > maxRms) {
+            maxRms = rms;
+            maxFrame = frame;
+          }
+
+          if (Math.abs(midpoint) > maxMid) {
+            maxMid = Math.abs(midpoint);
           }
 
           // Min value, max value, and midpoint value
-          return [-rms, rms, pointSamples[Math.floor(pointSamples.length / 2)]];
+          return [rms, midpoint];
 
-        }),
-        median = d3.median(points.map(function(point){
-          return point[1];
-        }));
-
-    if (median > maxMedian) {
-      maxMedian = median;
-      maxFrame = frame;
-    }
+        });
 
     return points;
 
   });
 
-  // Scale up to -1 / 1
-  var adjustment = 1 / max;
-
   var adjusted = unadjusted.map(function(frame){
     return frame.map(function(point){
-      return point.map(function(p){ return adjustment * p; });
+      return [
+        point[0] / maxRms,
+        point[1] / maxMid
+      ];
     });
   });
 
