@@ -158,7 +158,7 @@ function strokedPath(interpolator) {
 
     context.fillStyle = options.waveColor;
     context.strokeStyle = options.waveColor;
-    context.lineWidth = 3;
+    context.lineWidth = 5;
 
     var line = d3.line()
       .context(context);

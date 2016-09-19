@@ -51,6 +51,16 @@
     "captionBottom": 660,
     "captionTop": null
   },
+  "Line": {
+    "backgroundColor": "#edc951",
+    "foregroundColor": "#00a0b0",
+    "pattern": "line"
+  },
+  "Curve": {
+    "backgroundColor": "#00a0b0",
+    "foregroundColor": "#edc951",
+    "pattern": "curve"
+  },
   "Bricks": {
     "backgroundColor": "#8771aa",
     "foregroundColor": "#fff",
