@@ -1,15 +1,17 @@
 var d3 = require("d3");
 
 module.exports = {
-  wave: curve(d3.curveCardinal.tension(0.1)),
-  pixel: curve(d3.curveStep),
+  wave: filledPath(d3.curveCardinal.tension(0.1)),
+  pixel: filledPath(d3.curveStep),
   roundBars: bars(true),
   bars: bars(),
   bricks: bricks(),
-  equalizer: bricks(true)
+  equalizer: bricks(true),
+  line: strokedPath(),
+  curve: strokedPath(d3.curveCardinal.tension(0.1))
 };
 
-function curve(interpolator) {
+function filledPath(interpolator) {
 
   return function drawCurve(context, data, options) {
 
@@ -18,8 +20,11 @@ function curve(interpolator) {
     context.lineWidth = 3;
 
     var line = d3.line()
-      .curve(interpolator)
       .context(context);
+
+    if (interpolator) {
+      line.curve(interpolator);
+    }
 
     var waveHeight = options.waveBottom - options.waveTop;
 
@@ -110,7 +115,7 @@ function bars(round) {
 }
 
 function bricks(rainbow) {
-  return function (context, data, options) {
+  return function(context, data, options) {
 
     context.fillStyle = options.waveColor;
 
@@ -146,4 +151,39 @@ function bricks(rainbow) {
     });
 
   };
+}
+
+function strokedPath(interpolator) {
+  return function(context, data, options) {
+
+    context.fillStyle = options.waveColor;
+    context.strokeStyle = options.waveColor;
+    context.lineWidth = 3;
+
+    var line = d3.line()
+      .context(context);
+
+    if (interpolator) {
+      line.curve(interpolator);
+    }
+
+    var x = d3.scalePoint()
+      .padding(0.1)
+      .domain(d3.range(data.length))
+      .range([options.waveLeft, options.waveRight]);
+
+    var y = d3.scaleLinear()
+      .domain([-1, 1])
+      .range([options.waveBottom, options.waveTop]);
+
+    var points = data.map(function(d, i){
+      return [x(i), y(d[1])];
+    });
+
+    // Fill waveform
+    context.beginPath();
+    line(points);
+    context.stroke();
+
+  }
 }
