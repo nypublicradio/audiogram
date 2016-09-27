@@ -16,8 +16,7 @@ USER audiogram
 WORKDIR /home/audiogram
 
 # Clone repo
-RUN git clone https://github.com/nypublicradio/audiogram.git
-WORKDIR /home/audiogram/audiogram
+RUN git clone https://github.com/prx/audiogram.git
 
 # Install dependencies
 RUN npm install

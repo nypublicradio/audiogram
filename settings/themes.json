@@ -15,6 +15,17 @@
     "captionLeft": 200,
     "captionRight": 1080
   },
+  "Criminal (Logo: 1280x720)": {
+    "pattern": "bricks",
+    "captionAlign": "right",
+    "captionTop": 400,
+    "captionRight": 0,
+    "captionLeft": 0,
+    "backgroundImage": "Criminal-1280_720.jpg",
+    "foregroundColor": "#000",
+    "waveBottom": 720,
+    "waveTop": 480
+  },
   "Basic": {
     "backgroundColor": "#eee",
     "foregroundColor": "#de1e3d"
