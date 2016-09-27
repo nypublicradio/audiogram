@@ -33,8 +33,8 @@
     "captionTop": 60,
     "captionRight": 1220,
     "captionLeft": 640,
-    "backgroundImage": "subway.jpg",
-    "foregroundColor": "#fc0",
+    "backgroundImage": “ArtLandscape.jpg",
+    "foregroundColor": “#635f70",
     "waveBottom": 660,
     "waveTop": 320
   },
@@ -91,5 +91,14 @@
     "captionRight": 620,
     "foregroundColor": "#0eb8ba",
     "backgroundImage": "nyc.png"
-  }
+    },
+  “SS Inquiries”: {
+    "captionAlign": "right",
+    "captionTop": 60,
+    "captionRight": 1220,
+    "captionLeft": 640,
+    "backgroundImage": “ArtLandscape.jpg",
+    "foregroundColor": “#635f70",
+    "waveBottom": 660,
+    "waveTop": 320
 }
