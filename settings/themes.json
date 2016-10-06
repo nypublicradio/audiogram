@@ -15,7 +15,7 @@
     "captionLeft": 200,
     "captionRight": 1080
   },
-  "Criminal 1: Light, 1280x720)": {
+  "Criminal 1: Light, (1280x720)": {
     "pattern": "bricks",
     "captionAlign": "right",
     "captionTop": 400,
@@ -26,10 +26,11 @@
     "waveBottom": 720,
     "waveTop": 480
   },
-  "Criminal 2: Dark, 1280x720)": {
+  "Criminal 2: Dark, (1280x720)": {
     "pattern": "roundBars",
+    "captionFont": "300 64px 'NikeTotal90'",
     "captionAlign": "center",
-    "captionTop": 50,
+    "captionTop": 60,
     "captionRight": 1260,
     "captionLeft": 0,
     "backgroundImage": "Criminal-1280_720_inv.jpg",
