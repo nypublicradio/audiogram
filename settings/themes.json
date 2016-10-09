@@ -2,7 +2,7 @@
   "default": {
     "width": 1280,
     "height": 720,
-    "framesPerSecond": 20,
+    "framesPerSecond": 24,
     "maxDuration": 300,
     "samplesPerFrame": 128,
     "pattern": "wave",
@@ -15,18 +15,7 @@
     "captionLeft": 200,
     "captionRight": 1080
   },
-  "Criminal 1: Light, (1280x720)": {
-    "pattern": "bricks",
-    "captionAlign": "right",
-    "captionTop": 400,
-    "captionRight": 1260,
-    "captionLeft": 0,
-    "backgroundImage": "Criminal-1280_720.jpg",
-    "foregroundColor": "#000",
-    "waveBottom": 720,
-    "waveTop": 480
-  },
-  "Criminal 2: Dark, (1280x720)": {
+  "Criminal (1280x720)": {
     "pattern": "roundBars",
     "captionFont": "300 64px 'NikeTotal90'",
     "captionAlign": "center",
@@ -38,5 +27,22 @@
     "waveBottom": 531,
     "waveTop": 188,
     "waveColor": "#000"
+  },
+  "99pi (720x720)": {
+    "width": 720,
+    "height": 720,
+    "pattern": "bricks",
+    "captionFont": "300 58px 'NikeTotal90'",
+    "captionColor": "#fff",
+    "captionAlign": "left",
+    "captionTop": 366,
+    "captionRight": 700,
+    "captionLeft": 12,
+    "backgroundImage": "99invisible-logo-2016.png",
+    "foregroundColor": "#fff",
+    "waveBottom": 720,
+    "waveTop": 188,
+    "waveColor": "#ffdc00",
+    "samplesPerFrame": 10
   }
 }
