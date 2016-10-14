@@ -23,10 +23,10 @@
     "backgroundColor": "#556270",
     "foregroundColor": "#c7f464"
   },
-  "Three colors": {
-    "backgroundColor": "#eee",
-    "captionColor": "#515151",
-    "waveColor": "#00b4ff"
+  "Megaphone Dark": {
+    "backgroundColor": "#232831",
+    "captionColor": "#44484f",
+    "waveColor": "#7373ea"
   },
   "Background image with top right text": {
     "captionAlign": "right",
