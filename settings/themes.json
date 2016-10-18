@@ -15,13 +15,16 @@
     "captionLeft": 200,
     "captionRight": 1080
   },
-  "Basic": {
-    "backgroundColor": "#eee",
-    "foregroundColor": "#de1e3d"
-  },
-  "Neon": {
-    "backgroundColor": "#556270",
-    "foregroundColor": "#c7f464"
+  "Why Oh Why": {
+    "captionAlign": "right",
+    "captionTop": 60,
+    "captionRight": 1220,
+    "captionLeft": 640,
+    "backgroundImage": "why_oh_why.jpg",
+    "captionColor": "#727074",
+    "waveColor": "#00b3ff",
+    "waveBottom": 660,
+    "waveTop": 320
   },
   "Megaphone Dark": {
     "backgroundColor": "#232831",
