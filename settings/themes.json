@@ -26,6 +26,17 @@
     "waveBottom": 660,
     "waveTop": 320
   },
+  "Slate - Election Day Special": {
+    "captionAlign": "right",
+    "captionTop": 60,
+    "captionRight": 1220,
+    "captionLeft": 640,
+    "backgroundImage": "slate_election_special.png",
+    "captionColor": "#ffffff",
+    "waveColor": "#ffffff",
+    "waveBottom": 660,
+    "waveTop": 320
+  },
   "Megaphone Dark": {
     "backgroundColor": "#232831",
     "captionColor": "#44484f",
