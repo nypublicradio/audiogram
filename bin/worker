@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+
+// Require settings first, for validation
+require("../lib/settings/");
+
 var dotenv = require("dotenv").config({silent: true}),
     Audiogram = require("../audiogram/"),
     transports = require("../lib/transports/");
@@ -10,15 +14,15 @@ pluckJob();
 
 function pluckJob(){
 
-  transports.getJob(function(err, settings){
+  transports.getJob(function(err, job){
 
     if (err) {
       throw err;
     }
 
-    if (settings) {
+    if (job) {
 
-      return render(settings);
+      return render(job);
 
     }
 
@@ -28,9 +32,11 @@ function pluckJob(){
 
 }
 
-function render(settings) {
+function render(job) {
 
-  var audiogram = new Audiogram(settings);
+  var audiogram = new Audiogram(job.id);
+
+  audiogram.settings = job;
 
   audiogram.render(function(err){
 

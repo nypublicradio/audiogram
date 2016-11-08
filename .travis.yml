@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - '6'
+  - '4'
+  - '0.12'
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+      - sourceline: 'ppa:mc3man/trusty-media'
+    packages:
+      - libcairo2-dev
+      - libjpeg8-dev
+      - libpango1.0-dev
+      - libgif-dev
+      - g++-4.9
+      - ffmpeg
+env:
+  - CXX=g++-4.9
+before_install:
+  - npm explore npm -g -- npm install node-gyp@latest
+sudo: required
+dist: trusty
