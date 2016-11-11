@@ -26,6 +26,17 @@
     "waveBottom": 660,
     "waveTop": 320
   },
+    "LifeAfter": {
+    "captionAlign": "right",
+    "captionTop": 60,
+    "captionRight": 1220,
+    "captionLeft": 640,
+    "backgroundImage": "lifeafter.png",
+    "captionColor": "#ffffff",
+    "waveColor": "#ffffff",
+    "waveBottom": 660,
+    "waveTop": 320
+  },
   "Slate - Election Day Special": {
     "captionAlign": "right",
     "captionTop": 60,
