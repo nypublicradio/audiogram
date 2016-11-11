@@ -33,7 +33,8 @@
     "captionLeft": 640,
     "backgroundImage": "lifeafter.png",
     "captionColor": "#ffffff",
-    "waveColor": "#ffffff",
+    "pattern": "line",
+    "waveColor": "#1f2d40",
     "waveBottom": 660,
     "waveTop": 320
   },
