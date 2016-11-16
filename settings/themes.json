@@ -26,17 +26,17 @@
     "waveBottom": 660,
     "waveTop": 320
   },
-    "LifeAfter": {
-    "captionAlign": "right",
+  "LifeAfter": {
+    "captionAlign": "center",
     "captionTop": 60,
-    "captionRight": 1220,
-    "captionLeft": 640,
-    "backgroundImage": "lifeafter.png",
+    "captionRight": 1080,
+    "captionLeft": 200,
+    "backgroundImage": "LifeAfter-BG-Center.jpg",
     "captionColor": "#ffffff",
     "pattern": "line",
-    "waveColor": "#1f2d40",
-    "waveBottom": 660,
-    "waveTop": 320
+    "waveColor": "#038f93",
+    "waveBottom": 680,
+    "waveTop": 440
   },
   "Slate - Election Day Special": {
     "captionAlign": "right",
