@@ -27,5 +27,13 @@ module.exports = {
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Bold.ttf"), weight: "bold" },
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Italic.ttf"), style: "italic" },
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-BoldItalic.ttf"), weight: "bold", style: "italic" }
-  ]
+/*This is breaking the app 
+    { family: "DroidSerif", file: path.join(__dirname, "fonts", "DroidSerif.ttf") },
+    { family: "DroidSerif", file: path.join(__dirname, "fonts", "DroidSerif-Bold.ttf"), weight: "bold" },
+    { family: "DroidSerif", file: path.join(__dirname, "fonts", "DroidSerif-Italic.ttf"), style: "italic" },
+    { family: "DroidSerif", file: path.join(__dirname, "fonts", "DroidSerif-BoldItalic.ttf"), weight: "bold", style: "italic" }
+
+    { family: "Oswald", file: path.join(__dirname, "fonts", "Oswald-Regular.ttf") },
+    { family: "Oswald", file: path.join(__dirname, "fonts", "Oswald-Bold.ttf"), weight: "bold" },
+*/  ]
 };
