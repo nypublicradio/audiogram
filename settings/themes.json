@@ -12,8 +12,8 @@
     "captionFont": "300 52px 'Source Sans Pro'",
     "captionLineHeight": 52,
     "captionLineSpacing": 7,
-    "captionLeft": 200,
-    "captionRight": 1080
+    "captionLeft": 0,
+    "captionRight": 720
   },
 
   "TTBOOK": {
@@ -23,7 +23,7 @@
     "captionFont": "300 50px 'DroidSerif'",
     "captionLineHeight": 60,
     "captionLineSpacing": 7,
-    "captionTop": 60,
+    "captionTop": 550,
     "captionRight": 700,
     "captionLeft": 20,
     "backgroundImage": "TTBOOK-blank.png",
@@ -33,58 +33,111 @@
     "waveColor": "#267bb9"
   },
 
-  "Instagram - Netflix": {
+  "Instagram - eviction.png": {
     "width": 720,
     "height": 720,
     "captionAlign": "right",
     "captionFont": "300 40px 'Oswald'",
     "captionLineHeight": 52,
     "captionLineSpacing": 7,
-    "pattern": "bricks",
+    "pattern": "wave",
     "captionTop": 60,
-    "captionRight": 1220,
-    "captionLeft": 750,
-    "backgroundImage": "wu-netflix.png",
-    "foregroundColor": "#267bb9",
-    "waveBottom": 500,
-    "waveTop": 250,
-    "waveColor": "#e50914"
+    "captionRight": 700,
+    "captionLeft": 20,
+    "backgroundImage": "eviction.png",
+    "foregroundColor": "#facf09",
+    "waveBottom": 700,
+    "waveTop": 500,
+    "waveColor": "#facf09"
   },
 
-"Instagram - shattered.png": {
+  "Instagram - religion-damaging.png": {
+    "width": 720,
+    "height": 720,
+    "captionAlign": "right",
+    "captionFont": "300 40px 'Oswald'",
+    "captionLineHeight": 52,
+    "captionLineSpacing": 7,
+    "pattern": "wave",
+    "captionTop": 60,
+    "captionRight": 700,
+    "captionLeft": 20,
+    "backgroundImage": "religion-damaging.png",
+    "foregroundColor": "#FFFFFF",
+    "waveBottom": 700,
+    "waveTop": 500,
+    "waveColor": "#FFFFFF"
+  },
+
+  "Instagram - emdin.png": {
+    "width": 720,
+    "height": 720,
+    "captionAlign": "right",
+    "captionFont": "300 40px 'Oswald'",
+    "captionLineHeight": 52,
+    "captionLineSpacing": 7,
+    "pattern": "wave",
+    "captionTop": 60,
+    "captionRight": 700,
+    "captionLeft": 20,
+    "backgroundImage": "emdin.png",
+    "foregroundColor": "#267bb9",
+    "waveBottom": 700,
+    "waveTop": 500,
+    "waveColor": "#facf09"
+  },
+
+
+"Instagram - hiphopambassador.png": {
   "width": 720,
   "height": 720,
   "captionAlign": "right",
   "captionFont": "300 40px 'Oswald'",
   "captionLineHeight": 52,
   "captionLineSpacing": 7,
-  "pattern": "line",
+  "pattern": "wave",
   "captionTop": 60,
-  "captionRight": 1220,
-  "captionLeft": 750,
-  "backgroundImage": "shattered.png",
+  "captionRight": 700,
+  "captionLeft": 20,
+  "backgroundImage": "hiphopambassador.png",
   "foregroundColor": "#267bb9",
-  "waveBottom": 550,
-  "waveTop": 250,
-  "waveColor": "#267bb9"
+  "waveBottom": 200,
+  "waveTop": 0,
+  "waveColor": "#facf09"
 },
 
-  "Instagram - Box Brown": {
+  "Instagram - underground.png": {
     "width": 720,
     "height": 720,
     "captionAlign": "right",
     "captionFont": "300 40px 'Oswald'",
     "captionLineHeight": 52,
     "captionLineSpacing": 7,
-    "pattern": "pixel",
+    "pattern": "wave",
+    "captionTop": 60,
+    "captionRight": 700,
+    "captionLeft": 20,
+    "backgroundImage": "underground.png",
+    "foregroundColor": "#267bb9",
+    "waveBottom": 500,
+    "waveTop": 300,
+    "waveColor": "#2e2d2e"
+  },
+
+  "Photo - Trump": {
+    "captionAlign": "right",
+    "captionFont": "300 40px 'Oswald'",
+    "captionLineHeight": 52,
+    "captionLineSpacing": 7,
+
     "captionTop": 60,
     "captionRight": 1220,
     "captionLeft": 750,
-    "backgroundImage": "box-brown-3.png",
-    "foregroundColor": "#2e2d2e",
-    "waveBottom": 550,
-    "waveTop": 250,
-    "waveColor": "#2e2d2e"
+    "backgroundImage": "trump.png",
+    "foregroundColor": "#facf09",
+    "waveBottom": 500,
+    "waveTop": 300,
+    "waveColor": "#facf09"
   },
 
   "Photo - Spalding": {
@@ -102,6 +155,58 @@
     "waveTop": 450,
     "waveColor": "#2e2d2e"
   },
+
+
+
+  "Furniture - Deep Tracks": {
+    "captionAlign": "right",
+    "captionFont": "600 70px 'Oswald'",
+    "captionLineHeight": 60,
+    "captionLineSpacing": 7,
+
+    "captionTop": 25,
+    "captionRight": 1220,
+    "captionLeft": 500,
+    "backgroundImage": "deep-tracks.png",
+    "foregroundColor": "#000000",
+    "waveBottom": 550,
+    "waveTop": 400,
+    "waveColor": "#facf09"
+  },
+
+  "Furniture - BookMarks": {
+    "captionAlign": "right",
+    "captionFont": "600 70px 'Oswald'",
+    "captionLineHeight": 60,
+    "captionLineSpacing": 7,
+
+    "captionTop": 25,
+    "captionRight": 1220,
+    "captionLeft": 500,
+    "backgroundImage": "bookmarks.png",
+    "foregroundColor": "#FFFFFF",
+    "waveBottom": 550,
+    "waveTop": 400,
+    "waveColor": "#5ab251"
+  },
+
+  "Furniture - dangerous ideas": {
+    "captionAlign": "right",
+    "captionFont": "600 70px 'Oswald'",
+    "captionLineHeight": 60,
+    "captionLineSpacing": 7,
+
+    "captionTop": 25,
+    "captionRight": 1220,
+    "captionLeft": 500,
+    "backgroundImage": "dangerous-ideas.png",
+    "foregroundColor": "#267bb9",
+    "waveBottom": 550,
+    "waveTop": 400,
+    "waveColor": "#267bb9"
+  },
+
+
 
 
 
