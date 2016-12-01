@@ -105,10 +105,29 @@
     "pattern": "bricks"
   },
 
+  "Instagram - CUSTOM.png": {
+    "width": 720,
+    "height": 720,
+    "captionAlign": "right",
+    "captionFont": "300 40px 'Oswald'",
+    "captionLineHeight": 52,
+    "captionLineSpacing": 7,
+    "pattern": "wave",
+    "captionTop": 60,
+    "captionRight": 700,
+    "captionLeft": 20,
+    "backgroundImage": "christianberry-audiogram.png",
+    "foregroundColor": "#267bb9",
+    "waveBottom": 720,
+    "waveTop": 400,
+    "waveColor": "#5ab251",
+    "pattern": "bricks"
+  },
 
 
 
-  "Sonic Sidebar - Trump": {
+
+  "Sonic Sidebar - Mark of Trump": {
     "captionAlign": "right",
     "captionFont": "300 40px 'Oswald'",
     "captionLineHeight": 52,
