@@ -18,9 +18,9 @@ environments:
         minimumHealthyPercent: 50
       desiredCount: 1
       loadBalancers:
-      - containerName: app
-        containerPort: 8000
-        loadBalancerName: se-gfx-audiogram-staging
+        - containerName: app
+          containerPort: 8000
+          loadBalancerName: se-gfx-audiogram-staging
       serviceName: main
 - name: prod
   type: ecs
@@ -39,7 +39,7 @@ environments:
         minimumHealthyPercent: 50
       desiredCount: 3
       loadBalancers:
-      - containerName: app
-        containerPort: 8000
-        loadBalancerName: se-gfx-audiogram-prod
+        - containerName: app
+          containerPort: 8000
+          loadBalancerName: se-gfx-audiogram-prod
       serviceName: main
