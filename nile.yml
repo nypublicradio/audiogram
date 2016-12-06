@@ -1,0 +1,45 @@
+name: audiogram
+namespace: siteeng-lincoln
+environments:
+- name: staging
+  type: ecs
+  override:
+    services:
+      app:
+        ports:
+          - "4567:8888"
+        log_driver: awslogs
+        log_opt:
+          awslogs-group: /nile/siteeng-lincoln/audiogram/staging
+          awslogs-region: us-east-1
+  services:
+    - deploymentConfiguration:
+        maximumPercent: 200
+        minimumHealthyPercent: 50
+      desiredCount: 1
+      loadBalancers:
+      - containerName: app
+        containerPort: 8000
+        loadBalancerName: se-gfx-audiogram-staging
+      serviceName: main
+- name: prod
+  type: ecs
+  override:
+    services:
+      app:
+        ports:
+          - "4568:8888"
+        log_driver: awslogs
+        log_opt:
+          awslogs-group: /nile/siteeng-lincoln/audiogram/prod
+          awslogs-region: us-east-1
+  services:
+    - deploymentConfiguration:
+        maximumPercent: 200
+        minimumHealthyPercent: 50
+      desiredCount: 3
+      loadBalancers:
+      - containerName: app
+        containerPort: 8000
+        loadBalancerName: se-gfx-audiogram-prod
+      serviceName: main

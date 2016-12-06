@@ -18,9 +18,14 @@
 
 var path = require("path");
 
+console.log(path.join(__dirname, "..", "media"));
+
 module.exports = {
+  s3Bucket: 'wp-stat',
+  redisHost: '127.0.0.1',
+  worker: true,
   workingDirectory: path.join(__dirname, "..", "tmp"),
-  storagePath: path.join(__dirname, "..", "media"),
+  storagePath: 'audiograms',
   fonts: [
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Regular.ttf") },
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Light.ttf"), weight: 300 },
