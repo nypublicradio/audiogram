@@ -22,15 +22,19 @@ RUN apt-get install \
 RUN ln -s `which nodejs` /usr/bin/node
 
 # Non-privileged user
-RUN useradd -m audiogram
-USER audiogram
-WORKDIR /home/audiogram
+RUN groupadd -r audiogram && useradd -m -r -g audiogram audiogram
 
 # Clone repo
-COPY . /audiogram
+COPY . /home/audiogram/audiogram
 WORKDIR /home/audiogram/audiogram
 
+RUN chown -R audiogram /home/audiogram/audiogram
+
+USER audiogram
+
 EXPOSE 8000
+
+RUN npm cache clean
 
 # Install dependencies
 RUN npm install
