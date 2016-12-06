@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run postinstall && bin/server",
+    "all": "redis-server --daemonize yes && npm run worker & npm start",
     "worker": "bin/worker",
     "postinstall": "mkdir -p editor/js && browserify client/index.js > editor/js/bundle.js",
     "rebuild": "npm run postinstall",

@@ -13,7 +13,6 @@ RUN apt-get install \
   libjpeg8-dev \
   libpango1.0-dev \
   libpng-dev \
-  make \
   nodejs \
   npm \
   redis-server --yes && \
@@ -22,13 +21,18 @@ RUN apt-get install \
 
 RUN ln -s `which nodejs` /usr/bin/node
 
+# Non-privileged user
+RUN useradd -m audiogram
+USER audiogram
+WORKDIR /home/audiogram
+
 # Clone repo
-COPY . /app
-WORKDIR /app
+COPY . /audiogram
+WORKDIR /home/audiogram/audiogram
 
 EXPOSE 8000
 
 # Install dependencies
 RUN npm install
 
-CMD ["make"]
+CMD ["npm", "run", "all"]
