@@ -18,8 +18,6 @@
 
 var path = require("path");
 
-console.log(path.join(__dirname, "..", "media"));
-
 module.exports = {
   s3Bucket: 'wp-stat',
   redisHost: '127.0.0.1',
