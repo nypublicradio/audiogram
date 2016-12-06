@@ -4,7 +4,7 @@ services:
     build: .
     image: quay.io/washpost/audiogram:{{ .Version }}
     ports:
-      - "8145:8888"
+      - "8145:8000"
     environment:
       AWS_ACCESS_KEY_ID: "%{AQECAHhrXauv6cY0k3VFGkUx9UFWdvCyX3a6yFOMm4QCi5o1gwAAAHIwcAYJKoZIhvcNAQcGoGMwYQIBADBcBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDODRladXJW/Urf+PSwIBEIAvSNJkIHWBcnR/jip86qjsPmarzbjEkXqtEQN0N/0czNam0bGbZUiRmroUDtSIRgM=}"
       AWS_SECRET_ACCESS_KEY: "%{AQECAHhrXauv6cY0k3VFGkUx9UFWdvCyX3a6yFOMm4QCi5o1gwAAAIcwgYQGCSqGSIb3DQEHBqB3MHUCAQAwcAYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAy82Jqx8Xf19CIPMjgCARCAQ2F6NK9kv0K/krC9OYXraw7USoOm/FetIlc09oBjTvjwjGYthVUfzwq2EoGkTQF34ogkgIxqXBBLGFV0TygN+wxWhEA=}"

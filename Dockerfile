@@ -26,6 +26,8 @@ RUN ln -s `which nodejs` /usr/bin/node
 COPY . /app
 WORKDIR /app
 
+EXPOSE 8000
+
 # Install dependencies
 RUN npm install
 
