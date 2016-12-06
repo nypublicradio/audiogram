@@ -7,7 +7,7 @@ environments:
     services:
       app:
         ports:
-          - "4567:8888"
+          - "8145:8888"
         log_driver: awslogs
         log_opt:
           awslogs-group: /nile/siteeng-lincoln/audiogram/staging
@@ -28,7 +28,7 @@ environments:
     services:
       app:
         ports:
-          - "4568:8888"
+          - "8146:8888"
         log_driver: awslogs
         log_opt:
           awslogs-group: /nile/siteeng-lincoln/audiogram/prod
