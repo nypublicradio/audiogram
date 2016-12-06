@@ -3,6 +3,8 @@ services:
   app:
     build: .
     image: quay.io/washpost/audiogram:{{ .Version }}
+    mem_reservation: 2g
+    mem_limit: 4g
     ports:
       - "8145:8000"
     environment:
