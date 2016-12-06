@@ -12,13 +12,6 @@ environments:
         log_opt:
           awslogs-group: /nile/siteeng-lincoln/audiogram/staging
           awslogs-region: us-east-1
-  resources:
-    - vendor: aws
-      resource: simple
-      settings:
-        scheme: internal
-        domain: audiogram-staging.wpit.nile.works
-        parent_domain: wpit.nile.works
   services:
     - deploymentConfiguration:
         maximumPercent: 200
@@ -40,13 +33,6 @@ environments:
         log_opt:
           awslogs-group: /nile/siteeng-lincoln/audiogram/prod
           awslogs-region: us-east-1
-  resources:
-    - vendor: aws
-      resource: simple
-      settings:
-        scheme: internal
-        domain: audiogram.wpit.nile.works
-        parent_domain: wpit.nile.works
   services:
     - deploymentConfiguration:
         maximumPercent: 200
