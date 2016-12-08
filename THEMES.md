@@ -60,7 +60,7 @@ You can set both a `backgroundColor` and a `backgroundImage`, in which case the 
 
 ### Wave options
 
-* `pattern` - What waveform shape to draw. Current options are `wave`, `bars`, `roundBars`, `pixel`, `bricks`, and `equalizer` (default: `wave`)
+* `pattern` - What waveform shape to draw. Current options are `wave`, `bars`, `line`, `curve`, `roundBars`, `pixel`, `bricks`, and `equalizer` (default: `wave`)
 * `waveTop` - How many pixels from the top edge to start the waveform (default: `0`)
 * `waveBottom` - How many pixels from the top edge to end the waveform (default: same as `height`)
 * `waveLeft` - How many pixels from the left edge to start the waveform (default: `0`)

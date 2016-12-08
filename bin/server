@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+// Require settings first, for validation
+require("../lib/settings/");
+
 var dotenv = require("dotenv").config({silent: true}),
     logger = require("../lib/logger/"),
     server = require("../server/");

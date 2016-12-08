@@ -1,62 +1,70 @@
 var d3 = require("d3"),
     patterns = require("./patterns.js"),
-    sample = require("./sample-wave.js"),
     textWrapper = require("./text-wrapper.js");
 
-module.exports = function(context) {
+module.exports = function(t) {
 
-  context.patternQuality = "best";
+  var renderer = {},
+      backgroundImage,
+      wrapText,
+      theme;
 
-  var renderer = {};
-
-  renderer.context = context;
-
-  renderer.update = function(options) {
-
-    // TODO cleaner defaults
-    options.backgroundColor = options.backgroundColor || "#fff";
-    options.waveColor = options.waveColor || options.foregroundColor || "#000";
-    options.captionColor = options.captionColor || options.foregroundColor || "#000";
-
-    if (typeof options.waveTop !== "number") options.waveTop = 0;
-    if (typeof options.waveBottom !== "number") options.waveBottom = options.height;
-    if (typeof options.waveLeft !== "number") options.waveLeft = 0;
-    if (typeof options.waveRight !== "number") options.waveRight = options.width;
-
-    this.wrapText = textWrapper(context, options);
-    this.options = options;
-    this.waveform = options.waveform || [sample.slice(0, options.samplesPerFrame)];
+  renderer.backgroundImage = function(_) {
+    if (!arguments.length) return backgroundImage;
+    backgroundImage = _;
     return this;
   };
 
-  // Get the waveform data for this frame
-  renderer.getWaveform = function(frameNumber) {
-    return this.waveform[Math.min(this.waveform.length - 1, frameNumber)];
+  renderer.theme = function(_) {
+    if (!arguments.length) return theme;
+
+    theme = _;
+
+    // Default colors
+    theme.backgroundColor = theme.backgroundColor || "#fff";
+    theme.waveColor = theme.waveColor || theme.foregroundColor || "#000";
+    theme.captionColor = theme.captionColor || theme.foregroundColor || "#000";
+
+    // Default wave dimensions
+    if (typeof theme.waveTop !== "number") theme.waveTop = 0;
+    if (typeof theme.waveBottom !== "number") theme.waveBottom = theme.height;
+    if (typeof theme.waveLeft !== "number") theme.waveLeft = 0;
+    if (typeof theme.waveRight !== "number") theme.waveRight = theme.width;
+
+    wrapText = textWrapper(theme);
+
+    return this;
   };
 
   // Draw the frame
-  renderer.drawFrame = function(frameNumber) {
+  renderer.drawFrame = function(context, options){
+
+    context.patternQuality = "best";
 
     // Draw the background image and/or background color
-    context.clearRect(0, 0, this.options.width, this.options.height);
+    context.clearRect(0, 0, theme.width, theme.height);
 
-    context.fillStyle = this.options.backgroundColor;
-    context.fillRect(0, 0, this.options.width, this.options.height);
+    context.fillStyle = theme.backgroundColor;
+    context.fillRect(0, 0, theme.width, theme.height);
 
-    if (this.backgroundImage) {
-      context.drawImage(this.backgroundImage, 0, 0, this.options.width, this.options.height);
+    if (backgroundImage) {
+      context.drawImage(backgroundImage, 0, 0, theme.width, theme.height);
     }
 
-    patterns[this.options.pattern || "wave"](context, this.getWaveform(frameNumber), this.options);
+    patterns[theme.pattern || "wave"](context, options.waveform, theme);
 
     // Write the caption
-    if (this.caption) {
-      this.wrapText(this.caption);
+    if (options.caption) {
+      wrapText(context, options.caption);
     }
 
     return this;
 
   };
+
+  if (t) {
+    renderer.theme(t);
+  }
 
   return renderer;
 

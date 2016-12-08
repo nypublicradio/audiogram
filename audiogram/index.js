@@ -2,71 +2,66 @@ var path = require("path"),
     queue = require("d3").queue,
     mkdirp = require("mkdirp"),
     rimraf = require("rimraf"),
-    serverSettings = require("../settings/"),
+    serverSettings = require("../lib/settings/"),
     transports = require("../lib/transports/"),
     logger = require("../lib/logger/"),
-    getDuration = require("./duration.js"),
+    Profiler = require("../lib/profiler.js"),
+    probe = require("../lib/probe.js"),
     getWaveform = require("./waveform.js"),
     initializeCanvas = require("./initialize-canvas.js"),
     drawFrames = require("./draw-frames.js"),
     combineFrames = require("./combine-frames.js"),
     trimAudio = require("./trim.js");
 
-function Audiogram(settings) {
+function Audiogram(id) {
 
   // Unique audiogram ID
-  this.id = settings.id;
-
-  this.settings = settings;
+  this.id = id;
 
   // File locations to use
   this.dir = path.join(serverSettings.workingDirectory, this.id);
+
   this.audioPath = path.join(this.dir, "audio");
   this.videoPath = path.join(this.dir, "video.mp4");
   this.frameDir = path.join(this.dir, "frames");
 
+  this.profiler = new Profiler();
+
   return this;
 
 }
-
-// Probe an audio file for its duration, compute the number of frames required
-Audiogram.prototype.getDuration = function(cb) {
-
-  var self = this;
-
-  this.status("duration");
-
-  getDuration(this.audioPath, function(err, duration){
-
-    if (err) {
-      return cb(err);
-    }
-
-    if (self.settings.maxDuration && self.settings.maxDuration < duration) {
-      cb("Exceeds max duration of " + self.settings.maxDuration + "s");
-    }
-
-    self.set("numFrames", self.numFrames = Math.floor(duration * self.settings.framesPerSecond));
-
-    cb(null);
-
-  });
-
-};
 
 // Get the waveform data from the audio file, split into frames
 Audiogram.prototype.getWaveform = function(cb) {
 
   var self = this;
 
-  this.status("waveform");
+  this.status("probing");
 
-  getWaveform(this.audioPath, {
-    numFrames: this.numFrames,
-    samplesPerFrame: this.settings.samplesPerFrame
-  }, function(err, waveform){
+  probe(this.audioPath, function(err, data){
 
-    return cb(err, self.settings.waveform = waveform);
+    if (err) {
+      return cb(err);
+    }
+
+    if (self.settings.theme.maxDuration && self.settings.theme.maxDuration < data.duration) {
+      return cb("Exceeds max duration of " + self.settings.theme.maxDuration + "s");
+    }
+
+    self.profiler.size(data.duration);
+    self.set("numFrames", self.numFrames = Math.floor(data.duration * self.settings.theme.framesPerSecond));
+    self.status("waveform");
+
+    getWaveform(self.audioPath, {
+      numFrames: self.numFrames,
+      samplesPerFrame: self.settings.theme.samplesPerFrame,
+      channels: data.channels
+    }, function(waveformErr, waveform){
+
+      return cb(waveformErr, self.waveform = waveform);
+
+    });
+
 
   });
 
@@ -106,7 +101,7 @@ Audiogram.prototype.drawFrames = function(cb) {
 
   this.status("renderer");
 
-  initializeCanvas(this.settings, function(err, renderer){
+  initializeCanvas(this.settings.theme, function(err, renderer){
 
     if (err) {
       return cb(err);
@@ -115,8 +110,12 @@ Audiogram.prototype.drawFrames = function(cb) {
     self.status("frames");
 
     drawFrames(renderer, {
+      width: self.settings.theme.width,
+      height: self.settings.theme.height,
       numFrames: self.numFrames,
       frameDir: self.frameDir,
+      caption: self.settings.caption,
+      waveform: self.waveform,
       tick: function() {
         transports.incrementField(self.id, "framesComplete");
       }
@@ -135,7 +134,7 @@ Audiogram.prototype.combineFrames = function(cb) {
     framePath: path.join(this.frameDir, "%06d.png"),
     audioPath: this.audioPath,
     videoPath: this.videoPath,
-    framesPerSecond: this.settings.framesPerSecond
+    framesPerSecond: this.settings.theme.framesPerSecond
   }, cb);
 
 };
@@ -156,11 +155,8 @@ Audiogram.prototype.render = function(cb) {
 
   // If the audio needs to be clipped, clip it first and update the path
   if (this.settings.start || this.settings.end) {
-    q.defer(this.trimAudio.bind(this), this.settings.start || 0, this.settings.end);
+    q.defer(this.trimAudio.bind(this), this.settings.start || 0, this.settings.end || null);
   }
-
-  // Get the audio's duration for computing number of frames
-  q.defer(this.getDuration.bind(this));
 
   // Get the audio waveform data
   q.defer(this.getWaveform.bind(this));
@@ -184,6 +180,8 @@ Audiogram.prototype.render = function(cb) {
       self.set("url", transports.getURL(self.id));
     }
 
+    logger.debug(self.profiler.print());
+
     return cb(err);
 
   });
@@ -200,6 +198,7 @@ Audiogram.prototype.set = function(field, value) {
 
 // Convenience method for .set("status")
 Audiogram.prototype.status = function(value) {
+  this.profiler.start(value);
   return this.set("status", value);
 };
 

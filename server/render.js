@@ -1,8 +1,7 @@
-var serverSettings = require("../settings/"),
+var serverSettings = require("../lib/settings/"),
     spawn = require("child_process").spawn,
     path = require("path"),
     _ = require("underscore"),
-    Audiogram = require("../audiogram/"),
     logger = require("../lib/logger"),
     transports = require("../lib/transports");
 
@@ -10,7 +9,7 @@ function validate(req, res, next) {
 
   try {
 
-    req.body.settings = JSON.parse(req.body.settings);
+    req.body.theme = JSON.parse(req.body.theme);
 
   } catch(e) {
 
@@ -22,15 +21,13 @@ function validate(req, res, next) {
     return res.status(500).send("No valid audio received.");
   }
 
-  req.body.settings.id = req.file.destination.split(path.sep).pop();
-
   // Start at the beginning, or specified time
-  if (req.body.settings.start) {
-    req.body.settings.start = +req.body.settings.start;
+  if (req.body.start) {
+    req.body.start = +req.body.start;
   }
 
-  if (req.body.settings.end) {
-    req.body.settings.end = +req.body.settings.end;
+  if (req.body.end) {
+    req.body.end = +req.body.end;
   }
 
   return next();
@@ -39,18 +36,18 @@ function validate(req, res, next) {
 
 function route(req, res) {
 
-  var audiogram = new Audiogram(req.body.settings);
+  var id = req.file.destination.split(path.sep).pop();
 
-  transports.uploadAudio(audiogram.audioPath, "audio/" + audiogram.id,function(err) {
+  transports.uploadAudio(path.join(req.file.destination, "audio"), "audio/" + id,function(err) {
 
     if (err) {
       throw err;
     }
 
     // Queue up the job with a timestamp
-    transports.addJob(_.extend({ created: (new Date()).getTime() }, req.body.settings));
+    transports.addJob(_.extend({ id: id, created: (new Date()).getTime() }, req.body));
 
-    res.json({ id: req.body.settings.id });
+    res.json({ id: id });
 
     // If there's no separate worker, spawn one right away
     if (!serverSettings.worker) {

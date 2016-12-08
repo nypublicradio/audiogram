@@ -4,12 +4,12 @@ var tape = require("tape"),
     queue = require("d3").queue,
     request = require("supertest");
 
-var serverSettings = require("./patch-settings")({
-  workingDirectory: path.join(__dirname, "tmp", "working"),
-  maxUploadSize: 100000,
-  storagePath: path.join(__dirname, "tmp", "storage"),
-  worker: true
-});
+var serverSettings = require("../lib/settings/");
+
+serverSettings.workingDirectory = path.join(__dirname, "tmp", "working");
+serverSettings.storagePath = path.join(__dirname, "tmp", "storage");
+serverSettings.maxUploadSize = 100000;
+serverSettings.worker = true;
 
 var server = require("../server");
 
@@ -66,6 +66,45 @@ tape("404 2", function(test) {
 
 });
 
+tape("404 3", function(test) {
+
+  request(server)
+    .get("/fonts/something")
+    .expect(404)
+    .end(function(err, res){
+      test.error(err);
+      test.end();
+    });
+
+});
+
+tape("Font stylesheet", function(test) {
+
+  request(server)
+    .get("/fonts/fonts.css")
+    .expect(200)
+    .expect(/font-face/)
+    .expect("Content-Type", /css/)
+    .end(function(err, res){
+      test.error(err);
+      test.end();
+    });
+
+});
+
+tape("Font file", function(test) {
+
+  request(server)
+    .get("/fonts/custom-0.ttf")
+    .expect(200)
+    .expect("Content-Type", /ttf/)
+    .end(function(err, res){
+      test.error(err);
+      test.end();
+    });
+
+});
+
 tape("Server static background", function(test) {
 
   request(server)
@@ -84,7 +123,7 @@ tape("Max size", function(test) {
   request(server)
     .post("/submit/")
     .attach("audio", longSample)
-    .field("settings", "{}")
+    .field("theme", "{}")
     .expect(500)
     .end(function(err, res){
       test.assert(res.text.match(/uploads are limited/i));
@@ -98,7 +137,7 @@ tape("Missing file", function(test) {
   request(server)
     .post("/submit/")
     .type("json")
-    .field("settings", "{}")
+    .field("theme", "{}")
     .expect(500)
     .end(function(err, res){
       test.assert(res.text.match(/audio/i));
@@ -112,7 +151,7 @@ tape("Broken settings", function(test) {
   request(server)
     .post("/submit/")
     .type("multipart/form-data")
-    .field("settings", "a")
+    .field("theme", "a")
     .expect(500)
     .end(function(err, res){
       test.assert(res.text.match(/settings/i));
@@ -128,7 +167,7 @@ tape("Successful submission", function(test) {
   request(server)
     .post("/submit/")
     .attach("audio", shortSample)
-    .field("settings", JSON.stringify({ test: true }))
+    .field("theme", JSON.stringify({ test: true }))
     .expect(200)
     .end(function(err, res){
 

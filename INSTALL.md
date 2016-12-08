@@ -5,7 +5,6 @@ Audiogram has a number of dependencies:
 * [Node.js/NPM](https://nodejs.org/) v0.11.2 or greater
 * [node-canvas dependencies](https://github.com/Automattic/node-canvas#installation)
 * [FFmpeg](https://www.ffmpeg.org/)
-* [libgroove](https://github.com/andrewrk/libgroove)
 
 If you're using a particularly fancy distributed setup you'll also need to install [Redis](http://redis.io/).
 
@@ -22,10 +21,9 @@ Note: if you're using something with < 1GB of RAM, like a Digital Ocean micro dr
 An example bootstrap script for installing Audiogram on Ubuntu looks like this:
 
 ```sh
-# 14.04 only: add PPAs for FFmpeg and Libgroove
+# 14.04 only: add PPA for FFmpeg
 # Not required for 15.04+
 sudo add-apt-repository ppa:mc3man/trusty-media --yes
-sudo apt-add-repository ppa:andrewrk/libgroove --yes
 
 # Update/upgrade
 sudo apt-get update --yes && sudo apt-get upgrade --yes
@@ -35,11 +33,9 @@ sudo apt-get update --yes && sudo apt-get upgrade --yes
 # Git
 # node-canvas dependencies (Cairo, Pango, libgif, libjpeg)
 # FFmpeg
-# node-waveform dependencies (libgroove, zlib, libpng)
 sudo apt-get install git nodejs npm \
-libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++ \
+libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev libpng-dev build-essential g++ \
 ffmpeg \
-libgroove-dev zlib1g-dev libpng-dev \
 --yes
 
 # Install Redis if you plan to use it to share rendering among multiple processes/servers
@@ -82,21 +78,19 @@ Installing on a Mac can get a little rocky. Essentially, you need to install thr
 
 1. [Node.js/NPM](https://nodejs.org/)
 2. [node-canvas dependencies](https://github.com/Automattic/node-canvas#installation)
-4. [libgroove](https://github.com/andrewrk/libgroove)
-
-You probably don't need to install FFmpeg separately because libgroove depends on it.
+4. [FFmpeg](https://www.ffmpeg.org/)
 
 You can install Node.js by [downloading it from the website](https://nodejs.org/).
 
-Installation of node-canvas dependencies and libgroove might look like the following with [Homebrew](http://brew.sh/) (you'll want to make sure [XCode](https://developer.apple.com/xcode/) is installed and up-to-date too):
+Installation of node-canvas dependencies and FFmpeg might look like the following with [Homebrew](http://brew.sh/) (you'll want to make sure [XCode](https://developer.apple.com/xcode/) is installed and up-to-date too):
 
 ```sh
 # Install Git if you haven't already
 brew install git
 
-# Install Cairo, Pango, libgif, libjpeg, libgroove, and FFmpeg
+# Install Cairo, Pango, libgif, libjpeg, libpng, and FFmpeg
 # You may not need to install zlib
-brew install pkg-config cairo pango libpng jpeg giflib libgroove ffmpeg
+brew install pkg-config cairo pango libpng jpeg giflib ffmpeg
 
 # Go to the directory where you want the audiogram directory
 cd /where/to/put/this/
@@ -146,18 +140,6 @@ If things aren't working on a Mac, there are a few fixes you can try.
 ### Brew troubleshooting
 
 Follow the [Homebrew troubleshooting guide](https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Troubleshooting.md#troubleshooting), particularly making sure that XCode is up to date.
-
-### Installing libgroove manually
-
-If you're on a Mac and installing [libgroove](https://github.com/andrewrk/libgroove) with Homebrew failed for some reason, you can try following the instructions in the repo to install it more manually.
-
-### Installing XCode command line tools
-
-Audiogram uses [waveform](https://github.com/andrewrk/waveform), which requires the development version of `zlib`. Your Mac might already have this, but if it doesn't, installing XCode command line tools might help:
-
-```sh
-xcode-select --install
-```
 
 ### Updating node-gyp
 

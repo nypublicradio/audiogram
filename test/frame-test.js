@@ -10,96 +10,64 @@ require("mkdirp").sync(path.join(__dirname, "tmp", "frames"));
 
 var frameDir = path.join(__dirname, "tmp", "frames");
 
-tape.test("Draw frame", function(test){
+var waveform = [
+  [
+    [0, 0], [1, 1], [0, 0]
+  ],
+  [
+    [1, 1], [0.1, 0.1], [1, 1]
+  ]
+];
 
-  var options = {
-    width: 1280,
-    height: 720,
-    backgroundColor: "#f00",
-    foregroundColor: "#fff",
-    waveTop: 340,
-    waveBottom: 380,
-    waveform: [[0, 1, 0], [1, 0.1, 1]]
-  };
+function tester(options) {
 
-  initializeCanvas(options, function(err, renderer){
+  return function(test) {
 
-    test.error(err);
-    test.assert(renderer.context.canvas instanceof Canvas);
-    test.assert(renderer.context.canvas.width === options.width);
-    test.assert(renderer.context.canvas.height === options.height);
+    initializeCanvas(options, function(err, renderer){
 
-    drawFrames(renderer, {
-      numFrames: 2,
-      frameDir: frameDir
-    }, function(err){
       test.error(err);
-      checkFrame(test, options);
+
+      drawFrames(renderer, {
+        numFrames: waveform.length,
+        frameDir: frameDir,
+        width: options.width,
+        height: options.height,
+        waveform: waveform
+      }, function(err){
+        test.error(err);
+        checkFrame(test, options);
+      });
+
     });
 
-  });
-
-});
-
-tape.test("Default colors", function(test){
-
-  var options = {
-    width: 1280,
-    height: 720,
-    waveTop: 340,
-    waveBottom: 380,
-    waveform: [[0, 1, 0], [1, 0.1, 1]]
   };
 
-  initializeCanvas(options, function(err, renderer){
+}
 
-    test.error(err);
-    test.assert(renderer.context.canvas instanceof Canvas);
-    test.assert(renderer.context.canvas.width === options.width);
-    test.assert(renderer.context.canvas.height === options.height);
+tape.test("Draw frame", tester({
+  width: 1280,
+  height: 720,
+  backgroundColor: "#f00",
+  foregroundColor: "#fff",
+  waveTop: 340,
+  waveBottom: 380
+}));
 
-    drawFrames(renderer, {
-      numFrames: 2,
-      frameDir: frameDir
-    }, function(err){
-      test.error(err);
-      checkFrame(test, options);
-    });
+tape.test("Default colors", tester({
+  width: 1280,
+  height: 720,
+  waveTop: 340,
+  waveBottom: 380
+}));
 
-  });
-
-});
-
-tape.test("Square frame", function(test){
-
-  var options = {
-    width: 720,
-    height: 720,
-    backgroundColor: "#fc0",
-    foregroundColor: "#fff",
-    waveTop: 340,
-    waveBottom: 380,
-    waveform: [[0, 1, 0], [1, 0.1, 1]]
-  };
-
-  initializeCanvas(options, function(err, renderer){
-
-    test.error(err);
-    test.assert(renderer.context.canvas instanceof Canvas);
-    test.assert(renderer.context.canvas.width === options.width);
-    test.assert(renderer.context.canvas.height === options.height);
-
-    drawFrames(renderer, {
-      numFrames: 2,
-      frameDir: frameDir
-    }, function(err){
-      test.error(err);
-      checkFrame(test, options);
-    });
-
-  });
-
-});
+tape.test("Square frame", tester({
+  width: 720,
+  height: 720,
+  backgroundColor: "#f00",
+  foregroundColor: "#fff",
+  waveTop: 340,
+  waveBottom: 380
+}));
 
 function checkFrame(test, options) {
 
