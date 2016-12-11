@@ -53,25 +53,27 @@ if (serverSettings.maxUploadSize) {
 users = path.join(__dirname, "..", "settings") + "/users.htpasswd";
 
 // Only run if settings/users.htpasswd isn't empty
-if (fs.readFileSync(users, "utf8")) {
-  var auth = require("http-auth");
+try {
+  if (fs.readFileSync(users, "utf8")) {
+    var auth = require("http-auth");
 
-  var basic = auth.basic({
-      file:   users,
-      realm:  "Audiogram Administration",
-      msg401: "Error: Your account details could not be authenticated."
-  });
+    var basic = auth.basic({
+        file:   users,
+        realm:  "Audiogram Administration",
+        msg401: "Error: Your account details could not be authenticated."
+    });
 
-  app.use(function(req, res, next) {
-    if (new RegExp("^\/video\/").test(req.path)) {
-      // Allow /video/* links to work without authentication (for sharing)
-      next();
-    } else {
-      // Set up authentication
-      (auth.connect(basic))(req, res, next);
-    }
-  });
-}
+    app.use(function(req, res, next) {
+      if (new RegExp("^\/video\/").test(req.path)) {
+        // Allow /video/* links to work without authentication (for sharing)
+        next();
+      } else {
+        // Set up authentication
+        (auth.connect(basic))(req, res, next);
+      }
+    });
+  }
+} catch(e) { }
 
 // On submission, check upload, validate input, and start generating a video
 app.post("/submit/", [multer(fileOptions).single("audio"), render.validate, render.route]);
