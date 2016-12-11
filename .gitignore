@@ -7,3 +7,4 @@ junk/
 media/
 *.log
 .jobs
+settings/users.htpasswd
