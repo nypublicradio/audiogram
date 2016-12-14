@@ -106,6 +106,8 @@ By default, audio and video files uploaded to S3 are public. They have 32-charac
 
 `maxUploadSize` - this prevents people from uploading giant files.  For example, a value of `25000000` will limit file uploads to roughly 25 MB.
 
+`authFile` - the location of a htpasswd auth file. If set, the entire site will use HTTP basic authentication. However, generated video URLs (/video/*) will remain public and sharable without any authentication.
+
 ### Full examples
 
 Local:
@@ -146,6 +148,17 @@ module.exports = {
   s3Bucket: "myaudiogrambucket",
   redisHost: "1.2.3.4",
   worker: true
+}
+```
+
+### Partial examples
+
+htpasswd auth file (for *settings/users.htpasswd*):
+
+```js
+module.exports = {
+  // other settings (e.g. workingDirectory),
+  authFile: path.join(__dirname) + '/users.htpasswd'
 }
 ```
 

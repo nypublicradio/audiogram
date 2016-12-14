@@ -4,8 +4,7 @@ var express = require("express"),
     path = require("path"),
     multer = require("multer"),
     uuid = require("uuid"),
-    mkdirp = require("mkdirp"),
-    fs = require("fs");
+    mkdirp = require("mkdirp");
 
 // Routes and middleware
 var logger = require("../lib/logger/"),
@@ -45,35 +44,10 @@ if (serverSettings.maxUploadSize) {
   };
 }
 
-/**
- * HTTP basic authentication
- */
-
-// List of accounts
-users = path.join(__dirname, "..", "settings") + "/users.htpasswd";
-
-// Only run if settings/users.htpasswd isn't empty
-try {
-  if (fs.readFileSync(users, "utf8")) {
-    var auth = require("http-auth");
-
-    var basic = auth.basic({
-        file:   users,
-        realm:  "Audiogram Administration",
-        msg401: "Error: Your account details could not be authenticated."
-    });
-
-    app.use(function(req, res, next) {
-      if (new RegExp("^\/video\/").test(req.path)) {
-        // Allow /video/* links to work without authentication (for sharing)
-        next();
-      } else {
-        // Set up authentication
-        (auth.connect(basic))(req, res, next);
-      }
-    });
-  }
-} catch(e) { }
+// HTTP basic authentication
+if (serverSettings.authFile) {
+  app.use(/^\/((?!video).)*/, require("./auth.js")(serverSettings.authFile));
+}
 
 // On submission, check upload, validate input, and start generating a video
 app.post("/submit/", [multer(fileOptions).single("audio"), render.validate, render.route]);
