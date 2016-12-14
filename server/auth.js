@@ -8,8 +8,6 @@ module.exports = function(authFile) {
       msg401: "Error: Your account details could not be authenticated."
   });
 
-  return function(req, res, next) {
-    (auth.connect(basic))(req, res, next);
-  }
+  return auth.connect(basic);
 
 }
