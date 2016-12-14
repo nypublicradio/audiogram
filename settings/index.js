@@ -13,7 +13,7 @@
   s3Bucket - a bucket to store generated audio/videos.  If storagePath is also set, it will store files at s3://[s3Bucket]/[storagePath]/
   redisHost - a redis host name/address to use for tracking jobs (e.g. "1.2.3.4" or "127.0.0.1")
   worker - if this is truthy, the server will add jobs to a queue. Otherwise, it will render videos on the spot itself
-  authFile - location of a htpasswd auth file. If set, the entire site will use HTTP basic authentication (aside from sharable /video/* URLs)
+  authFile - location of a htpasswd auth file (https://httpd.apache.org/docs/current/programs/htpasswd.html). If set, the entire site will use HTTP basic authentication (aside from sharable /video/* URLs)
 */
 
 var path = require("path");
