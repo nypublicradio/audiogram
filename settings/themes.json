@@ -15,6 +15,22 @@
     "captionLeft": 200,
     "captionRight": 1080
   },
+  "Love+Radio (1024x1024)": {
+    "width": 1024,
+    "height": 1024,
+    "pattern": "bars",
+    "captionFont": "300 64px 'Source Sans Pro'",
+    "captionAlign": "center",
+    "captionTop": 85,
+    "captionRight": 984,
+    "captionLeft": 20,
+    "backgroundImage": "L-and-R-1024.png",
+    "foregroundColor": "#746241",
+    "waveBottom": 1328,
+    "waveTop": 720,
+    "waveColor": "#ED1DB9",
+    "samplesPerFrame": 128
+  },
   "Criminal (1280x720)": {
     "pattern": "roundBars",
     "captionFont": "300 64px 'NikeTotal90'",
