@@ -37,6 +37,7 @@
     "node-ffprobe": "^1.2.2",
     "redis": "^2.4.2",
     "rimraf": "^2.5.0",
+    "s3o-middleware": "^1.8.0",
     "smartquotes": "^1.0.0",
     "underscore": "^1.8.3",
     "uuid": "^3.0.1",
