@@ -59,6 +59,8 @@ function route(req, res) {
         stdio: "inherit",
         cwd: path.join(__dirname, ".."),
         env: _.extend({}, process.env, { SPAWNED: true })
+      }).on('error', function(err) {
+        throw err;
       });
 
     }
