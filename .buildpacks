@@ -1,0 +1,3 @@
+https://github.com/mojodna/heroku-buildpack-cairo.git
+https://github.com/shunjikonishi/heroku-buildpack-ffmpeg
+https://github.com/heroku/heroku-buildpack-nodejs.git
