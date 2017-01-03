@@ -4,7 +4,8 @@ var express = require("express"),
     path = require("path"),
     multer = require("multer"),
     uuid = require("uuid"),
-    mkdirp = require("mkdirp");
+    mkdirp = require("mkdirp"),
+    authS3O = require('s3o-middleware');
 
 // Routes and middleware
 var logger = require("../lib/logger/"),
@@ -20,6 +21,7 @@ var app = express();
 
 app.use(compression());
 app.use(logger.morgan());
+app.use(authS3O);
 
 // Options for where to store uploaded audio and max size
 var fileOptions = {
