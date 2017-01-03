@@ -48,5 +48,8 @@
     "supertest": "^1.2.0",
     "tape": "^4.6.0",
     "watchify": "^3.7.0"
+  },
+  "engines": {
+    "node": "^7.1.0"
   }
 }
