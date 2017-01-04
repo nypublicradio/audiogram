@@ -1,0 +1,10 @@
+version: 0.1
+phases:
+  build:
+    commands:
+      - echo TKTK
+artifacts:
+  # It seems like CodePipeline and CodeBuild expect an artifact here. Currently
+  # we don't need any, so this is essentially a no-op.
+  files:
+    - README.md
