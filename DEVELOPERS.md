@@ -22,7 +22,7 @@ Note that if you modify any of the code in `renderer/`, you'll want to run `npm 
 
 ## Require users to log in
 
-Audiogram doesn't include any sort of authentication system.  If you want to host a version of it for internal use and protect it from the outside world, you could limit access by IP, or you could add some other login system.  The web server uses the [Express.js](http://expressjs.com/) framework.  If you add authentication middleware at the top of `server/index.js`, it will redirect unauthenticated requests. [Passport.js](http://passportjs.org/) is one resource that offers Express-friendly authentication using OAuth for popular services (e.g. Google or Facebook), but no matter what you'll at least need to administer a list of allowed users somewhere.
+Audiogram doesn't include much authentication support. If you want to host a version of it for internal use and protect it from the outside world, you could limit access by IP, you could use the `authFile` setting to limit access with an htpasswd file, or you could add some other login system.  The web server uses the [Express.js](http://expressjs.com/) framework.  If you add authentication middleware at the top of `server/index.js`, it will redirect unauthenticated requests. [Passport.js](http://passportjs.org/) is one resource that offers Express-friendly authentication using OAuth for popular services (e.g. Google or Facebook), but no matter what you'll at least need to administer a list of allowed users somewhere.
 
 ## Fiddle with FFmpeg options (e.g. use different encoders)
 

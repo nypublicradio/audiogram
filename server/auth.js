@@ -1,6 +1,6 @@
 var auth = require("http-auth");
 
-module.exports = function(authFile) {
+module.exports = function(authFile){
 
   var basic = auth.basic({
       file:   authFile,
@@ -10,4 +10,4 @@ module.exports = function(authFile) {
 
   return auth.connect(basic);
 
-}
+};

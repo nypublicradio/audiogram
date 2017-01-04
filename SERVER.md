@@ -106,7 +106,7 @@ By default, audio and video files uploaded to S3 are public. They have 32-charac
 
 `maxUploadSize` - this prevents people from uploading giant files.  For example, a value of `25000000` will limit file uploads to roughly 25 MB.
 
-`authFile` - the location of a [htpasswd auth file](https://httpd.apache.org/docs/current/programs/htpasswd.html). If set, the entire site will use HTTP basic authentication. However, generated video URLs (/video/*) will remain public and sharable without any authentication.
+`authFile` - the location of a [htpasswd auth file](https://httpd.apache.org/docs/current/programs/htpasswd.html). If set, the entire site will use HTTP basic authentication. However, generated video URLs (`/video/*`) will remain public and sharable without any authentication.
 
 ### Full examples
 
@@ -151,14 +151,13 @@ module.exports = {
 }
 ```
 
-### Partial examples
-
-htpasswd auth file:
+Using an auth file:
 
 ```js
 module.exports = {
-  // other settings (e.g. workingDirectory),
-  authFile: path.join(__dirname, "users.htpasswd")
+  workingDirectory: "/tmp/",
+  storagePath: "/home/me/audiogram-files/",
+  authFile: "/home/me/audiogram/settings/users.htpasswd"
 }
 ```
 
@@ -166,10 +165,10 @@ module.exports = {
 
 If you run Audiogram on a remote server, you need to make sure you can access it.  For example, if you're using Amazon EC2, you need to allow inbound HTTP traffic on port 8888, or whichever port you're using instead.
 
-The flip side is that you probably want to make sure other people CAN'T access it.  Otherwise a random person (or more likely a random robot) can view your Audiogram editor in their browser, and possibly spam it or worse.  The simplest way to do this is to limit access by IP address so that, for example, only computers in your office can access it.  But you can also add whatever authentication middleware you want. For some thoughts on how to do that, check out the [Developer Notes](DEVELOPERS.md#require-users-to-log-in).
+The flip side is that you probably want to make sure other people CAN'T access it.  Otherwise a random person (or more likely a random robot) can view your Audiogram editor in their browser, and possibly spam it or worse.  The simplest way to do this is to limit access by IP address so that, for example, only computers in your office can access it.  You can also use a basic HTTP auth strategy with the `authFile` setting (see above).  But you can also add whatever other authentication middleware you want. For some thoughts on how to do that, check out the [Developer Notes](DEVELOPERS.md#require-users-to-log-in).
 
 If you've set `redisHost` to a specific destination, you also need to make sure that all your instances can connect to it over port 6379.
 
 ## Advanced customization
 
-This may not suit you. Maybe you don't want to use S3. Maybe you need to add password protection. Maybe you have other ideas. For some advice on how to modify this for your needs, check out the [Developer Notes](DEVELOPERS.md).
+This may not suit you. Maybe you don't want to use S3. Maybe you need to add "Log in with Twitter" functionality. Maybe you have other ideas. For some advice on how to modify this for your needs, check out the [Developer Notes](DEVELOPERS.md).
