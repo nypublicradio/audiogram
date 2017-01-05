@@ -4,6 +4,9 @@ var tape = require("tape"),
     queue = require("d3").queue,
     request = require("supertest");
 
+// Force uncache settings between tests
+require("./uncache.js")("../lib/settings/", "../server", "../settings/");
+
 var serverSettings = require("../lib/settings/");
 
 serverSettings.workingDirectory = path.join(__dirname, "tmp", "working");
