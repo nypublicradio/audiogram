@@ -5,7 +5,7 @@ var Audiogram = require("../audiogram/"),
     getWaveform = require("../audiogram/waveform.js"),
     probe = require("../lib/probe.js");
 
-var sample = path.join(__dirname, "data/glazed-donut.mp3");
+var sample = path.join(__dirname, "audio/glazed-donut.mp3");
 
 tape("Waveform", function(test) {
 

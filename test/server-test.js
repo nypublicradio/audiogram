@@ -13,8 +13,8 @@ serverSettings.worker = true;
 
 var server = require("../server");
 
-var longSample = path.join(__dirname, "data", "glazed-donut.mp3"),
-    shortSample = path.join(__dirname, "data", "short.mp3");
+var longSample = path.join(__dirname, "audio/glazed-donut.mp3"),
+    shortSample = path.join(__dirname, "audio/short.mp3");
 
 tape("Server static", function(test) {
 

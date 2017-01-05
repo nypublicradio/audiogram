@@ -10,7 +10,7 @@ var probe = require("../lib/probe.js"),
 
 tape("MP3 probe", function(test) {
 
-  probe(path.join(__dirname, "data/glazed-donut.mp3"), function(err, data){
+  probe(path.join(__dirname, "audio/glazed-donut.mp3"), function(err, data){
 
     test.error(err);
     test.equal(typeof data.duration, "number");
@@ -24,7 +24,7 @@ tape("MP3 probe", function(test) {
 
 tape("Mono probe", function(test) {
 
-  probe(path.join(__dirname, "data/glazed-donut-mono.mp3"), function(err, data){
+  probe(path.join(__dirname, "audio/glazed-donut-mono.mp3"), function(err, data){
 
     test.error(err);
     test.equal(typeof data.duration, "number");
@@ -38,7 +38,7 @@ tape("Mono probe", function(test) {
 
 tape("WAV probe", function(test) {
 
-  probe(path.join(__dirname, "data/glazed-donut.wav"), function(err, data){
+  probe(path.join(__dirname, "audio/glazed-donut.wav"), function(err, data){
 
     test.error(err);
     test.equal(typeof data.duration, "number");
@@ -52,7 +52,7 @@ tape("WAV probe", function(test) {
 
 tape("Mono probe", function(test) {
 
-  probe(path.join(__dirname, "data/short.wav"), function(err, data){
+  probe(path.join(__dirname, "audio/short.wav"), function(err, data){
 
     test.error(err);
     test.equal(typeof data.duration, "number");
@@ -78,7 +78,7 @@ tape("Probe error", function(test) {
 tape("Trim start", function(test) {
 
   var options = {
-    origin: path.join(__dirname, "data/glazed-donut.mp3"),
+    origin: path.join(__dirname, "audio/glazed-donut.mp3"),
     destination: path.join(__dirname, "tmp/trim-start.mp3"),
     startTime: 6.67
   };
@@ -100,7 +100,7 @@ tape("Trim start", function(test) {
 tape("Trim end", function(test) {
 
   var options = {
-    origin: path.join(__dirname, "data/glazed-donut.mp3"),
+    origin: path.join(__dirname, "audio/glazed-donut.mp3"),
     destination: path.join(__dirname, "tmp/trim-end.mp3"),
     startTime: 6.67
   };
@@ -122,7 +122,7 @@ tape("Trim end", function(test) {
 tape("Trim start & end", function(test) {
 
   var options = {
-    origin: path.join(__dirname, "data/glazed-donut.mp3"),
+    origin: path.join(__dirname, "audio/glazed-donut.mp3"),
     destination: path.join(__dirname, "tmp/trim-start-end.mp3"),
     startTime: 5,
     endTime: 10
@@ -146,7 +146,7 @@ tape("Trim start & end", function(test) {
 tape("Trim invalid", function(test) {
 
   var options = {
-    origin: path.join(__dirname, "data/glazed-donut.mp3"),
+    origin: path.join(__dirname, "audio/glazed-donut.mp3"),
     destination: path.join(__dirname, "tmp/trim-invalid.mp3"),
     startTime: 5,
     endTime: 4
