@@ -17,7 +17,7 @@ serverSettings.worker = true;
 
 var server = require("../server");
 
-var longSample = path.join(__dirname, "data/glazed-donut.mp3");
+var longSample = path.join(__dirname, "audio/glazed-donut.mp3");
 
 tape("Can't GET without credentials", function(test) {
 
