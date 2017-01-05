@@ -30,10 +30,9 @@ Audiogram actually consists of two pieces, the "server" and the "worker."  The s
 
 The server handles the editor and submissions, and the worker does the heavy lifting of rendering a video file.  By default, when a new submission comes in, the server will start a new worker right away.  This is fine for light use, but if ten people all requested a long audiogram at the same time, things might get messy.
 
-The way to break this traffic jam is to make sure you also installed Redis (see [installation instructions](INSTALL.md)) and then add two additional settings in `settings/index.js` ([link](settings/index.js)):
+The way to break this traffic jam is to set `worker` to `true` in `settings/index.js` ([link](settings/index.js)):
 
 ```js
-redisHost: "127.0.0.1",
 worker: true
 ```
 
@@ -100,7 +99,7 @@ By default, audio and video files uploaded to S3 are public. They have 32-charac
 
 `s3Bucket` - the name of an S3 bucket to store audio and video files on.
 
-`redisHost` - the address where all your instances can access a shared Redis server.
+`redisHost` - the address where all your instances can access a shared Redis server. The default is the local host.
 
 `worker` - if this is truthy, then new submissions will be added to a queue instead of rendered immediately.
 
@@ -117,13 +116,12 @@ module.exports = {
 }
 ```
 
-Local, but use Redis as a queue:
+Local, but use a queue and run the worker separately:
 
 ```js
 module.exports = {
   workingDirectory: "/tmp/",
   storagePath: "/home/me/audiogram-files/",
-  redisHost: "127.0.0.1",
   worker: true
 }
 ```
@@ -155,7 +153,7 @@ If you run Audiogram on a remote server, you need to make sure you can access it
 
 The flip side is that you probably want to make sure other people CAN'T access it.  Otherwise a random person (or more likely a random robot) can view your Audiogram editor in their browser, and possibly spam it or worse.  The simplest way to do this is to limit access by IP address so that, for example, only computers in your office can access it.  But you can also add whatever authentication middleware you want. For some thoughts on how to do that, check out the [Developer Notes](DEVELOPERS.md#require-users-to-log-in).
 
-If you've set `redisHost` to a specific destination, you also need to make sure that all your instances can connect to it over port 6379.
+If you've set `redisHost` to a specific remote destination, you also need to make sure that all your instances can connect to it over port 6379.
 
 ## Advanced customization
 

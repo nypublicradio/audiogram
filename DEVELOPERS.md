@@ -28,9 +28,9 @@ Audiogram doesn't include any sort of authentication system.  If you want to hos
 
 The FFmpeg command that does the final video rendering is in `audiogram/combine-frames.js`.  You can add or edit flags there.
 
-## Use something else besides Redis or a file to track jobs
+## Use something else besides Redis to track jobs
 
-If `redisHost` is defined in your settings, Redis will be used to track the status of audiogram jobs.  If it's not enabled, there will instead be a JSON file called `.jobs` in the root Audiogram directory which works OK if you're just using it locally.  If you want to use something else, like some sort of database or SQS, you'll want to edit the files in `lib/transports/redis/`, which define the API for how to interact with Redis or its equivalent.  `lib/transports/redis/index.js` will expose the API for Redis or the file equivalent depending on the server settings.  The easiest way to get started would probably be to copy the file `lib/transports/redis/fake.js` and update it to work with the system you want to use instead.
+Redis will be used to track the status of audiogram jobs and communicate between server and worker processes. If you want to use something else, like some sort of database or SQS, you'll want to edit the files in `lib/transports/redis/`, which define the API for how to interact with Redis or its equivalent.  `lib/transports/redis/index.js` will expose the API for Redis or the file equivalent depending on the server settings.  The easiest way to get started would probably be to copy the file `lib/transports/redis/redis.js` and update it to work with the system you want to use instead.
 
 ## Store files somewhere else besides S3 or a folder
 

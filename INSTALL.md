@@ -5,8 +5,7 @@ Audiogram has a number of dependencies:
 * [Node.js/NPM](https://nodejs.org/) v0.11.2 or greater
 * [node-canvas dependencies](https://github.com/Automattic/node-canvas#installation)
 * [FFmpeg](https://www.ffmpeg.org/)
-
-If you're using a particularly fancy distributed setup you'll also need to install [Redis](http://redis.io/).
+* [Redis](http://redis.io/)
 
 Installation has been tested on Ubuntu 14.04, 15.04, and 16.04. It has also been tested on various Mac OS X environments, with various degrees of Homebrew Hell involved.
 
@@ -33,14 +32,11 @@ sudo apt-get update --yes && sudo apt-get upgrade --yes
 # Git
 # node-canvas dependencies (Cairo, Pango, libgif, libjpeg)
 # FFmpeg
+# Redis
 sudo apt-get install git nodejs npm \
 libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev libpng-dev build-essential g++ \
-ffmpeg \
+ffmpeg redis-server \
 --yes
-
-# Install Redis if you plan to use it to share rendering among multiple processes/servers
-# If you don't need to handle multiple users, you can skip this step
-sudo apt-get install redis-server --yes
 
 # Fix nodejs/node legacy binary nonsense
 sudo ln -s `which nodejs` /usr/bin/node
@@ -74,15 +70,16 @@ npm install
 
 ## Mac OS X installation
 
-Installing on a Mac can get a little rocky. Essentially, you need to install three things:
+Installing on a Mac can get a little rocky. Essentially, you need to install four things, and the fourth one is the tricky part:
 
 1. [Node.js/NPM](https://nodejs.org/)
-2. [node-canvas dependencies](https://github.com/Automattic/node-canvas#installation)
-4. [FFmpeg](https://www.ffmpeg.org/)
+2. [FFmpeg](https://www.ffmpeg.org/)
+3. [Redis](http://redis.io/)
+4. [node-canvas dependencies](https://github.com/Automattic/node-canvas#installation)
 
 You can install Node.js by [downloading it from the website](https://nodejs.org/).
 
-Installation of node-canvas dependencies and FFmpeg might look like the following with [Homebrew](http://brew.sh/) (you'll want to make sure [XCode](https://developer.apple.com/xcode/) is installed and up-to-date too):
+Installation of node-canvas dependencies, Redis, and FFmpeg might look like the following with [Homebrew](http://brew.sh/) (you'll want to make sure [XCode](https://developer.apple.com/xcode/) is installed and up-to-date too):
 
 ```sh
 # Install Git if you haven't already
@@ -90,7 +87,7 @@ brew install git
 
 # Install Cairo, Pango, libgif, libjpeg, libpng, and FFmpeg
 # You may not need to install zlib
-brew install pkg-config cairo pango libpng jpeg giflib ffmpeg
+brew install pkg-config cairo pango libpng jpeg giflib ffmpeg redis
 
 # Go to the directory where you want the audiogram directory
 cd /where/to/put/this/
