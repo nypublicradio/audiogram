@@ -2,7 +2,7 @@
 
 Audiogram has a number of dependencies:
 
-* [Node.js/NPM](https://nodejs.org/) v0.11.2 or greater
+* [Node.js/NPM](https://nodejs.org/) v4.0.0 or greater
 * [node-canvas dependencies](https://github.com/Automattic/node-canvas#installation)
 * [FFmpeg](https://www.ffmpeg.org/)
 
@@ -48,8 +48,8 @@ sudo ln -s `which nodejs` /usr/bin/node
 # Check the version of Node
 node -v
 
-# If the installed Node version is >= v0.11.2, you can skip the next step
-# If it's < v0.11.2, upgrade Node to the latest stable version
+# If the installed Node version is >= v4.0.0, you can skip the next step
+# If it's < v4.0.0, upgrade Node to the latest stable version
 # If you use this method, you'll probably need to reconnect afterwards
 # to see the new Node version reflected
 sudo npm install -g n
@@ -153,7 +153,7 @@ may help with `npm install` errors.
 
 ### Updating Node.js
 
-If you get an error about `path.isAbsolute` not being a function, you're running a pretty old version of [Node.js/NPM](https://nodejs.org/). Upgrading to anything later than v0.11.2 should help.
+If you get an error about `path.isAbsolute` not being a function or about `use strict`, you're running a pretty old version of [Node.js/NPM](https://nodejs.org/). Upgrading to anything later than v4.0.0 should help.
 
 ### Installing FFmpeg with the compilation guide
 

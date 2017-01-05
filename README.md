@@ -87,6 +87,7 @@ Open an issue or contact me on [Twitter](https://twitter.com/veltman).
 * Matt Oberle
 * Sahar Baharloo
 * Delaney Simmons
+* Rob Gabaree
 
 ## License
 
