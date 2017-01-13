@@ -2,7 +2,7 @@
 node_modules/
 .env
 tmp/
-editor/js/*
+/bundle.js
 junk/
 media/
 *.log

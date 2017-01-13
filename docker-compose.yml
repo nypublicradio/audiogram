@@ -1,0 +1,50 @@
+version: '2'
+
+services:
+
+  audiogram:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./audiogram:/code/audiogram
+      - ./bin:/code/bin
+      - ./client:/code/client
+      - ./editor:/code/editor
+      - ./lib:/code/lib
+      - ./renderer:/code/renderer
+      - ./server:/code/server
+      - ./settings:/code/settings
+      - ./test:/code/test
+
+  audiogram-web:
+    command: ["bin/server"]
+    environment:
+      - REDIS_HOST=redis
+      - USE_WORKERS=true
+    extends:
+      service: audiogram
+    links:
+      - redis
+    ports:
+      - "8888:8888"
+    restart: always
+    volumes_from:
+      - audiogram
+
+  audiogram-worker:
+    command: bin/worker
+    environment:
+      - REDIS_HOST=redis
+    extends:
+      service: audiogram
+    links:
+      - redis
+    volumes_from:
+      - audiogram
+    restart: always
+
+  redis:
+    image: redis
+    logging:
+      driver: none

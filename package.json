@@ -6,9 +6,9 @@
   "scripts": {
     "start": "npm run postinstall && bin/server",
     "worker": "bin/worker",
-    "postinstall": "mkdir -p editor/js && browserify client/index.js > editor/js/bundle.js",
+    "postinstall": "browserify client/index.js > bundle.js",
     "rebuild": "npm run postinstall",
-    "watch": "mkdir -p editor/js && watchify client/index.js -o editor/js/bundle.js",
+    "watch": "watchify client/index.js -o bundle.js",
     "debug": "npm run postinstall && DEBUG=1 bin/server",
     "test": "rm -rf test/tmp && tape 'test/**/*-test.js'"
   },

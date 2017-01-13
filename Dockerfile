@@ -1,22 +1,28 @@
 FROM ubuntu:16.04
+RUN apt-get update --yes && apt-get install --yes \
+    build-essential \
+    ffmpeg \
+    g++ \
+    git \
+    npm \
+    nodejs \
+    libcairo2-dev \
+    libgif-dev \
+    libjpeg8-dev \
+    libpango1.0-dev \
+    libpng-dev \
+    redis-server
 
-# Install dependencies
-RUN apt-get update --yes && apt-get upgrade --yes
-RUN apt-get install git nodejs npm \
-libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev libpng-dev build-essential g++ \
-ffmpeg \
-redis-server --yes
-
-RUN ln -s `which nodejs` /usr/bin/node
+# Ubuntu Has Conflicting 'node' Command
+RUN ln -s $(which nodejs) /usr/bin/node
 
 # Non-privileged user
-RUN useradd -m audiogram
-USER audiogram
-WORKDIR /home/audiogram
+RUN useradd -m node -d /code -s /bin/bash
 
-# Clone repo
-RUN git clone https://github.com/nypublicradio/audiogram.git
-WORKDIR /home/audiogram/audiogram
+COPY . /code
+RUN chown -R node: /code
 
-# Install dependencies
+# Install Dependencies
+WORKDIR /code
+USER node
 RUN npm install
