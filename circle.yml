@@ -2,7 +2,7 @@ machine:
   services:
     - docker
   python:
-    version: 3.5.2
+    version: 3.6.0
 
 dependencies:
   cache_directories:
@@ -19,10 +19,10 @@ deployment:
   prod:
     tag: /v[0-9]+\.[0-9]+\.[0-9]+/
     commands:
-      - ecs_deploy deploy --env=prod --memory-reservation=256 --port=8888 --cmd=bin/server --role=web
-      - ecs_deploy deploy --env=prod --memory-reservation=256 --port=8888 --cmd=bin/server --role=worker
+      - ecs_deploy deploy --env=prod --memory-reservation=128 --port=8888 --cmd=bin/server --role=web
+      - ecs_deploy deploy --env=prod --memory-reservation=128 --port=8888 --cmd=bin/server --role=worker
   demo:
     branch: moberle-SYS-654
     commands:
       - ecs_deploy deploy --env=demo --memory-reservation=128 --port=8888 --cmd=bin/server --role=web
-      - ecs_deploy deploy --env=demo --memory-reservation=256 --port=8888 --cmd=bin/server --role=worker
+      - ecs_deploy deploy --env=demo --memory-reservation=128 --port=8888 --cmd=bin/server --role=worker
