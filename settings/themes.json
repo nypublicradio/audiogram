@@ -8,6 +8,7 @@
     "pattern": "wave",
     "waveTop": 150,
     "waveBottom": 420,
+    "captionColor": "#FFF",
     "captionTop": 470,
     "captionFont": "300 52px 'Source Sans Pro'",
     "captionLineHeight": 52,
@@ -16,17 +17,8 @@
     "captionRight": 1080
   },
   "Basic": {
-    "backgroundColor": "#eee",
+    "backgroundColor": "#000",
     "foregroundColor": "#ffc200"
-  },
-  "Neon": {
-    "backgroundColor": "#556270",
-    "foregroundColor": "#ffc200"
-  },
-  "Three colors": {
-    "backgroundColor": "#222",
-    "captionColor": "#515151",
-    "waveColor": "#ffc200"
   },
   "Background image with top right text": {
     "captionAlign": "right",
@@ -40,52 +32,23 @@
   },
   "Bars": {
     "pattern": "bars",
+    "backgroundColor": "#000",
     "foregroundColor": "#ffc200"
-  },
-  "Rounded bars with bottom left text": {
-    "pattern": "roundBars",
-    "foregroundColor": "#ffc200",
-    "captionAlign": "left",
-    "captionLeft": 60,
-    "captionRight": 640,
-    "captionBottom": 660,
-    "captionTop": null
   },
   "Line": {
     "backgroundColor": "#ffc200",
-    "foregroundColor": "#222",
+    "foregroundColor": "#000",
+    "captionColor": "#000",
     "pattern": "line"
   },
   "Bricks": {
-    "backgroundColor": "#222",
+    "backgroundColor": "#000",
     "foregroundColor": "#ffc200",
     "pattern": "bricks"
   },
-  "Bold italic orange": {
-    "captionAlign": "right",
-    "captionTop": null,
-    "captionBottom": 660,
-    "captionRight": 1220,
-    "captionLeft": 640,
-    "backgroundColor": "#222",
-    "waveColor": "#ffc200",
-    "captionFont": "bold italic 52px 'Source Sans Pro'"
-  },
   "Pixelated": {
-    "backgroundColor": "#222",
+    "backgroundColor": "#000",
     "foregroundColor": "#ffc200",
     "pattern": "pixel"
-  },
-  "Square with background image": {
-    "width": 640,
-    "height": 640,
-    "samplesPerFrame": 64,
-    "waveTop": 20,
-    "waveBottom": 300,
-    "captionTop": 340,
-    "captionLeft": 20,
-    "captionRight": 620,
-    "foregroundColor": "#ffc200",
-    "backgroundImage": "nyc.png"
   }
 }
