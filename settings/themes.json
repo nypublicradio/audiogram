@@ -10,7 +10,7 @@
     "waveBottom": 420,
     "captionColor": "#FFF",
     "captionTop": 470,
-    "captionFont": "300 52px 'Open Sans'",
+    "captionFont": "52px 'Open Sans'",
     "captionLineHeight": 52,
     "captionLineSpacing": 7,
     "captionLeft": 200,
