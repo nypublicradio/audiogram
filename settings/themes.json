@@ -8,25 +8,22 @@
     "pattern": "wave",
     "waveTop": 150,
     "waveBottom": 420,
+    "captionColor": "#FFF",
     "captionTop": 470,
-    "captionFont": "300 52px 'Source Sans Pro'",
+    "captionFont": "52px 'Open Sans'",
     "captionLineHeight": 52,
     "captionLineSpacing": 7,
     "captionLeft": 200,
     "captionRight": 1080
   },
-  "Basic": {
-    "backgroundColor": "#eee",
-    "foregroundColor": "#de1e3d"
+  "Basic Dark Background": {
+    "backgroundColor": "#000",
+    "foregroundColor": "#ffc200"
   },
-  "Neon": {
-    "backgroundColor": "#556270",
-    "foregroundColor": "#c7f464"
-  },
-  "Three colors": {
-    "backgroundColor": "#eee",
-    "captionColor": "#515151",
-    "waveColor": "#00b4ff"
+  "Basic Yellow Background": {
+    "backgroundColor": "#ffc200",
+    "foregroundColor": "#000",
+    "captionColor": "#000"
   },
   "Background image with top right text": {
     "captionAlign": "right",
@@ -34,72 +31,52 @@
     "captionRight": 1220,
     "captionLeft": 640,
     "backgroundImage": "subway.jpg",
-    "foregroundColor": "#fc0",
+    "foregroundColor": "#ffc200",
     "waveBottom": 660,
     "waveTop": 320
   },
-  "Bars": {
+  "Bars Dark Background": {
     "pattern": "bars",
-    "foregroundColor": "#d84a4a"
+    "backgroundColor": "#000",
+    "foregroundColor": "#ffc200"
   },
-  "Rounded bars with bottom left text": {
-    "pattern": "roundBars",
-    "foregroundColor": "#d84a4a",
-    "captionAlign": "left",
-    "captionLeft": 60,
-    "captionRight": 640,
-    "captionBottom": 660,
-    "captionTop": null
+  "Bars Yellow Background": {
+    "pattern": "bars",
+    "backgroundColor": "#ffc200",
+    "foregroundColor": "#000",
+    "captionColor": "#000"
   },
-  "Line": {
-    "backgroundColor": "#edc951",
-    "foregroundColor": "#00a0b0",
+  "Line Dark Background": {
+    "backgroundColor": "#000",
+    "foregroundColor": "#ffc200",
     "pattern": "line"
   },
-  "Curve": {
-    "backgroundColor": "#00a0b0",
-    "foregroundColor": "#edc951",
-    "pattern": "curve"
+  "Line Yellow Background": {
+    "backgroundColor": "#ffc200",
+    "foregroundColor": "#000",
+    "captionColor": "#000",
+    "pattern": "line"
   },
-  "Bricks": {
-    "backgroundColor": "#8771aa",
-    "foregroundColor": "#fff",
+  "Bricks Dark Background": {
+    "backgroundColor": "#000",
+    "foregroundColor": "#ffc200",
     "pattern": "bricks"
   },
-  "Equalizer on the bottom": {
-    "backgroundColor": "#222",
-    "foregroundColor": "#fff",
-    "pattern": "equalizer",
-    "captionTop": 40,
-    "captionBottom": 380,
-    "waveTop": 420,
-    "waveBottom": 720
+  "Bricks Yellow Background": {
+    "backgroundColor": "#ffc200",
+    "foregroundColor": "#000",
+    "captionColor": "#000",
+    "pattern": "bricks"
   },
-  "Bold italic orange": {
-    "captionAlign": "right",
-    "captionTop": null,
-    "captionBottom": 660,
-    "captionRight": 1220,
-    "captionLeft": 640,
-    "backgroundColor": "#fd5a1e",
-    "waveColor": "#fff",
-    "captionFont": "bold italic 52px 'Source Sans Pro'"
-  },
-  "Pixelated": {
-    "backgroundColor": "#ecd078",
-    "foregroundColor": "#c02942",
+  "Pixelated Dark Background": {
+    "backgroundColor": "#000",
+    "foregroundColor": "#ffc200",
     "pattern": "pixel"
   },
-  "Square with background image": {
-    "width": 640,
-    "height": 640,
-    "samplesPerFrame": 64,
-    "waveTop": 20,
-    "waveBottom": 300,
-    "captionTop": 340,
-    "captionLeft": 20,
-    "captionRight": 620,
-    "foregroundColor": "#0eb8ba",
-    "backgroundImage": "nyc.png"
+  "Pixelated Yellow Background": {
+    "backgroundColor": "#ffc200",
+    "foregroundColor": "#000",
+    "captionColor": "#000",
+    "pattern": "pixel"
   }
 }
