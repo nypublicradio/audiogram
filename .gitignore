@@ -8,3 +8,4 @@ media/
 *.log
 .jobs
 *.swp
+deploy.ini
