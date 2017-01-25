@@ -17,16 +17,16 @@
   },
   "Basic": {
     "backgroundColor": "#eee",
-    "foregroundColor": "#de1e3d"
+    "foregroundColor": "#ffc200"
   },
   "Neon": {
     "backgroundColor": "#556270",
-    "foregroundColor": "#c7f464"
+    "foregroundColor": "#ffc200"
   },
   "Three colors": {
-    "backgroundColor": "#eee",
+    "backgroundColor": "#222",
     "captionColor": "#515151",
-    "waveColor": "#00b4ff"
+    "waveColor": "#ffc200"
   },
   "Background image with top right text": {
     "captionAlign": "right",
@@ -34,17 +34,17 @@
     "captionRight": 1220,
     "captionLeft": 640,
     "backgroundImage": "subway.jpg",
-    "foregroundColor": "#fc0",
+    "foregroundColor": "#ffc200",
     "waveBottom": 660,
     "waveTop": 320
   },
   "Bars": {
     "pattern": "bars",
-    "foregroundColor": "#d84a4a"
+    "foregroundColor": "#ffc200"
   },
   "Rounded bars with bottom left text": {
     "pattern": "roundBars",
-    "foregroundColor": "#d84a4a",
+    "foregroundColor": "#ffc200",
     "captionAlign": "left",
     "captionLeft": 60,
     "captionRight": 640,
@@ -52,28 +52,14 @@
     "captionTop": null
   },
   "Line": {
-    "backgroundColor": "#edc951",
-    "foregroundColor": "#00a0b0",
+    "backgroundColor": "#ffc200",
+    "foregroundColor": "#222",
     "pattern": "line"
   },
-  "Curve": {
-    "backgroundColor": "#00a0b0",
-    "foregroundColor": "#edc951",
-    "pattern": "curve"
-  },
   "Bricks": {
-    "backgroundColor": "#8771aa",
-    "foregroundColor": "#fff",
-    "pattern": "bricks"
-  },
-  "Equalizer on the bottom": {
     "backgroundColor": "#222",
-    "foregroundColor": "#fff",
-    "pattern": "equalizer",
-    "captionTop": 40,
-    "captionBottom": 380,
-    "waveTop": 420,
-    "waveBottom": 720
+    "foregroundColor": "#ffc200",
+    "pattern": "bricks"
   },
   "Bold italic orange": {
     "captionAlign": "right",
@@ -81,13 +67,13 @@
     "captionBottom": 660,
     "captionRight": 1220,
     "captionLeft": 640,
-    "backgroundColor": "#fd5a1e",
-    "waveColor": "#fff",
+    "backgroundColor": "#222",
+    "waveColor": "#ffc200",
     "captionFont": "bold italic 52px 'Source Sans Pro'"
   },
   "Pixelated": {
-    "backgroundColor": "#ecd078",
-    "foregroundColor": "#c02942",
+    "backgroundColor": "#222",
+    "foregroundColor": "#ffc200",
     "pattern": "pixel"
   },
   "Square with background image": {
@@ -99,7 +85,7 @@
     "captionTop": 340,
     "captionLeft": 20,
     "captionRight": 620,
-    "foregroundColor": "#fd5a1e",
+    "foregroundColor": "#ffc200",
     "backgroundImage": "nyc.png"
   }
 }
