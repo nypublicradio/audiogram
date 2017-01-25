@@ -133,6 +133,12 @@ Now you can run Audiogram in a container using that image:
 docker run -p 8888:8888 -t -i audiogram
 ```
 
+If you're using an editor like Sublime or Atom and want file changes to be automatically reflected inside the Docker container, try using Docker volumes. Instead of the above `docker run` command, try:
+
+```sh
+docker run -v $(pwd):/home/audiogram/audiogram -p 8888:8888 -t -i audiogram
+```
+
 ## Mac troubleshooting
 
 If things aren't working on a Mac, there are a few fixes you can try.
