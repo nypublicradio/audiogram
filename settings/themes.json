@@ -16,9 +16,14 @@
     "captionLeft": 200,
     "captionRight": 1080
   },
-  "Basic": {
+  "Basic Dark Background": {
     "backgroundColor": "#000",
     "foregroundColor": "#ffc200"
+  },
+  "Basic Yellow Background": {
+    "backgroundColor": "#ffc200",
+    "foregroundColor": "#000",
+    "captionColor": "#000"
   },
   "Background image with top right text": {
     "captionAlign": "right",
@@ -30,25 +35,48 @@
     "waveBottom": 660,
     "waveTop": 320
   },
-  "Bars": {
+  "Bars Dark Background": {
     "pattern": "bars",
     "backgroundColor": "#000",
     "foregroundColor": "#ffc200"
   },
-  "Line": {
+  "Bars Yellow Background": {
+    "pattern": "bars",
+    "backgroundColor": "#ffc200",
+    "foregroundColor": "#000",
+    "captionColor": "#000"
+  },
+  "Line Dark Background": {
+    "backgroundColor": "#000",
+    "foregroundColor": "#ffc200",
+    "pattern": "line"
+  },
+  "Line Yellow Background": {
     "backgroundColor": "#ffc200",
     "foregroundColor": "#000",
     "captionColor": "#000",
     "pattern": "line"
   },
-  "Bricks": {
+  "Bricks Dark Background": {
     "backgroundColor": "#000",
     "foregroundColor": "#ffc200",
     "pattern": "bricks"
   },
-  "Pixelated": {
+  "Bricks Yellow Background": {
+    "backgroundColor": "#ffc200",
+    "foregroundColor": "#000",
+    "captionColor": "#000",
+    "pattern": "bricks"
+  },
+  "Pixelated Dark Background": {
     "backgroundColor": "#000",
     "foregroundColor": "#ffc200",
+    "pattern": "pixel"
+  },
+  "Pixelated Yellow Background": {
+    "backgroundColor": "#ffc200",
+    "foregroundColor": "#000",
+    "captionColor": "#000",
     "pattern": "pixel"
   }
 }
