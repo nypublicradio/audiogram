@@ -12,6 +12,7 @@ services:
       - ./client:/code/client
       - ./editor:/code/editor
       - ./lib:/code/lib
+      - ./media:/code/media
       - ./renderer:/code/renderer
       - ./server:/code/server
       - ./settings:/code/settings
@@ -36,6 +37,7 @@ services:
     command: bin/worker
     environment:
       - REDIS_HOST=redis
+      - USE_WORKERS=true
     extends:
       service: audiogram
     links:
