@@ -5,46 +5,32 @@
     "framesPerSecond": 20,
     "maxDuration": 300,
     "samplesPerFrame": 128,
-    "pattern": "wave",
-    "waveTop": 150,
-    "waveBottom": 420,
-    "captionTop": 470,
-    "captionFont": "300 52px 'Source Sans Pro'",
-    "captionLineHeight": 52,
-    "captionLineSpacing": 7,
-    "captionLeft": 200,
-    "captionRight": 1080
-  },
-  "Alphachat": {
     "pattern": "bars",
-    "foregroundColor": "#53c9c9",
-    "waveColor": "#53c9c9",
     "waveTop": 380,
     "waveBottom": 680,
+    "foregroundColor": "white",
+    "captionAlign": "left",
+    "captionTop": 155,
+    "captionFont": "600 46px 'Metric'",
+    "captionLineHeight": 46,
+    "captionLineSpacing": 7,
+    "captionLeft": 215,
+    "captionRight": 1234
+  },
+  "Alphachat": {
+    "waveColor": "#53c9c9",
     "backgroundImage": "Audiogram_Alphachat.jpg"
   },
   "Banking Weekly": {
-    "pattern": "bars",
-    "foregroundColor": "#b59e6d",
     "waveColor": "#b59e6d",
-    "waveTop": 380,
-    "waveBottom": 680,
     "backgroundImage": "Audiogram_BankingWkly.jpg"
   },
   "News": {
-    "pattern": "bars",
-    "foregroundColor": "#d1798a",
     "waveColor": "#d1798a",
-    "waveTop": 380,
-    "waveBottom": 680,
     "backgroundImage": "Audiogram_News.jpg"
   },
   "World Tech Founders": {
-    "pattern": "bars",
-    "foregroundColor": "#e98949",
     "waveColor": "#e98949",
-    "waveTop": 380,
-    "waveBottom": 680,
     "backgroundImage": "Audiogram_Wld_Tech_Fders.jpg"
   },
   "Every Thing Else": {
@@ -55,15 +41,10 @@
     "foregroundColor": "#fff"
   },
   "TechTonic": {
-    "pattern": "bars",
-    "foregroundColor": "#78b6dd",
     "waveColor": "#78b6dd",
-    "waveTop": 380,
-    "waveBottom": 680,
     "backgroundImage": "Audiogram_TechTonic.jpg"
   },
   "TechTonic Old": {
-    "pattern": "bars",
     "foregroundColor": "#b8b1a9 ",
     "waveTop": 420,
     "waveBottom": 720,
