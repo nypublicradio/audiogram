@@ -89,10 +89,6 @@ input[type='submit']:active {
   font-size: 12px;
 }
 
-#row-caption {
-  display: none;
-}
-
 #play {
   width: 66px;
 }
