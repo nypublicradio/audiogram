@@ -1,0 +1,23 @@
+{
+  "name": "audiogram",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/mojodna/heroku-buildpack-cairo.git"
+    },
+    {
+      "url": "https://github.com/snehasishroy/heroku-buildpack-ffmpeg"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
