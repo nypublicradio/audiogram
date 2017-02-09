@@ -1,8 +1,16 @@
 version: 0.1
 phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - $(aws ecr get-login --region us-east-1)
   build:
     commands:
-      - echo TKTK
+      - docker build -t audiogram .
+      # - docker run test
+  post_build:
+    commands:
+      # docker push
 artifacts:
   # It seems like CodePipeline and CodeBuild expect an artifact here. Currently
   # we don't need any, so this is essentially a no-op.
