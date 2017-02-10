@@ -3,10 +3,11 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - $(aws ecr get-login --region us-east-1)
+      - which aws
+      # - $(aws ecr get-login --region us-east-1)
   build:
     commands:
-      - docker build -t audiogram .
+      # - docker build -t audiogram .
       # - docker run test
   post_build:
     commands:
