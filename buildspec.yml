@@ -6,6 +6,7 @@ phases:
       - $(aws ecr get-login --region us-east-1)
   build:
     commands:
+      - echo $DOCKER_IMAGE_TAG
       - docker build -t audiogram .
       # - docker run test
   post_build:
