@@ -6,13 +6,12 @@ phases:
       - $(aws ecr get-login --region us-east-1)
   build:
     commands:
-      - echo $DOCKER_IMAGE_TAG
-      - docker build -t audiogram.prx.tech:$DOCKER_IMAGE_TAG .
-      - docker tag audiogram.prx.tech:$DOCKER_IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/audiogram.prx.tech:$DOCKER_IMAGE_TAG
+      - docker build -t $ECR_REPOSITORY_NAME:$ECR_IMAGE_TAG .
+      - docker tag $ECR_REPOSITORY_NAME:$ECR_IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$ECR_IMAGE_TAG
       # - docker run test
   post_build:
     commands:
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/audiogram.prx.tech:$DOCKER_IMAGE_TAG
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$ECR_IMAGE_TAG
 artifacts:
   # It seems like CodePipeline and CodeBuild expect an artifact here. Currently
   # we don't need any, so this is essentially a no-op.
