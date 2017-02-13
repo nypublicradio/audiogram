@@ -6,12 +6,19 @@ phases:
       - $(aws ecr get-login --region us-east-1)
   build:
     commands:
-      - docker build -t $ECR_REPOSITORY_NAME:$ECR_IMAGE_TAG .
-      - docker tag $ECR_REPOSITORY_NAME:$ECR_IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$ECR_IMAGE_TAG
+      - docker build -t $ECR_REPOSITORY_NAME:$[ECR_IMAGE_TAG+1] .
+      - docker tag $ECR_REPOSITORY_NAME:$[ECR_IMAGE_TAG+1] $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$[ECR_IMAGE_TAG+1]
       # - docker run test
   post_build:
     commands:
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$ECR_IMAGE_TAG
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$[ECR_IMAGE_TAG+1]
+      # pull zip from S3
+      # $ aws s3 cp s3://mybucket/test.txt test2.txt
+      # unzip
+      # update AudiogramECRImageTag value in Staging
+      # zip
+      # push to S3
+      # that will trigger a Root Stack CodePipeline execution
 artifacts:
   # It seems like CodePipeline and CodeBuild expect an artifact here. Currently
   # we don't need any, so this is essentially a no-op.
