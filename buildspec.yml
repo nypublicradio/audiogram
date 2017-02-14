@@ -2,11 +2,11 @@ version: 0.1
 phases:
   pre_build:
     commands:
+      - apt-get install -y jq
       - echo Logging in to Amazon ECR...
       - $(aws ecr get-login --region $ECR_REGION)
   build:
     commands:
-      - echo $ECR_REPOSITORY_NAME:$((ECR_IMAGE_TAG+1))
       - docker build -t $ECR_REPOSITORY_NAME:$((ECR_IMAGE_TAG+1)) .
       - docker tag $ECR_REPOSITORY_NAME:$((ECR_IMAGE_TAG+1)) $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$((ECR_IMAGE_TAG+1))
       # - docker run test
