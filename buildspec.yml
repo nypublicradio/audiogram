@@ -3,22 +3,22 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - $(aws ecr get-login --region us-east-1)
+      - $(aws ecr get-login --region $ECR_REGION)
   build:
     commands:
       - echo $ECR_REPOSITORY_NAME:$((ECR_IMAGE_TAG+1))
-      # - docker build -t $ECR_REPOSITORY_NAME:$[ECR_IMAGE_TAG+1] .
-      # - docker tag $ECR_REPOSITORY_NAME:$[ECR_IMAGE_TAG+1] $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$[ECR_IMAGE_TAG+1]
+      - docker build -t $ECR_REPOSITORY_NAME:$[ECR_IMAGE_TAG+1] .
+      - docker tag $ECR_REPOSITORY_NAME:$[ECR_IMAGE_TAG+1] $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$[ECR_IMAGE_TAG+1]
       # - docker run test
   post_build:
     commands:
-      # - docker push $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$[ECR_IMAGE_TAG+1]
-      # pull zip from S3
-      # $ aws s3 cp s3://mybucket/test.txt test2.txt
-      # unzip
-      # update AudiogramECRImageTag value in Staging
-      # zip
-      # push to S3
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$[ECR_IMAGE_TAG+1]
+      - aws s3 cp s3://$TEMPLATE_CONFIG_BUCKET/$TEMPLATE_CONFIG_ARTIFACT $TEMPLATE_CONFIG_ARTIFACT
+      - unzip $TEMPLATE_CONFIG_ARTIFACT
+      - jq --arg tag $((ECR_IMAGE_TAG+1)) '.Parameters.AudiogramECRImageTag = $tag' staging.json > staging2.json
+      - rm staging.json && mv staging2.json staging.json
+      - zip $TEMPLATE_CONFIG_ARTIFACT staging.json
+      - aws s3 cp $TEMPLATE_CONFIG_ARTIFACT s3://$TEMPLATE_CONFIG_BUCKET/
       # that will trigger a Root Stack CodePipeline execution
 artifacts:
   # It seems like CodePipeline and CodeBuild expect an artifact here. Currently
