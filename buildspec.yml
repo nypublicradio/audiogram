@@ -7,12 +7,12 @@ phases:
   build:
     commands:
       - echo $ECR_REPOSITORY_NAME:$((ECR_IMAGE_TAG+1))
-      - docker build -t $ECR_REPOSITORY_NAME:$[ECR_IMAGE_TAG+1] .
-      - docker tag $ECR_REPOSITORY_NAME:$[ECR_IMAGE_TAG+1] $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$[ECR_IMAGE_TAG+1]
+      - docker build -t $ECR_REPOSITORY_NAME:$((ECR_IMAGE_TAG+1)) .
+      - docker tag $ECR_REPOSITORY_NAME:$((ECR_IMAGE_TAG+1)) $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$((ECR_IMAGE_TAG+1))
       # - docker run test
   post_build:
     commands:
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$[ECR_IMAGE_TAG+1]
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$((ECR_IMAGE_TAG+1))
       - aws s3 cp s3://$TEMPLATE_CONFIG_BUCKET/$TEMPLATE_CONFIG_ARTIFACT $TEMPLATE_CONFIG_ARTIFACT
       - unzip $TEMPLATE_CONFIG_ARTIFACT
       - jq --arg tag $((ECR_IMAGE_TAG+1)) '.Parameters.AudiogramECRImageTag = $tag' staging.json > staging2.json
