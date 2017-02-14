@@ -3,7 +3,7 @@ var express = require("express"),
     compression = require("compression"),
     path = require("path"),
     multer = require("multer"),
-    uuid = require("node-uuid"),
+    uuid = require("uuid"),
     mkdirp = require("mkdirp");
 
 // Routes and middleware
