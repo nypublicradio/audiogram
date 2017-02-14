@@ -11,18 +11,12 @@ RUN ln -s `which nodejs` /usr/bin/node
 
 # Non-privileged user
 RUN useradd -m audiogram
-
+USER audiogram
 WORKDIR /home/audiogram
 
-# Install dependencies
-ADD package.json ./
-ADD client/index.js ./
-RUN npm install
-
-ADD . ./
-RUN chown -R audiogram /home/audiogram
-USER audiogram
-
 # Clone repo
-# RUN git clone https://github.com/prx/audiogram.git
+RUN git clone https://github.com/PRX/audiogram.git
 WORKDIR /home/audiogram/audiogram
+
+# Install dependencies
+RUN npm install
