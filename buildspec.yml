@@ -1,9 +1,11 @@
 version: 0.1
 phases:
-  pre_build:
+  install:
     commands:
       - apt-get update -y
       - apt-get install -y jq
+  pre_build:
+    commands:
       - echo Logging in to Amazon ECR...
       - $(aws ecr get-login --region $ECR_REGION)
   build:
