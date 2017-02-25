@@ -1,4 +1,7 @@
 version: 0.1
+environment_variables:
+  plaintext:
+    BUILD_PHASE_MARKER: build_phase_complete
 phases:
   install:
     commands:
@@ -12,9 +15,12 @@ phases:
     commands:
       - docker build -t $ECR_REPOSITORY_NAME:$((ECR_IMAGE_TAG+1)) .
       - docker tag $ECR_REPOSITORY_NAME:$((ECR_IMAGE_TAG+1)) $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$((ECR_IMAGE_TAG+1))
-      # - docker run test
+      # `touch` a file here to indicate that the entire build phase ran
+      - touch $BUILD_PHASE_MARKER
   post_build:
     commands:
+      # Only run the post_build phase if build phase completed
+      - test -e $BUILD_PHASE_MARKER
       - docker push $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$ECR_REPOSITORY_NAME:$((ECR_IMAGE_TAG+1))
       - aws s3 cp s3://$TEMPLATE_CONFIG_BUCKET/$TEMPLATE_CONFIG_ARTIFACT $TEMPLATE_CONFIG_ARTIFACT
       - unzip $TEMPLATE_CONFIG_ARTIFACT
