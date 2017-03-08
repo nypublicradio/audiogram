@@ -26,6 +26,15 @@
     "waveBottom": 660,
     "waveTop": 320
   },
+  "Dear Prudie": {
+    "foregroundColor": "#fff",
+    "backgroundImage": "dear_prudie.jpg",
+    "pattern": "equalizer",
+    "captionTop": 40,
+    "captionBottom": 380,
+    "waveTop": 420,
+    "waveBottom": 720
+  },
   "LifeAfter-Center": {
     "captionAlign": "center",
     "captionTop": 60,
