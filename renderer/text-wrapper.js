@@ -5,7 +5,6 @@ module.exports = function(context, options) {
   context.font = options.captionFont;
   context.textBaseline = "top";
   context.textAlign = options.captionAlign || "center";
-  // context.letterSpacing = '2px';
 
   // Do some typechecking
   var left = ifNumeric(options.captionLeft, 0),

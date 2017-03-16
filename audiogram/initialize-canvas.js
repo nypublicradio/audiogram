@@ -8,9 +8,11 @@ function initializeCanvas(options, cb) {
 
   // Fonts pre-registered in bin/worker
 
-  var canvas = new Canvas(options.width, options.height),
-      context = canvas.getContext("2d"),
+  var canvas = new Canvas(options.width, options.height);
+      canvas.style.letterSpacing = '1px';
+  var context = canvas.getContext("2d"),
       renderer = getRenderer(context).update(options);
+
 
   renderer.caption = options.caption;
 
@@ -29,7 +31,6 @@ function initializeCanvas(options, cb) {
     bg.src = raw;
     renderer.backgroundImage = bg;
 
-    
 
     if (options.backgroundImageTopper) {
       fs.readFile(path.join(__dirname, "..", "settings", "backgrounds", options.backgroundImageTopper), function(err, raw){
@@ -42,11 +43,13 @@ function initializeCanvas(options, cb) {
           bgTopper.src = raw;
           renderer.backgroundImageTopper = bgTopper;
 
+          return cb(null, renderer);
         });
+    }else{
+          return cb(null, renderer);
     }
 
 
-    return cb(null, renderer);
 
   });
 

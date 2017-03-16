@@ -3,6 +3,8 @@ var d3 = require("d3"),
     video = require("./video.js"),
     minimap = require("./minimap.js"),
     getWaveform = require("./waveform.js");
+var can = document.querySelector('canvas');
+    can.style.letterSpacing = '.5px';
 
 var context = d3.select("canvas").node().getContext("2d");
 
@@ -27,8 +29,6 @@ function _caption(_) {
 }
 
 function _subtitle(_){
-
-  console.log(arguments.length);
 
   return arguments.length ? (subtitle = _) : subtitle;
 }

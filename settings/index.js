@@ -27,6 +27,6 @@ module.exports = {
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Bold.ttf"), weight: "bold" },
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Italic.ttf"), style: "italic" },
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-BoldItalic.ttf"), weight: "bold", style: "italic" },
-    { family: "Postoni Standard", file: path.join(__dirname, "fonts", "PostoniStandard-Regular.otf"), weight: 400 }
+    { family: "Postoni Standard", file: path.join(__dirname, "fonts", "PostoniStandard-Regular.otf")}
   ]
 };

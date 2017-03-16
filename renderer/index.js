@@ -50,9 +50,7 @@ module.exports = function(context) {
 
     patterns[this.options.pattern || "wave"](context, this.getWaveform(frameNumber), this.options);
 
-
     if (this.backgroundImageTopper){
-      // console.log('backgroundImageTopper')
       context.drawImage(this.backgroundImageTopper, 0, 0, this.options.width, this.options.height);
     }
 

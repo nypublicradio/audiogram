@@ -256,7 +256,6 @@ function preloadImages(themes) {
   }
 
   function getSecondImage(theme, cb) {
-    console.log('in here');
     if (!theme.backgroundImageTopper) {
       return cb(null, theme);
     }
