@@ -1,16 +1,17 @@
 {
   "name": "audiogram",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Turn audio into a shareable video.",
   "main": "index.js",
   "scripts": {
     "start": "npm run postinstall && bin/server",
+    "all": "redis-server --daemonize yes && npm run worker & npm start",
     "worker": "bin/worker",
     "postinstall": "mkdir -p editor/js && browserify client/index.js > editor/js/bundle.js",
     "rebuild": "npm run postinstall",
     "watch": "mkdir -p editor/js && watchify client/index.js -o editor/js/bundle.js",
     "debug": "npm run postinstall && DEBUG=1 bin/server",
-    "test": "tape 'test/**/*-test.js'"
+    "test": "rm -rf test/tmp && tape 'test/**/*-test.js'"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   "dependencies": {
     "aws-sdk": "^2.2.39",
     "browserify": "^13.0.0",
+    "canvas": "git+https://github.com/chearon/node-canvas.git#12971f64a66b",
     "compression": "^1.6.1",
     "d3": "^4.1.1",
     "dotenv": "^2.0.0",
@@ -39,8 +41,6 @@
     "rimraf": "^2.5.0",
     "smartquotes": "^1.0.0",
     "underscore": "^1.8.3",
-    "canvas": "git+https://github.com/chearon/node-canvas.git#b62dd3a9fa",
-    "waveform": "git+https://github.com/veltman/node-waveform.git#8b1a22f109",
     "webaudio-peaks": "0.0.5",
     "winston": "^2.2.0"
   },

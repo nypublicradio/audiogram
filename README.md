@@ -1,5 +1,7 @@
 # Audiogram
 
+[![Build Status](https://travis-ci.org/nypublicradio/audiogram.svg?branch=alpha)](https://travis-ci.org/nypublicradio/audiogram)
+
 🔊 -> 🎥
 
 Audiogram is a library for generating shareable videos from audio clips.

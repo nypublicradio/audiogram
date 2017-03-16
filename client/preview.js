@@ -2,13 +2,13 @@ var d3 = require("d3"),
     audio = require("./audio.js"),
     video = require("./video.js"),
     minimap = require("./minimap.js"),
+    sampleWave = require("./sample-wave.js"),
+    getRenderer = require("../renderer/"),
     getWaveform = require("./waveform.js");
 var can = document.querySelector('canvas');
     can.style.letterSpacing = '.5px';
 
 var context = d3.select("canvas").node().getContext("2d");
-
-var renderer = require("../renderer/")(context);
 
 var theme,
     caption,
