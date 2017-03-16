@@ -47,7 +47,14 @@ module.exports = function(context) {
       context.drawImage(this.backgroundImage, 0, 0, this.options.width, this.options.height);
     }
 
+
     patterns[this.options.pattern || "wave"](context, this.getWaveform(frameNumber), this.options);
+
+
+    if (this.backgroundImageTopper){
+      // console.log('backgroundImageTopper')
+      context.drawImage(this.backgroundImageTopper, 0, 0, this.options.width, this.options.height);
+    }
 
     // Write the caption
     if (this.caption) {

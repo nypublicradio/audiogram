@@ -22,7 +22,15 @@ function _theme(_) {
 }
 
 function _caption(_) {
+  
   return arguments.length ? (caption = _, redraw()) : caption;
+}
+
+function _subtitle(_){
+
+  console.log(arguments.length);
+
+  return arguments.length ? (subtitle = _) : subtitle;
 }
 
 function _selection(_) {
@@ -77,6 +85,7 @@ function redraw() {
   renderer.update(theme);
   renderer.caption = caption;
   renderer.backgroundImage = theme.backgroundImageFile || null;
+  renderer.backgroundImageTopper = theme.backgroundImageTopperFile || null;
   renderer.drawFrame(0);
 
 }
@@ -103,6 +112,7 @@ function loadAudio(f, cb) {
 
 module.exports = {
   caption: _caption,
+  subtitle: _subtitle,
   theme: _theme,
   file: _file,
   selection: _selection,
