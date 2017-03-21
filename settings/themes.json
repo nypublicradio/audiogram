@@ -15,6 +15,16 @@
     "captionLeft": 200,
     "captionRight": 1080
   },
+   "Panoply Pilot Project": {
+    "captionAlign": "right",
+    "captionTop": 60,
+    "captionRight": 1220,
+    "captionLeft": 640,
+    "backgroundImage": "ppp.jpg",
+    "foregroundColor": "#fc0",
+    "waveBottom": 660,
+    "waveTop": 320
+  },
   "Why Oh Why": {
     "captionAlign": "right",
     "captionTop": 60,
