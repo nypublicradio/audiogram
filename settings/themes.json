@@ -25,6 +25,16 @@
     "waveBottom": 660,
     "waveTop": 320
   },
+  "Slate Represent": {
+    "captionAlign": "right",
+    "captionTop": 60,
+    "captionRight": 1220,
+    "captionLeft": 640,
+    "backgroundImage": "represent.jpg",
+    "foregroundColor": "#ffffff",
+    "waveBottom": 660,
+    "waveTop": 320
+  },
   "Why Oh Why": {
     "captionAlign": "right",
     "captionTop": 60,
