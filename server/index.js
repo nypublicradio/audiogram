@@ -63,6 +63,11 @@ if (serverSettings.fonts) {
 // Check the status of a current video
 app.get("/status/:id/", status);
 
+// Healthcheck
+app.get("/healthcheck/", function(req, res, next) {
+  return res.status(200).send('I\'m a happy healthcheck.');
+});
+
 
 // Serve background images and themes JSON statically
 app.use("/settings/", function(req, res, next) {
