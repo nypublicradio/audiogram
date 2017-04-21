@@ -21,7 +21,7 @@ var path = require("path");
 module.exports = {
   workingDirectory: path.join(__dirname, "..", "tmp"),
   storagePath: "applications/audiogram/media",
-  s3Bucket: "int.stg.nyt.com",
+  s3Bucket: process.env.S3_BUCKETS_NAME,
   fonts: [
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Regular.ttf") },
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Light.ttf"), weight: 300 },
@@ -29,6 +29,6 @@ module.exports = {
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Italic.ttf"), style: "italic" },
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-BoldItalic.ttf"), weight: "bold", style: "italic" }
   ],
-  redisHost: "redis.stg.newsdev.net",
+  redisHost: process.env.REDIS_URI,
   worker: true
 };
