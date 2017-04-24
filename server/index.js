@@ -65,10 +65,8 @@ app.get("/status/:id/", status);
 
 // Healthcheck
 app.get("/healthcheck/", function(req, res, next) {
-  console.log('hitting the healthcheck');
   return res.status(200).send('I\'m a happy healthcheck.');
 });
-
 
 // Serve background images and themes JSON statically
 app.use("/settings/", function(req, res, next) {

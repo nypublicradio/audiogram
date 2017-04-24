@@ -1,22 +1,13 @@
-FROM ubuntu:16.04
+FROM node:6
 
-# Install dependencies
-RUN apt-get update --yes && apt-get upgrade --yes
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY package.json /usr/src/app/
+RUN npm install --production
 RUN apt-get install git nodejs npm \
 libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev libpng-dev build-essential g++ \
 ffmpeg \
-redis-server --yes
+COPY ./ /usr/src/app/
 
-RUN ln -s `which nodejs` /usr/bin/node
-
-# Non-privileged user
-RUN useradd -m audiogram
-USER audiogram
-WORKDIR /home/audiogram
-
-# Clone repo
-RUN git clone https://github.com/nypublicradio/audiogram.git
-WORKDIR /home/audiogram/audiogram
-
-# Install dependencies
-RUN npm install
+EXPOSE 8888
+CMD [ "npm", "start" ]
