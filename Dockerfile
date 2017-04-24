@@ -6,8 +6,8 @@ RUN echo 'deb http://ftp.debian.org/debian jessie-backports main' >> /etc/apt/so
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app/
-RUN apt-get update --yes && apt-get upgrade --yes
-RUN apt-get install nodejs npm libcairo2-dev libjpeg62-turbo-dev libpango1.0-dev libgif-dev libpng-dev build-essential g++ ffmpeg
+RUN apt-get update -y && apt-get upgrade -y && \
+    apt-get install -y nodejs npm libcairo2-dev libjpeg62-turbo-dev libpango1.0-dev libgif-dev libpng-dev build-essential g++ ffmpeg
 COPY ./ /usr/src/app/
 RUN npm install --production
 
