@@ -15,6 +15,15 @@
     "captionLeft": 200,
     "captionRight": 1080
   },
+  "NYT Light": {
+    "pattern": "halfbars",
+    "waveTop": 500,
+    "waveBottom": 720,
+    "waveColor": "#d9d9d9",
+    "foregroundColor": "#000",
+    "captionTop": 100,
+    "captionLeft": 0
+  },
   "Basic": {
     "backgroundColor": "#eee",
     "foregroundColor": "#de1e3d"

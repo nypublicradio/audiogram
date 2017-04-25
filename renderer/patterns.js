@@ -5,6 +5,7 @@ module.exports = {
   pixel: filledPath(d3.curveStep),
   roundBars: bars(true),
   bars: bars(),
+  halfbars: halfbars(),
   bricks: bricks(),
   equalizer: bricks(true),
   line: strokedPath(),
@@ -70,6 +71,39 @@ function filledPath(interpolator) {
   }
 
 }
+
+function halfbars () {
+  return function(context, data, options) {
+
+    context.fillStyle = options.waveColor;
+
+    var waveHeight = options.waveBottom - options.waveTop;
+
+    var baseline = options.waveTop + waveHeight / 2;
+
+    var barX = d3.scaleBand()
+      .paddingInner(0.5)
+      .paddingOuter(0.01)
+      .domain(d3.range(data.length))
+      .rangeRound([options.waveLeft, options.waveRight]);
+
+    var height = d3.scaleLinear()
+      .domain([0, 1])
+      .range([0, waveHeight / 2]);
+
+    var barWidth = barX.bandwidth();
+
+    data.forEach(function(val, i){
+
+      var h = height(val[0]) * 2,
+          x = barX(i),
+          y = waveHeight - h;
+
+      context.fillRect(x, y, barWidth, h);
+
+    });
+  }
+} // end halfbars function
 
 function bars(round) {
 
