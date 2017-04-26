@@ -16,13 +16,18 @@
     "captionRight": 1080
   },
   "NYT Light": {
+    "width": 1280,
+    "height": 320,
     "pattern": "halfbars",
-    "waveTop": 500,
-    "waveBottom": 720,
+    "waveLeft": 20,
     "waveColor": "#d9d9d9",
     "foregroundColor": "#000",
+    "captionFont": "300 44px 'NYT Franklin'",
+    "captionAlign": "left",
     "captionTop": 100,
-    "captionLeft": 0
+    "captionLeft": 70,
+    "captionRight": 760,
+    "backgroundImage": "t_logo_light.png"
   },
   "Basic": {
     "backgroundColor": "#eee",

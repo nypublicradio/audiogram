@@ -82,7 +82,7 @@ function halfbars () {
     var baseline = options.waveTop + waveHeight / 2;
 
     var barX = d3.scaleBand()
-      .paddingInner(0.5)
+      .paddingInner(0.25)
       .paddingOuter(0.01)
       .domain(d3.range(data.length))
       .rangeRound([options.waveLeft, options.waveRight]);
