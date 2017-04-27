@@ -16,8 +16,8 @@
     "captionRight": 1080
   },
   "NYT Light": {
-    "width": 1280,
-    "height": 320,
+    "width": 1000,
+    "height": 560,
     "pattern": "halfbars",
     "waveLeft": 20,
     "waveColor": "#d9d9d9",
