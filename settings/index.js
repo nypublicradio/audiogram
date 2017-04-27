@@ -24,8 +24,9 @@ module.exports = {
   storagePath: (env === "development") ? path.join(__dirname, "..", "media") : "applications/audiogram/media",
   s3Bucket: process.env.S3_BUCKETS_NAME,
   fonts: [
-    { family: "NYT Franklin", file: path.join(__dirname, "fonts", "nyt-franklin-500-normal.woff") },
-    { family: "NYT Franklin Bold", file: path.join(__dirname, "fonts", "nyt-franklin-700-normal.woff") },
+    { family: "NYT Franklin", file: path.join(__dirname, "fonts", "NYTFranklinMedium.otf") },
+    { family: "NYT Franklin Light", file: path.join(__dirname, "fonts", "NYTFranklinLight.otf") },
+    { family: "NYT Franklin Bold", file: path.join(__dirname, "fonts", "NYTFranklinBold.otf") },
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Regular.ttf") },
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Light.ttf"), weight: 300 },
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Bold.ttf"), weight: "bold" },
@@ -33,5 +34,5 @@ module.exports = {
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-BoldItalic.ttf"), weight: "bold", style: "italic" }
   ],
   redisHost: process.env.REDIS_URI,
-  worker: (env === "development") ? true : false
+  worker: (env === "development") ? false : true
 };

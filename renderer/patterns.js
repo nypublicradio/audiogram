@@ -89,19 +89,20 @@ function halfbars () {
 
     var height = d3.scaleLinear()
       .domain([0, 1])
-      .range([0, waveHeight / 2]);
+      .range([0, waveHeight * .65]);
 
     var barWidth = barX.bandwidth();
 
     data.forEach(function(val, i){
 
-      var h = height(val[0]) * 2,
+      var h = height(val[0]),
           x = barX(i),
           y = waveHeight - h;
 
       context.fillRect(x, y, barWidth, h);
 
     });
+
   }
 } // end halfbars function
 
