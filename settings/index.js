@@ -17,10 +17,11 @@
 */
 
 var path = require("path");
+var env = process.env.NODE_ENV || "development";
 
 module.exports = {
   workingDirectory: path.join(__dirname, "..", "tmp"),
-  storagePath: "applications/audiogram/media",
+  storagePath: (env === "development") ? path.join(__dirname, "..", "media") : "applications/audiogram/media",
   s3Bucket: process.env.S3_BUCKETS_NAME,
   fonts: [
     { family: "NYT Franklin", file: path.join(__dirname, "fonts", "nyt-franklin-500-normal.woff") },
@@ -32,5 +33,5 @@ module.exports = {
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-BoldItalic.ttf"), weight: "bold", style: "italic" }
   ],
   redisHost: process.env.REDIS_URI,
-  worker: true
+  worker: (env === "development") ? true : false
 };
