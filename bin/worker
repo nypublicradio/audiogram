@@ -14,8 +14,6 @@ pluckJob();
 
 function pluckJob(){
 
-  console.log('Running');
-
   transports.getJob(function(err, job){
 
     if (err) {
@@ -24,7 +22,6 @@ function pluckJob(){
 
     if (job) {
 
-      console.log('I found a job!');
       return render(job);
 
     }
