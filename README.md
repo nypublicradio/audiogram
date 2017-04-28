@@ -51,9 +51,9 @@ You'll see a preview of your audiogram at the bottom. You can select a theme fro
 
 You can also add a caption. A caption will automatically wrap onto multiple lines, but if you want to force a line break you can put in multiple consecutive spaces. Right now you can only assign one caption to a video, but [multiple/more automatic captions are in the works](https://github.com/nypublicradio/audiogram/issues/8).
 
-Below the preview, there is a tiny audio editor.  If you only want to use part of your audio, not the whole thing, you can click and drag to select a portion of the audio.  To hear the portion you've selected, you can use the controls at the bottom or use the space bar to play/pause (except in Safari, for some reason).
+Below the preview, there is a tiny audio editor.  If you only want to use part of your audio, not the whole thing, you can click and drag to select a portion of the audio. To hear the portion you've selected, you can use the controls at the bottom or use the space bar to play/pause (except in Safari, for some reason).
 
-When you're ready to get your video, click "Generate." You may have to wait up to a a minute or two for this process to finish, but the page will give you status updates along the way.  When it's done, you can view the video or download it with the "Download" button.
+When you're ready to get your video, click "Generate." You may have to wait up to a a minute or two for this process to finish, but the page will give you status updates along the way. When it's done, you can view the video or download it with the "Download" button.
 
 ## Customizing Audiogram
 
