@@ -63,7 +63,7 @@ If you're comfortable writing a bit of JavaScript, you can also modify Audiogram
 
 ## Wishlist
 
-This project is a work in progress.  If you have ideas or run into problems, open an issue! [Better captioning](https://github.com/nypublicradio/audiogram/issues/8) is a high priority. Here are some possible future improvements:
+This project is a work in progress. If you have ideas or run into problems, open an issue! [Better captioning](https://github.com/nypublicradio/audiogram/issues/8) is a high priority. Here are some possible future improvements:
 
 * [Support emoji](https://github.com/nypublicradio/audiogram/issues/15)
 * [Receive an email when your audiogram is ready](https://github.com/nypublicradio/audiogram/issues/5)
