@@ -17,7 +17,7 @@ Here are some examples of the audiograms it creates:
 
 Unlike audio, video is a first-class citizen of social media. It's easy to embed, share, autoplay, or play in a feed, and the major services are likely to improve their video experiences further over time.
 
-Our solution to this problem at WNYC was this library.  Given a piece of audio we want to share on social media, we can generate a video with that audio and some basic accompanying visuals: a waveform of the audio, a theme for the show it comes from, and a caption.
+Our solution to this problem at WNYC was this library. Given a piece of audio we want to share on social media, we can generate a video with that audio and some basic accompanying visuals: a waveform of the audio, a theme for the show it comes from, and a caption.
 
 For more on the backstory behind audiograms, read [this post](https://medium.com/@WNYC/e648e8a5f2e9).
 
