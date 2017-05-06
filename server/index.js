@@ -72,7 +72,7 @@ app.get("/healthcheck/", function(req, res, next) {
 app.use("/settings/", function(req, res, next) {
 
   // Limit to themes.json and bg images
-  if (req.url.match(/^\/?themes.json$/i) || req.url.match(/^\/?backgrounds\/[^/]+$/i)) {
+  if (req.url.match(/^\/?themes.json$|\/?labels.json$/i) || req.url.match(/^\/?backgrounds\/[^/]+$/i)) {
     return next();
   }
 

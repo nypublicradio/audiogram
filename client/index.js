@@ -4,6 +4,23 @@ var d3 = require("d3"),
     video = require("./video.js"),
     audio = require("./audio.js");
 
+d3.json("/settings/labels.json", function(err, labels){
+
+  // Populate labels menu
+  d3.select("#input-label")
+    .on("change", updateLabel)
+    .selectAll("option")
+    .data(labels.podcasts)
+    .enter()
+    .append("option")
+      .text(function(l){
+        return l;
+      });
+
+  d3.select("#input-label").each(updateLabel);
+
+}); // end label ingestion
+
 d3.json("/settings/themes.json", function(err, themes){
 
   var errorMessage;
@@ -134,13 +151,13 @@ function error(msg) {
 }
 
 // Once images are downloaded, set up listeners
-function initialize(err, themesWithImages) {
+function initialize(err, results) {
 
-  // Populate dropdown menu
+  // Populate themes menu
   d3.select("#input-theme")
     .on("change", updateTheme)
     .selectAll("option")
-    .data(themesWithImages)
+    .data(results) // themes with images
     .enter()
     .append("option")
       .text(function(d){
@@ -224,6 +241,10 @@ function updateCaption() {
 
 function updateTheme() {
   preview.theme(d3.select(this.options[this.selectedIndex]).datum());
+}
+
+function updateLabel() {
+  // updating logic
 }
 
 function preloadImages(themes) {
