@@ -55,7 +55,12 @@ module.exports = function(t) {
 
     // Write the caption
     if (options.caption) {
-      wrapText(context, options.caption);
+      wrapText(context, options.caption, 'caption');
+    }
+
+    // Write the label
+    if (options.label) {
+      wrapText(context, options.label, 'label');
     }
 
     return this;

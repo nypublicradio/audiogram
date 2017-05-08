@@ -151,13 +151,13 @@ function error(msg) {
 }
 
 // Once images are downloaded, set up listeners
-function initialize(err, results) {
+function initialize(err, themesWithImages) {
 
   // Populate themes menu
   d3.select("#input-theme")
     .on("change", updateTheme)
     .selectAll("option")
-    .data(results) // themes with images
+    .data(themesWithImages)
     .enter()
     .append("option")
       .text(function(d){
@@ -239,12 +239,12 @@ function updateCaption() {
   preview.caption(this.value);
 }
 
-function updateTheme() {
-  preview.theme(d3.select(this.options[this.selectedIndex]).datum());
+function updateLabel() {
+  preview.label(this.value);
 }
 
-function updateLabel() {
-  // updating logic
+function updateTheme() {
+  preview.theme(d3.select(this.options[this.selectedIndex]).datum());
 }
 
 function preloadImages(themes) {

@@ -13,7 +13,11 @@
     "captionLineHeight": 52,
     "captionLineSpacing": 7,
     "captionLeft": 200,
-    "captionRight": 1080
+    "captionRight": 1080,
+    "labelTop": 200,
+    "labelLeft": 60,
+    "labelLineHeight": 20,
+    "labelLineSpacing": 4
   },
   "NYT Light": {
     "width": 1000,
@@ -28,7 +32,9 @@
     "captionTop": 70,
     "captionLeft": 50,
     "captionRight": 860,
-    "backgroundImage": "t_logo_light.png"
+    "backgroundImage": "t_logo_light.png",
+    "labelFont": "300 30px 'NYT Franklin Light'",
+    "labelColor": "#000"
   },
   "NYT Dark": {
     "width": 1000,
@@ -44,6 +50,7 @@
     "captionTop": 70,
     "captionLeft": 50,
     "captionRight": 860,
-    "backgroundImage": "t_logo_dark.png"
+    "backgroundImage": "t_logo_dark.png",
+    "labelColor": "#000"
   }
 }

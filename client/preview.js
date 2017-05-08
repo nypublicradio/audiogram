@@ -10,6 +10,7 @@ var context = d3.select("canvas").node().getContext("2d");
 
 var theme,
     caption,
+    label,
     file,
     selection;
 
@@ -23,6 +24,10 @@ function _theme(_) {
 
 function _caption(_) {
   return arguments.length ? (caption = _, redraw()) : caption;
+}
+
+function _label(_) {
+  return arguments.length ? (label = _, redraw()) : theme;
 }
 
 function _selection(_) {
@@ -80,6 +85,7 @@ function redraw() {
 
   renderer.drawFrame(context, {
     caption: caption,
+    label: label,
     waveform: sampleWave,
     frame: 0
   });
@@ -108,6 +114,7 @@ function loadAudio(f, cb) {
 
 module.exports = {
   caption: _caption,
+  label: _label,
   theme: _theme,
   file: _file,
   selection: _selection,
