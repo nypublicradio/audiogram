@@ -17,7 +17,7 @@ Here are some examples of the audiograms it creates:
 
 Unlike audio, video is a first-class citizen of social media. It's easy to embed, share, autoplay, or play in a feed, and the major services are likely to improve their video experiences further over time.
 
-Our solution to this problem at WNYC was this library.  Given a piece of audio we want to share on social media, we can generate a video with that audio and some basic accompanying visuals: a waveform of the audio, a theme for the show it comes from, and a caption.
+Our solution to this problem at WNYC was this library. Given a piece of audio we want to share on social media, we can generate a video with that audio and some basic accompanying visuals: a waveform of the audio, a theme for the show it comes from, and a caption.
 
 For more on the backstory behind audiograms, read [this post](https://medium.com/@WNYC/e648e8a5f2e9).
 
@@ -51,19 +51,19 @@ You'll see a preview of your audiogram at the bottom. You can select a theme fro
 
 You can also add a caption. A caption will automatically wrap onto multiple lines, but if you want to force a line break you can put in multiple consecutive spaces. Right now you can only assign one caption to a video, but [multiple/more automatic captions are in the works](https://github.com/nypublicradio/audiogram/issues/8).
 
-Below the preview, there is a tiny audio editor.  If you only want to use part of your audio, not the whole thing, you can click and drag to select a portion of the audio.  To hear the portion you've selected, you can use the controls at the bottom or use the space bar to play/pause (except in Safari, for some reason).
+Below the preview, there is a tiny audio editor.  If you only want to use part of your audio, not the whole thing, you can click and drag to select a portion of the audio. To hear the portion you've selected, you can use the controls at the bottom or use the space bar to play/pause (except in Safari, for some reason).
 
-When you're ready to get your video, click "Generate." You may have to wait up to a a minute or two for this process to finish, but the page will give you status updates along the way.  When it's done, you can view the video or download it with the "Download" button.
+When you're ready to get your video, click "Generate." You may have to wait up to a a minute or two for this process to finish, but the page will give you status updates along the way. When it's done, you can view the video or download it with the "Download" button.
 
 ## Customizing Audiogram
 
-Audiogram defines the visual details like dimensions, colors, and spacing using "themes." This repo includes a few basic themes meant to give you a sense of what's possible, but you'll probably want to make your own. This will allow you to use your own colors and logos and fonts, or choose other dimensions (e.g. vertical video). For details, [read more about Audiogram themes](THEMES.md).
+Audiogram defines the visual details like dimensions, colors, and spacing using "themes." This repo includes a few basic themes meant to give you a sense of what's possible, but you'll probably want to make your own. This will allow you to use your own colors and logos and fonts, or choose other dimensions (e.g. vertical video).  For details, [read more about Audiogram themes](THEMES.md).
 
 If you're comfortable writing a bit of JavaScript, you can also modify Audiogram more substantially to suit your needs.  The [Developer notes](DEVELOPERS.md) have some pointers for changes you might want to make, and what files to focus on.  For example, you could [use some other shape besides the built in patterns](https://github.com/nypublicradio/audiogram/blob/master/DEVELOPERS.md#use-different-animations-besides-the-wavebarsbricks), [use a different video format](https://github.com/nypublicradio/audiogram/blob/master/DEVELOPERS.md#fiddle-with-ffmpeg-options-eg-use-different-encoders), or [get fancy with gradients](https://github.com/nypublicradio/audiogram/blob/master/DEVELOPERS.md#extend-themes).
 
 ## Wishlist
 
-This project is a work in progress.  If you have ideas or run into problems, open an issue! [Better captioning](https://github.com/nypublicradio/audiogram/issues/8) is a high priority. Here are some possible future improvements:
+This project is a work in progress. If you have ideas or run into problems, open an issue! [Better captioning](https://github.com/nypublicradio/audiogram/issues/8) is a high priority. Here are some possible future improvements:
 
 * [Support emoji](https://github.com/nypublicradio/audiogram/issues/15)
 * [Receive an email when your audiogram is ready](https://github.com/nypublicradio/audiogram/issues/5)

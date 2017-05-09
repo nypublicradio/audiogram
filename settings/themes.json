@@ -2,7 +2,7 @@
   "default": {
     "width": 1280,
     "height": 720,
-    "framesPerSecond": 20,
+    "framesPerSecond": 24,
     "maxDuration": 300,
     "samplesPerFrame": 128,
     "pattern": "wave",
@@ -15,91 +15,50 @@
     "captionLeft": 200,
     "captionRight": 1080
   },
-  "Basic": {
-    "backgroundColor": "#eee",
-    "foregroundColor": "#de1e3d"
-  },
-  "Neon": {
-    "backgroundColor": "#556270",
-    "foregroundColor": "#c7f464"
-  },
-  "Three colors": {
-    "backgroundColor": "#eee",
-    "captionColor": "#515151",
-    "waveColor": "#00b4ff"
-  },
-  "Background image with top right text": {
-    "captionAlign": "right",
-    "captionTop": 60,
-    "captionRight": 1220,
-    "captionLeft": 640,
-    "backgroundImage": "subway.jpg",
-    "foregroundColor": "#fc0",
-    "waveBottom": 660,
-    "waveTop": 320
-  },
-  "Bars": {
+  "Love+Radio (1024x1024)": {
+    "width": 1024,
+    "height": 1024,
     "pattern": "bars",
-    "foregroundColor": "#d84a4a"
-  },
-  "Rounded bars with bottom left text": {
-    "pattern": "roundBars",
-    "foregroundColor": "#d84a4a",
-    "captionAlign": "left",
-    "captionLeft": 60,
-    "captionRight": 640,
-    "captionBottom": 660,
-    "captionTop": null
-  },
-  "Line": {
-    "backgroundColor": "#edc951",
-    "foregroundColor": "#00a0b0",
-    "pattern": "line"
-  },
-  "Curve": {
-    "backgroundColor": "#00a0b0",
-    "foregroundColor": "#edc951",
-    "pattern": "curve"
-  },
-  "Bricks": {
-    "backgroundColor": "#8771aa",
-    "foregroundColor": "#fff",
-    "pattern": "bricks"
-  },
-  "Equalizer on the bottom": {
-    "backgroundColor": "#222",
-    "foregroundColor": "#fff",
-    "pattern": "equalizer",
-    "captionTop": 40,
-    "captionBottom": 380,
-    "waveTop": 420,
-    "waveBottom": 720
-  },
-  "Bold italic orange": {
-    "captionAlign": "right",
-    "captionTop": null,
-    "captionBottom": 660,
-    "captionRight": 1220,
-    "captionLeft": 640,
-    "backgroundColor": "#fd5a1e",
-    "waveColor": "#fff",
-    "captionFont": "bold italic 52px 'Source Sans Pro'"
-  },
-  "Pixelated": {
-    "backgroundColor": "#ecd078",
-    "foregroundColor": "#c02942",
-    "pattern": "pixel"
-  },
-  "Square with background image": {
-    "width": 640,
-    "height": 640,
-    "samplesPerFrame": 64,
-    "waveTop": 20,
-    "waveBottom": 300,
-    "captionTop": 340,
+    "captionFont": "300 64px 'Source Sans Pro'",
+    "captionAlign": "center",
+    "captionTop": 85,
+    "captionRight": 984,
     "captionLeft": 20,
-    "captionRight": 620,
-    "foregroundColor": "#0eb8ba",
-    "backgroundImage": "nyc.png"
+    "backgroundImage": "L-and-R-1024.png",
+    "foregroundColor": "#746241",
+    "waveBottom": 1328,
+    "waveTop": 720,
+    "waveColor": "#ED1DB9",
+    "samplesPerFrame": 128
+  },
+  "Criminal (1280x720)": {
+    "pattern": "roundBars",
+    "captionFont": "300 64px 'NikeTotal90'",
+    "captionAlign": "center",
+    "captionTop": 60,
+    "captionRight": 1260,
+    "captionLeft": 0,
+    "backgroundImage": "Criminal-1280_720_inv.jpg",
+    "foregroundColor": "#fff",
+    "waveBottom": 531,
+    "waveTop": 188,
+    "waveColor": "#000"
+  },
+  "99% (720x720)": {
+    "width": 720,
+    "height": 720,
+    "pattern": "bricks",
+    "captionFont": "300 58px 'NikeTotal90'",
+    "captionColor": "#fff",
+    "captionAlign": "left",
+    "captionTop": 366,
+    "captionRight": 700,
+    "captionLeft": 12,
+    "backgroundImage": "99invisible-logo-2016.png",
+    "foregroundColor": "#fff",
+    "waveBottom": 720,
+    "waveTop": 188,
+    "waveColor": "#ffdc00",
+    "samplesPerFrame": 10
   }
 }

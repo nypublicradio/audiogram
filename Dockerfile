@@ -1,5 +1,7 @@
 FROM ubuntu:16.04
 
+LABEL org.prx.app="yes"
+
 # Install dependencies
 RUN apt-get update --yes && apt-get upgrade --yes
 RUN apt-get install git nodejs npm \
@@ -15,7 +17,7 @@ USER audiogram
 WORKDIR /home/audiogram
 
 # Clone repo
-RUN git clone https://github.com/nypublicradio/audiogram.git
+RUN git clone https://github.com/PRX/audiogram.git
 WORKDIR /home/audiogram/audiogram
 
 # Install dependencies
