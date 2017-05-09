@@ -27,6 +27,7 @@ module.exports = {
     { family: "NYT Franklin", file: path.join(__dirname, "fonts", "NYTFranklinMedium.otf") },
     { family: "NYT Franklin Light", file: path.join(__dirname, "fonts", "NYTFranklinLight.otf") },
     { family: "NYT Franklin Bold", file: path.join(__dirname, "fonts", "NYTFranklinBold.otf") },
+    { family: "NYT Karnak", file: path.join(__dirname, "fonts", "NYTKarnakText.otf") },
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Regular.ttf") },
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Light.ttf"), weight: 300 },
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Bold.ttf"), weight: "bold" },

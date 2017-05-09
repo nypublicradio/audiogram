@@ -14,7 +14,9 @@
     "captionLineSpacing": 7,
     "captionLeft": 200,
     "captionRight": 1080,
-    "labelTop": 200,
+    "labelFont": "40px 'NYT Karnak'",
+    "labelAlign": "left",
+    "labelTop": 480,
     "labelLeft": 60,
     "labelLineHeight": 20,
     "labelLineSpacing": 4
@@ -33,7 +35,6 @@
     "captionLeft": 50,
     "captionRight": 860,
     "backgroundImage": "t_logo_light.png",
-    "labelFont": "300 30px 'NYT Franklin Light'",
     "labelColor": "#000"
   },
   "NYT Dark": {
@@ -51,6 +52,23 @@
     "captionLeft": 50,
     "captionRight": 860,
     "backgroundImage": "t_logo_dark.png",
-    "labelColor": "#000"
+    "labelColor": "#fff"
+  },
+  "Still Processing": {
+    "width": 1000,
+    "height": 560,
+    "pattern": "halfbars",
+    "waveColor": "#d9c0a5",
+    "waveBottom": 710,
+    "foregroundColor": "#66503e",
+    "backgroundColor": "#f4d7b9",
+    "captionFont": "300 71px 'NYT Franklin Light'",
+    "captionLineHeight": 80,
+    "captionAlign": "left",
+    "captionTop": 70,
+    "captionLeft": 50,
+    "captionRight": 860,
+    "backgroundImage": "t_logo_white_alpha.png",
+    "labelColor": "#fff"
   }
 }
