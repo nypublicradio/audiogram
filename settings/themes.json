@@ -16,7 +16,7 @@
     "captionRight": 1080,
     "labelFont": "40px 'NYT Karnak'",
     "labelAlign": "left",
-    "labelTop": 480,
+    "labelTop": 470,
     "labelLeft": 60,
     "labelLineHeight": 20,
     "labelLineSpacing": 4
@@ -69,6 +69,23 @@
     "captionLeft": 50,
     "captionRight": 860,
     "backgroundImage": "t_logo_white_alpha.png",
+    "labelColor": "#fff"
+  },
+  "The Daily": {
+    "width": 1000,
+    "height": 560,
+    "pattern": "halfbars",
+    "waveColor": "rgba(102, 102, 102, 0.25)",
+    "waveBottom": 710,
+    "foregroundColor": "#fff",
+    "backgroundColor": "#f4d7b9",
+    "captionFont": "300 71px 'NYT Franklin Light'",
+    "captionLineHeight": 80,
+    "captionAlign": "left",
+    "captionTop": 70,
+    "captionLeft": 50,
+    "captionRight": 860,
+    "backgroundImage": "the_daily_audiogram_background.png",
     "labelColor": "#fff"
   }
 }

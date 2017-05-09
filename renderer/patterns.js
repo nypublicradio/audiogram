@@ -89,7 +89,7 @@ function halfbars () {
 
     var height = d3.scaleLinear()
       .domain([0, 1])
-      .range([0, waveHeight * .65]);
+      .range([0, waveHeight * .45]);
 
     var barWidth = barX.bandwidth();
 
