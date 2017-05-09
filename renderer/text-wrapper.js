@@ -89,7 +89,7 @@ module.exports = function(theme) {
     } // end if caption
 
 
-    if (type === 'label') {
+    if (type === 'label' && caption != 'None') {
       var lines = [[]],
           maxWidth = 0,
           words = smartquotes(caption + "").trim().replace(/\s\s+/g, " \n").split(/ /g);
@@ -123,20 +123,20 @@ module.exports = function(theme) {
       var totalHeight = lines.length * theme.labelLineHeight + (lines.length - 1) * theme.labelLineSpacing;
 
       // horizontal alignment
-      var x = theme.labelAlign === "left" ? left : theme.labelAlign === "right" ? right : (left + right) / 2;
+      var x = theme.labelAlign === "left" ? labelLeft : theme.labelAlign === "right" ? labelRight : (labelLeft + labelRight) / 2;
 
       // Vertical alignment
       var y;
 
-      if (top !== null && bottom !== null) {
+      if (labelTop !== null && labelBottom !== null) {
         // Vertical center
-        y = (bottom + top - totalHeight) / 2;
-      } else if (bottom !== null) {
+        y = (labelBottom + labelTop - totalHeight) / 2;
+      } else if (labelBottom !== null) {
         // Vertical align bottom
-        y = bottom - totalHeight;
+        y = labelBottom - totalHeight;
       } else {
         // Vertical align top
-        y = top;
+        y = labelTop;
       }
 
       // draw label
