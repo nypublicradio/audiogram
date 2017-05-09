@@ -5,6 +5,8 @@ var d3 = require("d3"),
     sampleWave = require("./sample-wave.js"),
     getRenderer = require("../renderer/"),
     getWaveform = require("./waveform.js");
+var can = document.querySelector('canvas');
+    can.style.letterSpacing = '.5px';
 
 var context = d3.select("canvas").node().getContext("2d");
 
@@ -22,7 +24,13 @@ function _theme(_) {
 }
 
 function _caption(_) {
+  
   return arguments.length ? (caption = _, redraw()) : caption;
+}
+
+function _subtitle(_){
+
+  return arguments.length ? (subtitle = _) : subtitle;
 }
 
 function _selection(_) {
@@ -74,15 +82,11 @@ function redraw() {
 
   video.kill();
 
-  var renderer = getRenderer(theme);
-
-  renderer.backgroundImage(theme.backgroundImageFile || null);
-
-  renderer.drawFrame(context, {
-    caption: caption,
-    waveform: sampleWave,
-    frame: 0
-  });
+  renderer.update(theme);
+  renderer.caption = caption;
+  renderer.backgroundImage = theme.backgroundImageFile || null;
+  renderer.backgroundImageTopper = theme.backgroundImageTopperFile || null;
+  renderer.drawFrame(0);
 
 }
 
@@ -108,6 +112,7 @@ function loadAudio(f, cb) {
 
 module.exports = {
   caption: _caption,
+  subtitle: _subtitle,
   theme: _theme,
   file: _file,
   selection: _selection,

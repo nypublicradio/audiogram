@@ -8,7 +8,15 @@ function initializeCanvas(theme, cb) {
   // Fonts pre-registered in bin/worker
   var renderer = getRenderer(theme);
 
-  if (!theme.backgroundImage) {
+  var canvas = new Canvas(options.width, options.height);
+      canvas.style.letterSpacing = '1px';
+  var context = canvas.getContext("2d"),
+      renderer = getRenderer(context).update(options);
+
+
+  renderer.caption = options.caption;
+
+  if (!options.backgroundImage) {
     return cb(null, renderer);
   }
 
@@ -23,7 +31,25 @@ function initializeCanvas(theme, cb) {
     bg.src = raw;
     renderer.backgroundImage(bg);
 
-    return cb(null, renderer);
+
+    if (options.backgroundImageTopper) {
+      fs.readFile(path.join(__dirname, "..", "settings", "backgrounds", options.backgroundImageTopper), function(err, raw){
+
+          if (err) {
+            return cb(err);
+          }
+
+          var bgTopper = new Canvas.Image;
+          bgTopper.src = raw;
+          renderer.backgroundImageTopper = bgTopper;
+
+          return cb(null, renderer);
+        });
+    }else{
+          return cb(null, renderer);
+    }
+
+
 
   });
 

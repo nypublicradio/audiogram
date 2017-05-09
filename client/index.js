@@ -229,7 +229,8 @@ function updateTheme() {
 function preloadImages(themes) {
 
   // preload images
-  var imageQueue = d3.queue();
+  var imageQueue = d3.queue(),
+      secondImageQueue = d3.queue();
 
   d3.entries(themes).forEach(function(theme){
 
@@ -239,11 +240,15 @@ function preloadImages(themes) {
 
     if (theme.key !== "default") {
       imageQueue.defer(getImage, theme.value);
+      secondImageQueue.defer(getSecondImage, theme.value);
     }
 
   });
 
-  imageQueue.awaitAll(initialize);
+  imageQueue.awaitAll(function(){
+    secondImageQueue.awaitAll(initialize);
+  });
+  
 
   function getImage(theme, cb) {
 
@@ -261,6 +266,24 @@ function preloadImages(themes) {
     };
 
     theme.backgroundImageFile.src = "/settings/backgrounds/" + theme.backgroundImage;
+
+  }
+
+  function getSecondImage(theme, cb) {
+    if (!theme.backgroundImageTopper) {
+      return cb(null, theme);
+    }
+
+    theme.backgroundImageTopperFile = new Image();
+    theme.backgroundImageTopperFile.onload = function(){
+      return cb(null, theme);
+    };
+    theme.backgroundImageTopperFile.onerror = function(e){
+      console.warn(e);
+      return cb(null, theme);
+    };
+
+    theme.backgroundImageTopperFile.src = "/settings/backgrounds/" + theme.backgroundImageTopper;
 
   }
 

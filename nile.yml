@@ -1,0 +1,56 @@
+name: audiogram
+namespace: siteeng-lincoln
+type: ecs
+environments:
+  - name: staging
+    resources:
+      - vendor: aws
+        resource: simple
+        settings:
+          scheme: internal
+          domain: audiogram-staging.wpit.nile.works
+          parent_domain: wpit.nile.works
+          certificate: arn:aws:iam::766513428554:server-certificate/star.wpit.nile.works_4-3-2018
+    override:
+      services:
+        app:
+          mem_reservation: 1g
+          mem_limit: 2g
+          log_driver: awslogs
+          log_opt:
+            awslogs-group: /nile/siteeng-lincoln/audiogram/staging
+            awslogs-region: us-east-1
+    services:
+      - deploymentConfiguration:
+          maximumPercent: 200
+          minimumHealthyPercent: 50
+        desiredCount: 1
+        loadBalancers:
+          - containerName: app
+            containerPort: 8000
+  - name: prod
+    resources:
+      - vendor: aws
+        resource: simple
+        settings:
+          scheme: internal
+          domain: audiogram.wpit.nile.works
+          parent_domain: wpit.nile.works
+          certificate: arn:aws:iam::766513428554:server-certificate/star.wpit.nile.works_4-3-2018
+    override:
+      services:
+        app:
+          mem_reservation: 1g
+          mem_limit: 2g
+          log_driver: awslogs
+          log_opt:
+            awslogs-group: /nile/siteeng-lincoln/audiogram/prod
+            awslogs-region: us-east-1
+    services:
+      - deploymentConfiguration:
+          maximumPercent: 200
+          minimumHealthyPercent: 50
+        desiredCount: 3
+        loadBalancers:
+          - containerName: app
+            containerPort: 8000

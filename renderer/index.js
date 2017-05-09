@@ -51,7 +51,12 @@ module.exports = function(t) {
       context.drawImage(backgroundImage, 0, 0, theme.width, theme.height);
     }
 
-    patterns[theme.pattern || "wave"](context, options.waveform, theme);
+
+    patterns[this.options.pattern || "wave"](context, this.getWaveform(frameNumber), this.options);
+
+    if (this.backgroundImageTopper){
+      context.drawImage(this.backgroundImageTopper, 0, 0, this.options.width, this.options.height);
+    }
 
     // Write the caption
     if (options.caption) {
