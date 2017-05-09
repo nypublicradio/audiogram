@@ -5,101 +5,100 @@
     "framesPerSecond": 20,
     "maxDuration": 300,
     "samplesPerFrame": 128,
-    "pattern": "wave",
-    "waveTop": 150,
-    "waveBottom": 420,
-    "captionTop": 470,
-    "captionFont": "300 52px 'Source Sans Pro'",
-    "captionLineHeight": 52,
-    "captionLineSpacing": 7,
-    "captionLeft": 200,
-    "captionRight": 1080
-  },
-  "Basic": {
-    "backgroundColor": "#eee",
-    "foregroundColor": "#de1e3d"
-  },
-  "Neon": {
-    "backgroundColor": "#556270",
-    "foregroundColor": "#c7f464"
-  },
-  "Three colors": {
-    "backgroundColor": "#eee",
-    "captionColor": "#515151",
-    "waveColor": "#00b4ff"
-  },
-  "Background image with top right text": {
-    "captionAlign": "right",
-    "captionTop": 60,
-    "captionRight": 1220,
-    "captionLeft": 640,
-    "backgroundImage": "subway.jpg",
-    "foregroundColor": "#fc0",
-    "waveBottom": 660,
-    "waveTop": 320
-  },
-  "Bars": {
     "pattern": "bars",
-    "foregroundColor": "#d84a4a"
-  },
-  "Rounded bars with bottom left text": {
-    "pattern": "roundBars",
-    "foregroundColor": "#d84a4a",
+    "waveTop": 380,
+    "waveBottom": 680,
+    "foregroundColor": "white",
     "captionAlign": "left",
-    "captionLeft": 60,
-    "captionRight": 640,
-    "captionBottom": 660,
-    "captionTop": null
+    "captionTop": 155,
+    "captionFont": "600 46px 'Metric'",
+    "captionLineHeight": 46,
+    "captionLineSpacing": 7,
+    "captionLeft": 215,
+    "captionRight": 1234
   },
-  "Line": {
-    "backgroundColor": "#edc951",
-    "foregroundColor": "#00a0b0",
-    "pattern": "line"
+  "Alphachat": {
+    "waveColor": "#53c9c9",
+    "backgroundImage": "Audiogram_Alphachat.jpg"
   },
-  "Curve": {
-    "backgroundColor": "#00a0b0",
-    "foregroundColor": "#edc951",
-    "pattern": "curve"
+  "Banking Weekly": {
+    "waveColor": "#b59e6d",
+    "backgroundImage": "Audiogram_BankingWkly.jpg"
   },
-  "Bricks": {
-    "backgroundColor": "#8771aa",
-    "foregroundColor": "#fff",
-    "pattern": "bricks"
+  "Big Read": {
+    "waveColor": "#e5aa15",
+    "backgroundImage": "Audiogram_BigRead.jpg"
   },
-  "Equalizer on the bottom": {
-    "backgroundColor": "#222",
-    "foregroundColor": "#fff",
-    "pattern": "equalizer",
-    "captionTop": 40,
-    "captionBottom": 380,
+  "Hard Currency": {
+    "waveColor": "#63c1a7",
+    "backgroundImage": "Audiogram_HardCurrency.jpg"
+  },
+  "Investigations": {
+    "waveColor": "#e0c44f",
+    "backgroundImage": "Audiogram_Investigations.jpg"
+  },
+  "Life of a Song": {
+    "waveColor": "#c9c050",
+    "backgroundImage": "Audiogram_LifeOfASong.jpg"
+  },
+  "Listen to Lucy": {
+    "waveColor": "#f5bf9a",
+    "backgroundImage": "Audiogram_ListentoLucy.jpg",
+    "captionTop": 288,
+    "captionLeft": 215,
+    "captionRight": 713    
+  },
+  "Management Book Club": {
+    "waveColor": "#bc8bb8",
+    "backgroundImage": "Audiogram_MgmtBookClub.jpg"
+  },
+  "Money Show": {
+    "waveColor": "#91c174",
+    "backgroundImage": "Audiogram_MoneyShow.jpg"
+  },
+  "Mrs Moneypenny": {
+    "waveColor": "#f5bf9a",
+    "backgroundImage": "Audiogram_Moneypenny.jpg"
+  },
+  "News": {
+    "waveColor": "#d1798a",
+    "backgroundImage": "Audiogram_News.jpg"
+  },
+  "Politics": {
+    "waveColor": "#afafaf",
+    "backgroundImage": "Audiogram_Politics.jpg"
+  },
+  "Start-up Stories": {
+    "waveColor": "#e59cb6",
+    "backgroundImage": "Audiogram_StartupStories.jpg"
+  },
+  "Tech Tonic": {
+    "waveColor": "#78b6dd",
+    "backgroundImage": "Audiogram_TechTonic.jpg"
+  },
+  "World Tech Founders": {
+    "waveColor": "#e98949",
+    "backgroundImage": "Audiogram_WldTechFders.jpg"
+  },
+  "World Weekly": {
+    "waveColor": "#74c494",
+    "backgroundImage": "Audiogram_WorldWkly.jpg"
+  },
+  "World in 60 seconds": {
+    "waveColor": "#e87092",
+    "backgroundImage": "Audiogram_Worldin60sec.jpg"
+  },
+  "Old Every Thing Else": {
+    "waveBottom": 719,
+    "waveTop": 320,
+    "pattern": "bricks",
+    "backgroundImage": "everythingelse.png",
+    "foregroundColor": "#fff"
+  },
+  "Old TechTonic": {
+    "foregroundColor": "#b8b1a9 ",
     "waveTop": 420,
-    "waveBottom": 720
-  },
-  "Bold italic orange": {
-    "captionAlign": "right",
-    "captionTop": null,
-    "captionBottom": 660,
-    "captionRight": 1220,
-    "captionLeft": 640,
-    "backgroundColor": "#fd5a1e",
-    "waveColor": "#fff",
-    "captionFont": "bold italic 52px 'Source Sans Pro'"
-  },
-  "Pixelated": {
-    "backgroundColor": "#ecd078",
-    "foregroundColor": "#c02942",
-    "pattern": "pixel"
-  },
-  "Square with background image": {
-    "width": 640,
-    "height": 640,
-    "samplesPerFrame": 64,
-    "waveTop": 20,
-    "waveBottom": 300,
-    "captionTop": 340,
-    "captionLeft": 20,
-    "captionRight": 620,
-    "foregroundColor": "#0eb8ba",
-    "backgroundImage": "nyc.png"
+    "waveBottom": 720,
+    "backgroundImage": "techtonic.jpg"
   }
 }
