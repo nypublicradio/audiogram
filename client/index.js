@@ -58,6 +58,7 @@ function submitted() {
 
   var theme = preview.theme(),
       caption = preview.caption(),
+      label = preview.label(),
       selection = preview.selection(),
       file = preview.file();
 
@@ -86,6 +87,7 @@ function submitted() {
   }
   formData.append("theme", JSON.stringify($.extend({}, theme, { backgroundImageFile: null })));
   formData.append("caption", caption);
+  formData.append("label", label);
 
   setClass("loading");
   d3.select("#loading-message").text("Uploading audio...");

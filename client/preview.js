@@ -27,7 +27,7 @@ function _caption(_) {
 }
 
 function _label(_) {
-  return arguments.length ? (label = _, redraw()) : theme;
+  return arguments.length ? (label = _, redraw()) : label;
 }
 
 function _selection(_) {
