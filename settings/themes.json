@@ -12,9 +12,203 @@
     "captionFont": "300 52px 'Source Sans Pro'",
     "captionLineHeight": 52,
     "captionLineSpacing": 7,
-    "captionLeft": 200,
-    "captionRight": 1080
+    "captionLeft": 0,
+    "captionRight": 720
   },
+
+  "TTBOOK": {
+    "width": 720,
+    "height": 720,
+    "captionAlign": "center",
+    "captionFont": "300 50px 'DroidSerif'",
+    "captionLineHeight": 60,
+    "captionLineSpacing": 7,
+    "captionTop": 550,
+    "captionRight": 700,
+    "captionLeft": 20,
+    "backgroundImage": "TTBOOK-blank.png",
+    "foregroundColor": "#facf09",
+    "waveBottom": 500,
+    "waveTop": 250,
+    "waveColor": "#267bb9"
+  },
+
+
+    "Furniture - Deep Tracks": {
+      "captionAlign": "right",
+      "captionFont": "600 70px 'Oswald'",
+      "captionLineHeight": 60,
+      "captionLineSpacing": 7,
+
+      "captionTop": 25,
+      "captionRight": 1220,
+      "captionLeft": 500,
+      "backgroundImage": "deep-tracks.png",
+      "foregroundColor": "#000000",
+      "waveBottom": 550,
+      "waveTop": 400,
+      "waveColor": "#facf09"
+    },
+
+    "Furniture - BookMarks": {
+      "captionAlign": "right",
+      "captionFont": "600 70px 'Oswald'",
+      "captionLineHeight": 60,
+      "captionLineSpacing": 7,
+
+      "captionTop": 25,
+      "captionRight": 1220,
+      "captionLeft": 500,
+      "backgroundImage": "bookmarks.png",
+      "foregroundColor": "#FFFFFF",
+      "waveBottom": 550,
+      "waveTop": 400,
+      "waveColor": "#5ab251"
+    },
+
+    "Furniture - dangerous ideas": {
+      "captionAlign": "right",
+      "captionFont": "600 70px 'Oswald'",
+      "captionLineHeight": 60,
+      "captionLineSpacing": 7,
+
+      "captionTop": 25,
+      "captionRight": 1220,
+      "captionLeft": 500,
+      "backgroundImage": "dangerous-ideas.png",
+      "foregroundColor": "#267bb9",
+      "waveBottom": 550,
+      "waveTop": 400,
+      "waveColor": "#267bb9"
+    },
+
+
+  "Instagram - ted-goia.png": {
+    "width": 720,
+    "height": 720,
+    "captionAlign": "right",
+    "captionFont": "300 40px 'Oswald'",
+    "captionLineHeight": 52,
+    "captionLineSpacing": 7,
+    "pattern": "wave",
+    "captionTop": 60,
+    "captionRight": 700,
+    "captionLeft": 20,
+    "backgroundImage": "ted-goia.png",
+    "foregroundColor": "#267bb9",
+    "waveBottom": 500,
+    "waveTop": 250,
+    "waveColor": "#267bb9"
+  },
+
+  "Instagram - vijay.png": {
+    "width": 720,
+    "height": 720,
+    "captionAlign": "right",
+    "captionFont": "300 40px 'Oswald'",
+    "captionLineHeight": 52,
+    "captionLineSpacing": 7,
+    "pattern": "wave",
+    "captionTop": 60,
+    "captionRight": 700,
+    "captionLeft": 20,
+    "backgroundImage": "vijay.png",
+    "foregroundColor": "#267bb9",
+    "waveBottom": 500,
+    "waveTop": 250,
+    "waveColor": "#5ab251"
+  },
+
+  "Instagram - vijay2.png": {
+    "width": 720,
+    "height": 720,
+    "captionAlign": "right",
+    "captionFont": "300 40px 'Oswald'",
+    "captionLineHeight": 52,
+    "captionLineSpacing": 7,
+    "pattern": "wave",
+    "captionTop": 60,
+    "captionRight": 700,
+    "captionLeft": 20,
+    "backgroundImage": "vijay2.png",
+    "foregroundColor": "#facf09",
+    "waveBottom": 500,
+    "waveTop": 250,
+    "waveColor": "#facf09"
+  },
+
+  "Instagram - larry-brilliant.png": {
+    "width": 720,
+    "height": 720,
+    "captionAlign": "right",
+    "captionFont": "300 40px 'Oswald'",
+    "captionLineHeight": 52,
+    "captionLineSpacing": 7,
+    "pattern": "wave",
+    "captionTop": 60,
+    "captionRight": 700,
+    "captionLeft": 20,
+    "backgroundImage": "larry-brilliant.png",
+    "foregroundColor": "#267bb9",
+    "waveBottom": 500,
+    "waveTop": 250,
+    "waveColor": "#5ab251"
+  },
+
+
+
+  "Sonic Sidebar - Mark of Trump": {
+    "captionAlign": "right",
+    "captionFont": "300 40px 'Oswald'",
+    "captionLineHeight": 52,
+    "captionLineSpacing": 7,
+
+    "captionTop": 60,
+    "captionRight": 1220,
+    "captionLeft": 750,
+    "backgroundImage": "trump.png",
+    "foregroundColor": "#facf09",
+    "waveBottom": 500,
+    "waveTop": 300,
+    "waveColor": "#facf09"
+  },
+
+  "Sonic Sidebar - Spalding": {
+    "captionAlign": "right",
+    "captionFont": "300 40px 'Oswald'",
+    "captionLineHeight": 52,
+    "captionLineSpacing": 7,
+
+    "captionTop": 60,
+    "captionRight": 1220,
+    "captionLeft": 750,
+    "backgroundImage": "TTBOOK.png",
+    "foregroundColor": "#2e2d2e",
+    "waveBottom": 550,
+    "waveTop": 450,
+    "waveColor": "#2e2d2e"
+  },
+
+  "Sonic Sidebar - Christianberry": {
+    "captionAlign": "right",
+    "captionFont": "300 40px 'Oswald'",
+    "captionLineHeight": 52,
+    "captionLineSpacing": 7,
+
+    "captionTop": 60,
+    "captionRight": 1220,
+    "captionLeft": 750,
+    "backgroundImage": "christianberry-ss.png",
+    "foregroundColor": "#2e2d2e",
+    "waveBottom": 550,
+    "waveTop": 450,
+    "waveColor": "#5ab251",
+    "pattern": "curve"
+  },
+
+
+
+
   "Basic": {
     "backgroundColor": "#eee",
     "foregroundColor": "#de1e3d"
