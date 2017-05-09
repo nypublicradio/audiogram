@@ -57,7 +57,7 @@ When you're ready to get your video, click "Generate." You may have to wait up t
 
 ## Customizing Audiogram
 
-Audiogram defines the visual details like dimensions, colors, and spacing using "themes." This repo includes a few basic themes meant to give you a sense of what's possible, but you'll probably want to make your own. This will allow you to use your own colors and logos and fonts, or choose other dimensions (e.g. vertical video). For details, [read more about Audiogram themes](THEMES.md).
+Audiogram defines the visual details like dimensions, colors, and spacing using "themes." This repo includes a few basic themes meant to give you a sense of what's possible, but you'll probably want to make your own. This will allow you to use your own colors and logos and fonts, or choose other dimensions (e.g. vertical video).  For details, [read more about Audiogram themes](THEMES.md).
 
 If you're comfortable writing a bit of JavaScript, you can also modify Audiogram more substantially to suit your needs.  The [Developer notes](DEVELOPERS.md) have some pointers for changes you might want to make, and what files to focus on.  For example, you could [use some other shape besides the built in patterns](https://github.com/nypublicradio/audiogram/blob/master/DEVELOPERS.md#use-different-animations-besides-the-wavebarsbricks), [use a different video format](https://github.com/nypublicradio/audiogram/blob/master/DEVELOPERS.md#fiddle-with-ffmpeg-options-eg-use-different-encoders), or [get fancy with gradients](https://github.com/nypublicradio/audiogram/blob/master/DEVELOPERS.md#extend-themes).
 
