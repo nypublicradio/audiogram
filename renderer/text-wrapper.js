@@ -84,7 +84,16 @@ module.exports = function(theme) {
       // draw caption
       context.fillStyle = theme.captionColor;
       lines.forEach(function(line, i){
-        context.fillText(line.join(" "), x, y + i * (theme.captionLineHeight + theme.captionLineSpacing));
+
+        // negative indentation for opening quotes
+        var indented_x = (x + 28);
+
+        if (i === 0 && /^“/.test(line[0])) {
+          context.fillText(line.join(" "), x, y + i * (theme.captionLineHeight + theme.captionLineSpacing));
+        }
+        else {
+          context.fillText(line.join(" "), indented_x, y + i * (theme.captionLineHeight + theme.captionLineSpacing));
+        }
       });
     } // end if caption
 

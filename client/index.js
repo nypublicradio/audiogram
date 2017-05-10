@@ -241,7 +241,7 @@ function updateAudioFile() {
 
 }
 
-function updateCaption(label) {
+function updateCaption() {
   preview.caption(this.value);
 }
 
