@@ -75,6 +75,10 @@ function submitted() {
     return setClass("error", "No valid theme detected.");
   }
 
+  if (theme.labelText) {
+    label = theme.labelText;
+  }
+
   video.kill();
   audio.pause();
 
@@ -237,7 +241,7 @@ function updateAudioFile() {
 
 }
 
-function updateCaption() {
+function updateCaption(label) {
   preview.caption(this.value);
 }
 
@@ -246,7 +250,24 @@ function updateLabel() {
 }
 
 function updateTheme() {
-  preview.theme(d3.select(this.options[this.selectedIndex]).datum());
+  var theme_obj = d3.select(this.options[this.selectedIndex]).datum(),
+      that = this;
+
+  // Automatically set the label for themes that have them
+  preview.theme(theme_obj);
+  if (theme_obj.labelText) {
+    preview.label(theme_obj.labelText);
+    $('#input-label').children().each(function (i, c) {
+      if (c.value === that.options[that.selectedIndex].value) {
+        $(c).prop('selected', true);
+        return false;
+      }
+    });
+    $('#input-label').prop('disabled', true);
+  }
+  else {
+    $('#input-label').prop('disabled', false);
+  }
 }
 
 function preloadImages(themes) {
