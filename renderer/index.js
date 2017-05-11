@@ -58,6 +58,11 @@ module.exports = function(t) {
       wrapText(context, options.caption, 'caption');
     }
 
+    // Write the citation
+    if (options.citation) {
+      wrapText(context, options.citation, 'citation');
+    }
+
     // Write the label
     if (options.label) {
       wrapText(context, options.label, 'label');

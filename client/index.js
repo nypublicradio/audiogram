@@ -58,6 +58,7 @@ function submitted() {
 
   var theme = preview.theme(),
       caption = preview.caption(),
+      citation = preview.citation(),
       label = preview.label(),
       selection = preview.selection(),
       file = preview.file();
@@ -91,6 +92,7 @@ function submitted() {
   }
   formData.append("theme", JSON.stringify($.extend({}, theme, { backgroundImageFile: null })));
   formData.append("caption", caption);
+  formData.append("citation", citation);
   formData.append("label", label);
 
   setClass("loading");
@@ -176,6 +178,9 @@ function initialize(err, themesWithImages) {
   // Get initial caption (e.g. back button)
   d3.select("#input-caption").on("change keyup", updateCaption).each(updateCaption);
 
+  // Get initial citation (e.g. back button)
+  d3.select("#input-citation").on("change keyup", updateCitation).each(updateCitation);
+
   // Space bar listener for audio play/pause
   d3.select(document).on("keypress", function(){
     if (!d3.select("body").classed("rendered") && d3.event.key === " " && !d3.matcher("input, textarea, button, select").call(d3.event.target)) {
@@ -243,6 +248,10 @@ function updateAudioFile() {
 
 function updateCaption() {
   preview.caption(this.value);
+}
+
+function updateCitation() {
+  preview.citation(this.value);
 }
 
 function updateLabel() {
