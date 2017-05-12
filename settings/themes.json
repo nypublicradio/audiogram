@@ -15,18 +15,21 @@
     "captionLeft": 200,
     "captionRight": 1080
   },
-  "Basic": {
-    "backgroundColor": "#eee",
-    "foregroundColor": "#de1e3d"
+  "Why Oh Why": {
+    "captionAlign": "right",
+    "captionTop": 60,
+    "captionRight": 1220,
+    "captionLeft": 640,
+    "backgroundImage": "why_oh_why.jpg",
+    "captionColor": "#727074",
+    "waveColor": "#00b3ff",
+    "waveBottom": 660,
+    "waveTop": 320
   },
-  "Neon": {
-    "backgroundColor": "#556270",
-    "foregroundColor": "#c7f464"
-  },
-  "Three colors": {
-    "backgroundColor": "#eee",
-    "captionColor": "#515151",
-    "waveColor": "#00b4ff"
+  "Megaphone Dark": {
+    "backgroundColor": "#232831",
+    "captionColor": "#44484f",
+    "waveColor": "#7373ea"
   },
   "Background image with top right text": {
     "captionAlign": "right",
