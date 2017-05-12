@@ -28,12 +28,12 @@
     "captionColor": "#515151",
     "waveColor": "#00b4ff"
   },
-  "Background image with top right text": {
+  "Background image NPOR1_blurred": {
     "captionAlign": "right",
     "captionTop": 60,
     "captionRight": 1220,
     "captionLeft": 640,
-    "backgroundImage": "subway.jpg",
+    "backgroundImage": "R1_bkgd_blur",
     "foregroundColor": "#fc0",
     "waveBottom": 660,
     "waveTop": 320
