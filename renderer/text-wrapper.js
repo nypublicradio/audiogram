@@ -88,7 +88,7 @@ module.exports = function(theme) {
           y = theme.captionTop + theme.captionTotalHeight + theme[type + 'TopMargin'];
         }
         else {
-          y = top
+          y = top;
         }
       }
 
