@@ -65,6 +65,11 @@ module.exports = function(theme) {
 
       var totalHeight = lines.length * theme[type + 'LineHeight'] + (lines.length - 1) * theme[type + 'LineSpacing'];
 
+      // save caption height for measuring citation top
+      if (type === 'caption') {
+        theme.captionTotalHeight = totalHeight;
+      }
+
       // horizontal alignment
       var x = theme[type + 'Align'] === "left" ? left : theme[type + 'Align'] === "right" ? right : (left + right) / 2;
 
@@ -79,7 +84,12 @@ module.exports = function(theme) {
         y = bottom - totalHeight;
       } else {
         // Vertical align top
-        y = top;
+        if (type === 'citation' && theme.captionTotalHeight) {
+          y = theme.captionTop + theme.captionTotalHeight + theme[type + 'TopMargin'];
+        }
+        else {
+          y = top
+        }
       }
 
       // draw text
