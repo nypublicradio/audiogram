@@ -15,8 +15,7 @@ function kill() {
 
 function update(url, name) {
 
-  var timestamp = d3.timeFormat("%m%d%y_AG_")(new Date).toLowerCase(),
-      filename = timestamp + (name || "Audiogram") + ".mp4";
+  var filename = (name || "Audiogram") + ".mp4";
 
   d3.select("#download")
     .attr("download", filename)

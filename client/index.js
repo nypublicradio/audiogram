@@ -2,7 +2,31 @@ var d3 = require("d3"),
     $ = require("jquery"),
     preview = require("./preview.js"),
     video = require("./video.js"),
-    audio = require("./audio.js");
+    audio = require("./audio.js"),
+    timestamp,
+    identifier;
+
+
+function addZero (digit) {
+  if (digit.toString().length === 1) {
+    return '0' + digit.toString();
+  }
+  else {
+    return digit.toString();
+  }
+}
+
+function timestamp () {
+  var d = new Date();
+
+  return addZero(d.getMonth() + 1)
+  + addZero(d.getDate())
+  + d.getFullYear().toString().slice(2,4) + '_'
+  + addZero(d.getHours())
+  + addZero(d.getMinutes())
+  + addZero(d.getSeconds()) + '_';
+}
+
 
 d3.json("/settings/labels.json", function(err, labels){
 
@@ -61,11 +85,10 @@ function submitted() {
       citation = preview.citation(),
       label = preview.label(),
       selection = preview.selection(),
-      file = preview.file(),
-      identifier;
+      file = preview.file();
 
-  // for easy-to-scan filenames
-  identifier = caption.replace(/\s+/g, '_').replace(/\'|\"|\.|\?|\!/g, '').toLowerCase().slice(0, 20);
+  // combine timestamp and caption for easy-to-scan filenames
+  identifier = timestamp() + preview.caption().replace(/\s+/g, '_').replace(/\'|\"|\.|\?|\!/g, '').toLowerCase().slice(0, 20);
 
   if (!file) {
     d3.select("#row-audio").classed("error", true);
@@ -121,8 +144,6 @@ function submitted() {
 }
 
 function poll(id) {
-  var identifier = preview.caption().replace(/\s+/g, '_').replace(/\'|\"|\.|\?|\!/g, '').toLowerCase().slice(0, 20);
-
   setTimeout(function(){
     $.ajax({
       url: "/status/" + id + "/",
