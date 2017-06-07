@@ -116,6 +116,7 @@ function submitted() {
 }
 
 function poll(id) {
+  var identifier = preview.caption().replace(/\s+/g, '_').replace(/\'|\"|\.|\?|\!/g, '').toLowerCase().slice(0, 20);
 
   setTimeout(function(){
     $.ajax({
@@ -124,7 +125,7 @@ function poll(id) {
       dataType: "json",
       success: function(result){
         if (result && result.status && result.status === "ready" && result.url) {
-          video.update(result.url, preview.theme().name);
+          video.update(result.url, identifier);
           setClass("rendered");
         } else if (result.status === "error") {
           error(result.error);
