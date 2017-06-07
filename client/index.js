@@ -61,7 +61,11 @@ function submitted() {
       citation = preview.citation(),
       label = preview.label(),
       selection = preview.selection(),
-      file = preview.file();
+      file = preview.file(),
+      identifier;
+
+  // for easy-to-scan filenames
+  identifier = caption.replace(/\s+/g, '_').replace(/\'|\"|\.|\?|\!/g, '').toLowerCase().slice(0, 20);
 
   if (!file) {
     d3.select("#row-audio").classed("error", true);
@@ -94,6 +98,7 @@ function submitted() {
   formData.append("caption", caption);
   formData.append("citation", citation);
   formData.append("label", label);
+  formData.append("identifier", identifier);
 
   setClass("loading");
   d3.select("#loading-message").text("Uploading audio...");

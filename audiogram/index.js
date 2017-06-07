@@ -145,7 +145,9 @@ Audiogram.prototype.combineFrames = function(cb) {
 Audiogram.prototype.render = function(cb) {
 
   var self = this,
-      q = queue(1);
+      q = queue(1),
+      identifier = self.settings.identifier;
+ ;
 
   this.status("audio-download");
 
@@ -170,7 +172,7 @@ Audiogram.prototype.render = function(cb) {
   q.defer(this.combineFrames.bind(this));
 
   // Upload video to S3 or move to local storage
-  q.defer(transports.uploadVideo, this.videoPath, "video/" + this.id + ".mp4");
+  q.defer(transports.uploadVideo, this.videoPath, "video/" + identifier + ".mp4");
 
   // Delete working directory
   q.defer(rimraf, this.dir);
@@ -179,7 +181,7 @@ Audiogram.prototype.render = function(cb) {
   q.await(function(err){
 
     if (!err) {
-      self.set("url", transports.getURL(self.id));
+      self.set("url", transports.getURL(identifier));
     }
 
     logger.debug(self.profiler.print());
