@@ -38,6 +38,16 @@
     "waveBottom": 660,
     "waveTop": 320
   },
+    "Distillations logo with top right text": {
+    "captionAlign": "right",
+    "captionTop": 60,
+    "captionRight": 1220,
+    "captionLeft": 640,
+    "backgroundImage": "Distillations_1280x720.jpg",
+    "foregroundColor": "#fc0",
+    "waveBottom": 660,
+    "waveTop": 320
+  },
   "Bars": {
     "pattern": "bars",
     "foregroundColor": "#d84a4a"
