@@ -63,5 +63,12 @@
     "backgroundImage": "the_daily_audiogram_background.png",
     "labelColor": "#fff",
     "labelText": "The Daily"
+  },
+  "Science": {
+    "waveColor": "#d9d9d9",
+    "foregroundColor": "#000",
+    "citationColor": "#000",
+    "backgroundImage": "science_why_do_bees_buzz.jpg",
+    "labelColor": "#000"
   }
 }
