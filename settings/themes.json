@@ -9,8 +9,8 @@
     "waveTop": 150,
     "waveBottom": 420,
     "captionTop": 470,
-    "captionFont": "300 52px 'Source Sans Pro'",
-    "captionLineHeight": 52,
+    "captionFont": "300 48px 'Source Sans Pro'",
+    "captionLineHeight": 48,
     "captionLineSpacing": 7,
     "captionLeft": 200,
     "captionRight": 1080
@@ -33,10 +33,34 @@
     "captionTop": 60,
     "captionRight": 1220,
     "captionLeft": 640,
-    "backgroundImage": "subway.jpg",
+    "backgroundImage": "amish1280.jpg",
     "foregroundColor": "#fc0",
     "waveBottom": 660,
     "waveTop": 320
+  },
+  "Distillations logo rect red wave white top right text": {
+    "captionAlign": "right",
+    "captionTop": 60,
+    "captionRight": 1220,
+    "captionLeft": 640,
+    "backgroundImage": "Distillations_1280x720.jpg",
+    "foregroundColor": "#fff",
+    "waveColor": "#cf0920",
+    "waveBottom": 660,
+    "waveTop": 320
+  },
+  "Distillations logo square red wave white text": {
+    "width": 640,
+    "height": 640,
+    "samplesPerFrame": 64,
+    "waveTop": 20,
+    "waveBottom": 300,
+    "captionTop": 340,
+    "captionLeft": 20,
+    "captionRight": 620,
+    "waveColor": "#cf0920",
+    "foregroundColor": "#fff",
+    "backgroundImage": "Distillations_640x640.jpg"
   },
   "Bars": {
     "pattern": "bars",
@@ -100,6 +124,6 @@
     "captionLeft": 20,
     "captionRight": 620,
     "foregroundColor": "#0eb8ba",
-    "backgroundImage": "nyc.png"
+    "backgroundImage": "amish640.png"
   }
 }
