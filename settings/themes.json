@@ -15,7 +15,41 @@
     "captionLeft": 200,
     "captionRight": 1080
   },
-   "Panoply Pilot Project": {
+  "Battle Scars": {
+    "captionAlign": "center",
+    "captionTop": 200,
+    "backgroundImage": "BattleScars-audiogram.jpg",
+    "foregroundColor": "#fff",
+    "waveBottom": 700,
+    "waveTop": 320
+  },
+  "Haunted": {
+    "captionAlign": "right",
+    "captionTop": 220,
+    "captionRight": 1170,
+    "backgroundImage": "Haunted-audiogram.jpg",
+    "foregroundColor": "#fff",
+    "waveBottom": 700,
+    "waveTop": 320
+  },
+  "Tumanbay": {
+    "captionAlign": "center",
+    "captionTop": 200,
+    "backgroundImage": "TumanBay-audiogram.jpg",
+    "foregroundColor": "#fff",
+    "waveBottom": 600,
+    "waveTop": 300
+  },
+  "By The Book": {
+    "captionAlign": "right",
+    "captionTop": 200,
+    "captionRight": 1200,
+    "backgroundImage": "ByTheBook-audiogram.jpg",
+    "foregroundColor": "#fff",
+    "waveBottom": 700,
+    "waveTop": 320
+  },
+  "Panoply Pilot Project": {
     "captionAlign": "right",
     "captionTop": 60,
     "captionRight": 1220,
