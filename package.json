@@ -25,9 +25,9 @@
   "dependencies": {
     "aws-sdk": "^2.2.39",
     "browserify": "^13.0.0",
-    "canvas": "^1.6.5",
+    "canvas": "git+https://github.com/chearon/node-canvas.git#12971f64a66b",
     "compression": "^1.6.1",
-    "d3": "4.10.0",
+    "d3": "^4.1.1",
     "dotenv": "^2.0.0",
     "express": "^4.13.3",
     "jquery": "^2.2.1",
