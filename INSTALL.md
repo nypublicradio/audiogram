@@ -133,6 +133,10 @@ Now you can run Audiogram in a container using that image:
 docker run -p 8888:8888 -t -i audiogram
 ```
 
+## AWS installation
+
+If you're trying to run Audiogram on AWS services like Lambda or Elastic Beanstalk that rely on the Amazon Linux distribution, you will probably need to follow the [node-canvas Amazon Linux AMI instructions](https://github.com/Automattic/node-canvas/wiki/Installation---Amazon-Linux-AMI-(EC2)) to install the dependencies and/or package up the resulting binaries.
+
 ## Mac troubleshooting
 
 If things aren't working on a Mac, there are a few fixes you can try.

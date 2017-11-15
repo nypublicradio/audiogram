@@ -25,7 +25,7 @@
   "dependencies": {
     "aws-sdk": "^2.2.39",
     "browserify": "^13.0.0",
-    "canvas": "^1.6.5",
+    "canvas": "git+https://github.com/chearon/node-canvas.git#12971f64a66b",
     "compression": "^1.6.1",
     "d3": "4.10.0",
     "dotenv": "^2.0.0",
@@ -35,11 +35,11 @@
     "morgan": "^1.7.0",
     "multer": "^1.1.0",
     "node-ffprobe": "^1.2.2",
-    "node-uuid": "^1.4.7",
     "redis": "^2.4.2",
     "rimraf": "^2.5.0",
     "smartquotes": "^1.0.0",
     "underscore": "^1.8.3",
+    "uuid": "^3.0.1",
     "webaudio-peaks": "0.0.5",
     "winston": "^2.2.0"
   },
