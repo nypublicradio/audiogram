@@ -15,6 +15,24 @@
     "captionLeft": 200,
     "captionRight": 1080
   },
+  "Family Ghosts": {
+    "captionAlign": "right",
+    "captionTop": 230,
+    "captionRight": 1200,
+    "backgroundImage": "FamilyGhosts-audiogram.png",
+    "foregroundColor": "#fff",
+    "waveBottom": 680,
+    "waveTop": 350
+  },
+  "Pinna": {
+    "captionAlign": "right",
+    "captionTop": 50,
+    "captionRight": 1200,
+    "backgroundImage": "Pinna-audiogram.png",
+    "foregroundColor": "#fff",
+    "waveBottom": 600,
+    "waveTop": 400
+  },
   "Battle Scars": {
     "captionAlign": "center",
     "captionTop": 200,
