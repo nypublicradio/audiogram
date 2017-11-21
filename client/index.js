@@ -27,8 +27,10 @@ function timestamp () {
   + addZero(d.getSeconds()) + '_';
 }
 
+var pre_pro = window.location.protocol,
+    pre_host = window.location.host;
 
-d3.json("/settings/labels.json", function(err, labels){
+d3.json(pre_pro + "//" + pre_host + "/settings/labels.json", function(err, labels){
 
   // Populate labels menu
   d3.select("#input-label")
@@ -45,7 +47,7 @@ d3.json("/settings/labels.json", function(err, labels){
 
 }); // end label ingestion
 
-d3.json("/settings/themes.json", function(err, themes){
+d3.json(pre_pro + "//" + pre_host + "/settings/themes.json", function(err, themes){
 
   var errorMessage;
 
