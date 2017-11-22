@@ -20,16 +20,7 @@ module.exports = function(theme) {
           wrap_width = right - left,
           max_width = 0,
           words = smartquotes(txt + "").trim().replace(/\s\s+/g, " \n").split(/ /g),
-          indent;
-
-      if (type === 'caption') {
-        // negative indentation for opening quotes
-        indent = 20;
-      }
-      else if (type === 'citation') {
-        // negative indentation for opening em dash
-        indent = 50;
-      }
+          indent = 20;
 
       if (bottom === null && top === null) {
         top = 0;
@@ -53,8 +44,6 @@ module.exports = function(theme) {
 
         } else {
 
-          // automatically prepend em dash to citation
-          word = (type === 'citation' && i === 0) ? '— ' + word : word;
           lines[lines.length - 1].push(word);
 
         }
@@ -97,7 +86,7 @@ module.exports = function(theme) {
       lines.forEach(function(line, i){
 
         if (/caption|citation/.test(type)) {
-          if (i === 0 && /^“|^—/.test(line[0])) {
+          if (i === 0 && /^“/.test(line[0])) {
             context.fillText(line.join(" "), x, y + i * (theme[type + 'LineHeight'] + theme[type + 'LineSpacing']));
           }
           else {
