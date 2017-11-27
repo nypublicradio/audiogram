@@ -15,6 +15,16 @@
     "captionLeft": 200,
     "captionRight": 1080
   },
+  "Christmas Is Coming": {
+    "captionAlign": "left",
+    "captionTop": 260,
+    "captionLeft": 60,
+    "captionRight": 1200,
+    "backgroundImage": "ChristmasIsComing-audiogram.png",
+    "foregroundColor": "#fff",
+    "waveBottom": 680,
+    "waveTop": 350
+  },
   "Family Ghosts": {
     "captionAlign": "right",
     "captionTop": 230,
