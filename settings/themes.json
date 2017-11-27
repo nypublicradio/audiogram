@@ -15,18 +15,148 @@
     "captionLeft": 200,
     "captionRight": 1080
   },
-  "Basic": {
-    "backgroundColor": "#eee",
-    "foregroundColor": "#de1e3d"
+  "Christmas Is Coming": {
+    "captionAlign": "left",
+    "captionTop": 260,
+    "captionLeft": 60,
+    "captionRight": 1200,
+    "backgroundImage": "ChristmasIsComing-audiogram.png",
+    "foregroundColor": "#fff",
+    "waveBottom": 680,
+    "waveTop": 350
   },
-  "Neon": {
-    "backgroundColor": "#556270",
-    "foregroundColor": "#c7f464"
+  "Family Ghosts": {
+    "captionAlign": "right",
+    "captionTop": 230,
+    "captionRight": 1200,
+    "backgroundImage": "FamilyGhosts-audiogram.png",
+    "foregroundColor": "#fff",
+    "waveBottom": 680,
+    "waveTop": 350
   },
-  "Three colors": {
-    "backgroundColor": "#eee",
-    "captionColor": "#515151",
-    "waveColor": "#00b4ff"
+  "Pinna": {
+    "captionAlign": "right",
+    "captionTop": 50,
+    "captionRight": 1200,
+    "backgroundImage": "Pinna-audiogram.png",
+    "foregroundColor": "#fff",
+    "waveBottom": 600,
+    "waveTop": 400
+  },
+  "Battle Scars": {
+    "captionAlign": "center",
+    "captionTop": 200,
+    "backgroundImage": "BattleScars-audiogram.jpg",
+    "foregroundColor": "#fff",
+    "waveBottom": 700,
+    "waveTop": 320
+  },
+  "Haunted": {
+    "captionAlign": "right",
+    "captionTop": 220,
+    "captionRight": 1170,
+    "backgroundImage": "Haunted-audiogram.jpg",
+    "foregroundColor": "#fff",
+    "waveBottom": 700,
+    "waveTop": 320
+  },
+  "Tumanbay": {
+    "captionAlign": "center",
+    "captionTop": 200,
+    "backgroundImage": "TumanBay-audiogram.jpg",
+    "foregroundColor": "#fff",
+    "waveBottom": 600,
+    "waveTop": 300
+  },
+  "By The Book": {
+    "captionAlign": "right",
+    "captionTop": 200,
+    "captionRight": 1200,
+    "backgroundImage": "ByTheBook-audiogram.jpg",
+    "foregroundColor": "#fff",
+    "waveBottom": 700,
+    "waveTop": 320
+  },
+  "Panoply Pilot Project": {
+    "captionAlign": "right",
+    "captionTop": 60,
+    "captionRight": 1220,
+    "captionLeft": 640,
+    "backgroundImage": "ppp.jpg",
+    "foregroundColor": "#fc0",
+    "waveBottom": 660,
+    "waveTop": 320
+  },
+  "Slate Represent": {
+    "captionAlign": "right",
+    "captionTop": 60,
+    "captionRight": 1220,
+    "captionLeft": 640,
+    "backgroundImage": "represent.jpg",
+    "foregroundColor": "#ffffff",
+    "waveBottom": 660,
+    "waveTop": 320
+  },
+  "Why Oh Why": {
+    "captionAlign": "right",
+    "captionTop": 60,
+    "captionRight": 1220,
+    "captionLeft": 640,
+    "backgroundImage": "why_oh_why.jpg",
+    "captionColor": "#727074",
+    "waveColor": "#00b3ff",
+    "waveBottom": 660,
+    "waveTop": 320
+  },
+  "Dear Prudie": {
+    "foregroundColor": "#fff",
+    "backgroundImage": "dear_prudie.jpg",
+    "pattern": "equalizer",
+    "captionTop": 40,
+    "captionBottom": 380,
+    "waveTop": 420,
+    "waveBottom": 720
+  },
+  "LifeAfter-Center": {
+    "captionAlign": "center",
+    "captionTop": 60,
+    "captionRight": 1080,
+    "captionLeft": 200,
+    "backgroundImage": "LifeAfter-BG-Center.jpg",
+    "captionColor": "#ffffff",
+    "pattern": "line",
+    "waveColor": "#038f93",
+    "waveBottom": 680,
+    "waveTop": 440
+  },
+   "LifeAfter-Left": {
+    "captionAlign": "center",
+    "captionTop": 200,
+    "captionBottom": 380,
+    "captionRight": 1255,
+    "captionLeft": 805,
+    "backgroundImage": "LifeAfter-BG-Left.jpg",
+    "captionColor": "#ffffff",
+    "pattern": "line",
+    "waveColor": "#038f93",
+    "waveBottom": 680,
+    "waveTop": 440
+  },
+  "Slate - Election Day Special": {
+    "captionAlign": "right",
+    "captionTop": 60,
+    "captionRight": 1220,
+    "captionLeft": 640,
+    "backgroundImage": "slate_election_special.png",
+    "captionColor": "#ffffff",
+    "waveColor": "#ffffff",
+    "waveBottom": 660,
+    "waveTop": 320
+  },
+  "Megaphone Dark": {
+    "backgroundColor": "#232831",
+    "captionColor": "#44484f",
+    "waveColor": "#7373ea"
   },
   "Background image with top right text": {
     "captionAlign": "right",
