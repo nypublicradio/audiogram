@@ -2,7 +2,8 @@ var d3 = require("d3"),
     $ = require("jquery"),
     preview = require("./preview.js"),
     video = require("./video.js"),
-    audio = require("./audio.js");
+    audio = require("./audio.js"),
+    themeEditor = require("./themeEditor.js");
 
 d3.json("/settings/themes.json", function(err, themes){
 
@@ -26,6 +27,9 @@ d3.json("/settings/themes.json", function(err, themes){
     }
     return;
   }
+
+  if(themeEditor.isEditor())
+    themeEditor.initializeThemes(themes);
 
   for (var key in themes) {
     themes[key] = $.extend({}, themes.default, themes[key]);
@@ -138,7 +142,11 @@ function initialize(err, themesWithImages) {
 
   // Populate dropdown menu
   d3.select("#input-theme")
-    .on("change", updateTheme)
+    .on("change.a", updateTheme)
+    .on("change.b", function(){
+      if(themeEditor.isActive())
+        themeEditor.populateThemeFields();
+    })
     .selectAll("option")
     .data(themesWithImages)
     .enter()
@@ -181,6 +189,20 @@ function initialize(err, themesWithImages) {
   });
 
   d3.select("#submit").on("click", submitted);
+
+  d3.select("#theme-edit").on("click", function(){
+    var activeTheme = d3.select('#input-theme').property('value');
+    var url = window.location.origin + window.location.pathname + 'themes.html?t=' + activeTheme;
+    window.location = url;
+  });
+
+  d3.select("#new-theme").on("click", function(){
+    var url = window.location.origin + window.location.pathname + 'themes.html?t=default'
+    window.location = url;
+  });
+
+  if(themeEditor.isEditor())
+    themeEditor.initialize();
 
 }
 

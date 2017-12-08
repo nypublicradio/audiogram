@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Theme Editor</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600" rel="stylesheet" type="text/css">
+    <link href="/css/base.css" rel="stylesheet" type="text/css">
+    <link href="/css/editor.css" rel="stylesheet" type="text/css">
+    <link href="/fonts/fonts.css" rel="stylesheet" type="text/css">
+  </head>
+  <body class="loading">
+    <div id="themeEditor" class="container" data-active="false">
+      <p id="back-to-audiogram"><a href="../"><i class="fa fa-arrow-left"></i>Back to Audiogram</a></p>
+      <h1>Theme Editor</h1>
+      <div id="loading">
+        <div id="loading-bars">
+          <div class="r1"></div><div class="r2"></div><div class="r3"></div><div class="r4"></div><div class="r5"></div>
+        </div>
+        <div id="loading-message">Loading...</div>
+      </div><!-- #loading -->
+      <div id="loaded">
+        <div id="error"></div>
+        <div class="row form-row" id="row-audio" style="display:none;">
+          <label for="input-audio">Audio</label>
+          <input id="input-audio" name="audio" type="file" />
+        </div>
+        <div class="row" id="row-instructions">
+          <p>Welcome to the Theme Editor. From here you can edit existing themes or make new ones. Start by selecting a
+            theme to edit from the dropdown menu or choosing <code>New…</code> to make a new one. If you need more help, click this
+            <i id="toggle-more-instructions" class="fa fa-question"></i> or hover over the many others throughout the
+            page for more detailed help.</p>
+            <div id="more-instructions">
+              <p>Themes work by overriding the default styles your site administrator has set up. To override an option,
+                toggle it on with its checkbox. If an option isn’t toggled on, you won’t be able to adjust it. If you’re not
+                 sure what an option does, hover over the <i class="fa fa-question"></i> icon to get a description of it.</p>
+              <p>When you’re finished, you can click the <i class="fa fa-floppy-o"></i> button to save the changes to ONLY
+                the theme you’re currently editing. Switching themes will revert all the changes you’ve made in this
+                session. Themes can also be renamed by choosing them from the dropdown menu, changing the name option, and
+                saving the theme. Finally, if you’re absolutely sure, you can delete a theme by clicking the
+                <i class="fa fa-trash-o"></i> button. This action is irreversible and the theme will be gone forever.</p>
+              <p>Your theme preview changes live as you toggle options on and off and change their values. Experiment with
+                different values to create new and interesting themes. If you want to start over, you can click the
+                <i class="fa fa-refresh"></i> button to reset your theme.</p>
+            </div>
+        </div>
+        <div class="row form-row" id="row-theme">
+          <label for="input-theme">Theme</label>
+          <select id="input-theme" name="theme"></select>
+        </div>
+        <div class="row form-row" id="row-caption">
+          <label for="input-caption">
+            <div class="note">Preview a caption here.</div>
+          </label>
+          <input id="input-caption" name="caption" type="text" autocomplete="off" placeholder="Add a caption"
+            value="Lorem ipsum dolor sit amet, consectetur."/>
+        </div>
+
+        <div id="editor-tools">
+          <div id="options-container">
+            <div id="options"></div>
+            <div id="themeButtons">
+              <button id="saveChanges" title="Save Changes"><i class="fa fa-floppy-o"></i></button>
+              <button id="deleteTheme" title="Delete Theme"><i class="fa fa-trash-o"></i></button>
+              <button id="refreshTheme" title="Reset Theme"><i class="fa fa-refresh"></i></button>
+            </div>
+          </div>
+          <div id="preview-container">
+            <div id="preview">
+              <div style="background-color: black;">
+                <div id="canvas">
+                  <canvas width="640" height="360"></canvas>
+                  <div id="preview-label">Preview</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="audio">
+          <audio controls>
+            <source />
+          </audio>
+        </div>
+        <div id="video">
+          <video width="640" height="360" controls>
+            <source type="video/mp4" />
+          </video>
+        </div>
+      </div><!-- #loaded -->
+    </div><!-- .container -->
+    <script src="/js/bundle.js"></script>
+    <!-- Force load custom fonts -->
+    <script src="/fonts/fonts.js"></script>
+  </body>
+</html>

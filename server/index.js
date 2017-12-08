@@ -4,13 +4,16 @@ var express = require("express"),
     path = require("path"),
     multer = require("multer"),
     uuid = require("uuid"),
-    mkdirp = require("mkdirp");
+    mkdirp = require("mkdirp"),
+    bodyParser = require('body-parser');
 
 // Routes and middleware
 var logger = require("../lib/logger/"),
     render = require("./render.js"),
     status = require("./status.js"),
     fonts = require("./fonts.js"),
+    themesAPI = require("./themesAPI.js"),
+    imageAPI = require("./imageAPI.js"),
     errorHandlers = require("./error.js");
 
 // Settings
@@ -75,6 +78,13 @@ app.use("/settings/", function(req, res, next) {
   return res.status(404).send("Cannot GET " + path.join("/settings", req.url));
 
 }, express.static(path.join(__dirname, "..", "settings")));
+
+// Ovewrite themes file
+app.post("/api/themes", bodyParser.json(), themesAPI);
+
+// Get & Upload Images
+app.get("/api/images", imageAPI.get);
+app.post("/api/images", bodyParser.json(), imageAPI.post);
 
 // Serve editor files statically
 app.use(express.static(path.join(__dirname, "..", "editor")));
