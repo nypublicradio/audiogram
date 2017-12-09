@@ -47,6 +47,6 @@ var get = function(req, res){
 };
 
 module.exports = {
-  post,
-  get
+  post: post,
+  get: get
 };
