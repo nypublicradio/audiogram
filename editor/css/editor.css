@@ -468,7 +468,7 @@ g.time line {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  width: auto;
+  width: 20%;
   padding: 6px;
   color: #666;
   font-size: 16px;
