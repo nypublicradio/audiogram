@@ -30,10 +30,12 @@ WORKDIR /home/audiogram
 
 # Clone repo
 RUN : breakcache0
-RUN git clone https://github.com/qrkourier/audiogram.git
+RUN git clone https://github.com/nypublicradio/audiogram.git
 WORKDIR /home/audiogram/audiogram
 #VOLUME /home/audiogram/audiogram
 
 # Install dependencies
 RUN npm install
+
+# listen for requests
 CMD npm start
