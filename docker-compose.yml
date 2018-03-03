@@ -1,0 +1,7 @@
+version: '2'
+services:
+  audiogram:
+    image: qrkourier/audiogram:latest
+    ports:
+        - 8888:8888
+    restart: always
