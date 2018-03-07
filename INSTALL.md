@@ -111,26 +111,25 @@ Installing these dependencies on Windows is an uphill battle.  If you're running
 
 If you use [Docker](https://www.docker.com/products/docker), you can build an image from the included Dockerfile.
 
-In addition to installing Docker, you'll need to install Git.  You can do this by installing [GitHub Desktop](https://desktop.github.com/).
+In addition to installing Docker, you may need to install Git.  You can do this by installing [GitHub Desktop](https://desktop.github.com/).
+
+Some operating systems e.g. Ubuntu provide a permission group "docker. You can join this group like `sudo usermod -aG docker $USER` and then it's not necessary to prepend every docker command with `sudo`. It's necessary to log out of the desktop session for this permission group change to take effect.
 
 You can clone the repo and build an image, or build it directly from the repo:
 
+An ephemeral container image can be built and run like
 ```sh
-git clone https://github.com/nypublicradio/audiogram.git
+docker build -t audiogram https://github.com/brizandrew/audiogram.git
+docker run -p 8888:8888 audiogram
+```
+
+or you can clone the source code to obtain the service file for docker compose and run these commands once in order to always have the container running in the background and available at http://localhost:8888.
+
+```sh
+git clone https://github.com/brizandrew/audiogram.git
 cd audiogram
 docker build -t audiogram .
-```
-
-or
-
-```sh
-docker build -t audiogram https://github.com/nypublicradio/audiogram.git
-```
-
-Now you can run Audiogram in a container using that image:
-
-```sh
-docker run -p 8888:8888 -t -i audiogram
+docker-compose up
 ```
 
 ## AWS installation
