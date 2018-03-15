@@ -133,7 +133,7 @@ Now you can run Audiogram in a container using that image:
 docker run -p 8888:8888 -t -i audiogram
 ```
 
-If you have docker-compose, using it will allow you to make changes in your local directory and apply them without re-building the docker image.
+If you have docker-compose, you can run audiogram using it. Docker-compose comes with docker for mac by default. Using it will allow you to make changes in your local directory, to themes and settings for example, and apply them without re-building the entire image.
 ```sh
 docker-compose up
 ```
