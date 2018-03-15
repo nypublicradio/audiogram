@@ -133,6 +133,11 @@ Now you can run Audiogram in a container using that image:
 docker run -p 8888:8888 -t -i audiogram
 ```
 
+If you have docker-compose, using it will allow you to make changes in your local directory and apply them without re-building the docker image.
+```sh
+docker-compose up
+```
+
 ## AWS installation
 
 If you're trying to run Audiogram on AWS services like Lambda or Elastic Beanstalk that rely on the Amazon Linux distribution, you will probably need to follow the [node-canvas Amazon Linux AMI instructions](https://github.com/Automattic/node-canvas/wiki/Installation---Amazon-Linux-AMI-(EC2)) to install the dependencies and/or package up the resulting binaries.
