@@ -1,4 +1,18 @@
 {
+  "State Press Theme: Forks Estate": {
+    "width": 1280,
+    "height": 720,
+    "captionAlign": "left",
+    "captionTop": 60,
+    "captionLeft": 570,
+    "captionRight": 1200,
+    "backgroundImage": "ForksEstate.png",
+    "foregroundColor": "#ffffff",
+    "captionColor": "#ffffff",
+    "waveTop": 420,
+    "waveBottom": 700,
+    "captionFont": "300 65px 'Source Sans Pro'"
+  },
   "default": {
     "width": 1280,
     "height": 720,
