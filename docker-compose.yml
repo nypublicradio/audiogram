@@ -1,0 +1,10 @@
+version: '3'
+services:
+  audiogram:
+    build: .
+    ports:
+     - "8888:8888"
+    volumes:
+     - .:/home/audiogram/audiogram
+    command: npm start
+
