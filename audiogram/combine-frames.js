@@ -4,7 +4,7 @@ function combineFrames(options, cb) {
 
   // Raw ffmpeg command with standard mp4 setup
   // Some old versions of ffmpeg require -strict for the aac codec
-  var cmd = "ffmpeg -r " + options.framesPerSecond + " -i \"" + options.framePath + "\" -i \"" + options.audioPath + "\" -c:v libx264 -c:a aac -strict experimental -shortest -pix_fmt yuv420p \"" + options.videoPath + "\"";
+  var cmd = "ffmpeg -r " + options.framesPerSecond + " -i \"" + options.framePath + "\" -i \"" + options.audioPath + "\" -c:v libx264 -c:a aac -strict experimental -shortest -pix_fmt yuv420p -vf 'scale=trunc(iw/2)*2:trunc(ih/2)*2' \"" + options.videoPath + "\"";
 
   exec(cmd, cb);
 
