@@ -101,5 +101,15 @@
     "captionRight": 620,
     "foregroundColor": "#0eb8ba",
     "backgroundImage": "nyc.png"
-  }
+  },
+   "Background image with top right text": {
+    "captionAlign": "right",
+    "captionTop": 128,
+    "captionRight": 1220,
+    "captionLeft": 640,
+    "backgroundImage": "1280x720 cu-dj-audiogram.png",
+    "foregroundColor": "#fc0",
+    "waveBottom": 660,
+    "waveTop": 320
+}
 }
