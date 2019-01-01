@@ -15,17 +15,6 @@
     "captionLeft": 200,
     "captionRight": 1080
    },
-   "CU Daily Journal (Facebook)": {
-    "captionAlign": "right",
-    "captionTop": 128,
-    "captionRight": 1220,
-    "captionLeft": 640,
-    "captionFont": "'Montserrat'",
-    "backgroundImage": "1280x720-cu-dj-audiogram.png",
-    "foregroundColor": "#fc0",
-    "waveBottom": 660,
-    "waveTop": 320
-   },
   "Basic": {
     "backgroundColor": "#eee",
     "foregroundColor": "#de1e3d"
@@ -39,6 +28,17 @@
     "captionColor": "#515151",
     "waveColor": "#00b4ff"
   },
+    "CU Daily Journal (Facebook)": {
+    "captionAlign": "right",
+    "captionTop": 128,
+    "captionRight": 1220,
+    "captionLeft": 640,
+    "captionFont": "'Montserrat'",
+    "backgroundImage": "1280x720-cu-dj-audiogram.png",
+    "foregroundColor": "#fc0",
+    "waveBottom": 660,
+    "waveTop": 320
+   },
   "Background image with top right text": {
     "captionAlign": "right",
     "captionTop": 60,
