@@ -28,7 +28,7 @@
     "captionColor": "#515151",
     "waveColor": "#00b4ff"
   },
-    "CU Daily Journal (Facebook)": {
+    "CU Daily Journal (Facebook/YouTube)": {
     "captionAlign": "right",
     "captionTop": 128,
     "captionRight": 1220,
@@ -39,6 +39,18 @@
     "waveBottom": 660,
     "waveTop": 320
    },
+   "CU Bonus Cast (Facebook/YouTube)": {
+    "captionAlign": "center",
+    "captionTop": 444,
+    "captionRight": 100,
+    "captionLeft": 100,
+    "captionFont": "50px 'Montserrat'",
+    "backgroundImage": "1280x720-cu-bonus-audiogram.png",
+    "foregroundColor": "#fc0",
+    "waveBottom": 660,
+    "waveTop": 527,
+    "waveColor": "#000"
+},
   "Background image with top right text": {
     "captionAlign": "right",
     "captionTop": 60,
