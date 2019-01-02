@@ -42,14 +42,15 @@
    "CU Bonus Cast (Facebook/YouTube)": {
     "captionAlign": "center",
     "captionTop": 444,
-    "captionRight": 100,
+    "captionRight": 1180,
     "captionLeft": 100,
     "captionFont": "50px 'Montserrat'",
     "backgroundImage": "1280x720-cu-bonus-audiogram.png",
     "foregroundColor": "#fc0",
-    "waveBottom": 660,
-    "waveTop": 527,
-    "waveColor": "#000"
+    "waveBottom": 670,
+    "waveTop": 535,
+    "waveColor": "#000",
+    "captionColor": "#fff"
 },
   "Background image with top right text": {
     "captionAlign": "right",
