@@ -38,6 +38,7 @@
     "foregroundColor": "#fc0",
     "waveBottom": 660,
     "waveTop": 320
+    "maxDuration": 600
    },
    "CU Bonus Cast (Facebook/YouTube)": {
     "captionAlign": "center",
@@ -50,7 +51,8 @@
     "waveBottom": 670,
     "waveTop": 535,
     "waveColor": "#000",
-    "captionColor": "#fff"
+    "captionColor": "#fff",
+    "maxDuration": 3600
 },
   "Background image with top right text": {
     "captionAlign": "right",
