@@ -73,6 +73,15 @@
     "labelColor": "rgba(0, 0, 0, 0.9)",
     "labelText": "Dear Sugars"
   },
+  "The Choice": {
+    "waveColor": "rgba(102, 102, 102, 0.25)",
+    "foregroundColor": "#fff",
+    "citationColor": "#fff",
+    "backgroundColor": "#f4d7b9",
+    "backgroundImage": "the-choice.jpg",
+    "labelColor": "#fff",
+    "labelText": "The Choice"
+  },
   "Science": {
     "waveColor": "#d9d9d9",
     "foregroundColor": "#000",
