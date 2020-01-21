@@ -1,0 +1,10 @@
+version: "3"
+services:
+  web:
+    build: "."
+    ports:
+      - "80:8888"
+    volumes:
+      - "./settings:/usr/src/app/settings/"
+      - "./lib:/usr/src/app/lib/"
+      - "./server:/usr/src/app/server/"
