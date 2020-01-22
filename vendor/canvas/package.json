@@ -1,0 +1,124 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "canvas@git+https://github.com/chearon/node-canvas.git#12971f64a66b",
+        "scope": null,
+        "escapedName": "canvas",
+        "name": "canvas",
+        "rawSpec": "git+https://github.com/chearon/node-canvas.git#12971f64a66b",
+        "spec": "git+https://github.com/chearon/node-canvas.git#12971f64a66b",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:chearon/node-canvas.git#12971f64a66b",
+          "sshUrl": "git+ssh://git@github.com/chearon/node-canvas.git#12971f64a66b",
+          "httpsUrl": "git+https://github.com/chearon/node-canvas.git#12971f64a66b",
+          "gitUrl": "git://github.com/chearon/node-canvas.git#12971f64a66b",
+          "shortcut": "github:chearon/node-canvas#12971f64a66b",
+          "directUrl": "https://raw.githubusercontent.com/chearon/node-canvas/12971f64a66b/package.json"
+        }
+      },
+      "/usr/src/app"
+    ]
+  ],
+  "_from": "git+https://github.com/chearon/node-canvas.git#12971f64a66b",
+  "_id": "canvas@1.6.0",
+  "_inCache": true,
+  "_location": "/canvas",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "canvas@git+https://github.com/chearon/node-canvas.git#12971f64a66b",
+    "scope": null,
+    "escapedName": "canvas",
+    "name": "canvas",
+    "rawSpec": "git+https://github.com/chearon/node-canvas.git#12971f64a66b",
+    "spec": "git+https://github.com/chearon/node-canvas.git#12971f64a66b",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:chearon/node-canvas.git#12971f64a66b",
+      "sshUrl": "git+ssh://git@github.com/chearon/node-canvas.git#12971f64a66b",
+      "httpsUrl": "git+https://github.com/chearon/node-canvas.git#12971f64a66b",
+      "gitUrl": "git://github.com/chearon/node-canvas.git#12971f64a66b",
+      "shortcut": "github:chearon/node-canvas#12971f64a66b",
+      "directUrl": "https://raw.githubusercontent.com/chearon/node-canvas/12971f64a66b/package.json"
+    }
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/chearon/node-canvas.git#12971f64a66b154cca38d4fec5350cb43e7fae4f",
+  "_shasum": "78a75c2e3a5ae19115e25e847a8fb866d36a8479",
+  "_shrinkwrap": null,
+  "_spec": "canvas@git+https://github.com/chearon/node-canvas.git#12971f64a66b",
+  "_where": "/usr/src/app",
+  "author": {
+    "name": "TJ Holowaychuk",
+    "email": "tj@learnboost.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Automattic/node-canvas/issues"
+  },
+  "contributors": [
+    {
+      "name": "Nathan Rajlich",
+      "email": "nathan@tootallnate.net"
+    },
+    {
+      "name": "Rod Vagg",
+      "email": "r@va.gg"
+    },
+    {
+      "name": "Juriy Zaytsev",
+      "email": "kangax@gmail.com"
+    }
+  ],
+  "dependencies": {
+    "nan": "^2.3.2"
+  },
+  "description": "Canvas graphics API backed by Cairo",
+  "devDependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.2",
+    "mocha": "*",
+    "pug": "^2.0.0-beta3",
+    "standard": "^7.1.1"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "gitHead": "12971f64a66b154cca38d4fec5350cb43e7fae4f",
+  "gypfile": true,
+  "homepage": "https://github.com/Automattic/node-canvas",
+  "keywords": [
+    "canvas",
+    "graphic",
+    "graphics",
+    "pixman",
+    "cairo",
+    "image",
+    "images",
+    "pdf"
+  ],
+  "license": "MIT",
+  "main": "./lib/canvas.js",
+  "name": "canvas",
+  "optionalDependencies": {},
+  "readme": "node-canvas\n===========\n### Canvas graphics API backed by Cairo\n[![Build Status](https://travis-ci.org/Automattic/node-canvas.svg?branch=master)](https://travis-ci.org/Automattic/node-canvas)\n[![NPM version](https://badge.fury.io/js/canvas.svg)](http://badge.fury.io/js/canvas)\n\n  node-canvas is a [Cairo](http://cairographics.org/) backed Canvas implementation for [NodeJS](http://nodejs.org).\n\n## Authors\n\n  - TJ Holowaychuk ([tj](http://github.com/tj))\n  - Nathan Rajlich ([TooTallNate](http://github.com/TooTallNate))\n  - Rod Vagg ([rvagg](http://github.com/rvagg))\n  - Juriy Zaytsev ([kangax](http://github.com/kangax))\n\n## Installation\n\n```bash\n$ npm install canvas\n```\n\nUnless previously installed you'll _need_ __Cairo__ and __Pango__. For system-specific installation view the [Wiki](https://github.com/Automattic/node-canvas/wiki/_pages).\n\nYou can quickly install the dependencies by using the command for your OS:\n\nOS | Command\n----- | -----\nOS X | `brew install pkg-config cairo pango libpng jpeg giflib`\nUbuntu | `sudo apt-get install libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++`\nFedora | `sudo yum install cairo cairo-devel cairomm-devel libjpeg-turbo-devel pango pango-devel pangomm pangomm-devel giflib-devel`\nSolaris | `pkgin install cairo pango pkg-config xproto renderproto kbproto xextproto`\nWindows | [Instructions on our wiki](https://github.com/Automattic/node-canvas/wiki/Installation---Windows)\n\n**El Capitan users:** If you have recently updated to El Capitan and are experiencing trouble when compiling, run the following command: `xcode-select --install`. Read more about the problem [on Stack Overflow](http://stackoverflow.com/a/32929012/148072).\n\n## Screencasts\n\n  - [Introduction](http://screenr.com/CTk)\n\n## Example\n\n```javascript\nvar Canvas = require('canvas')\n  , Image = Canvas.Image\n  , canvas = new Canvas(200, 200)\n  , ctx = canvas.getContext('2d');\n\nctx.font = '30px Impact';\nctx.rotate(.1);\nctx.fillText(\"Awesome!\", 50, 100);\n\nvar te = ctx.measureText('Awesome!');\nctx.strokeStyle = 'rgba(0,0,0,0.5)';\nctx.beginPath();\nctx.lineTo(50, 102);\nctx.lineTo(50 + te.width, 102);\nctx.stroke();\n\nconsole.log('<img src=\"' + canvas.toDataURL() + '\" />');\n```\n\n## Non-Standard API\n\n node-canvas extends the canvas API to provide interfacing with node, for example streaming PNG data, converting to a `Buffer` instance, etc. Among the interfacing API, in some cases the drawing API has been extended for SSJS image manipulation / creation usage, however keep in mind these additions may fail to render properly within browsers.\n\n### Image#src=Buffer\n\n node-canvas adds `Image#src=Buffer` support, allowing you to read images from disc, redis, etc and apply them via `ctx.drawImage()`. Below we draw scaled down squid png by reading it from the disk with node's I/O.\n\n```javascript\nfs.readFile(__dirname + '/images/squid.png', function(err, squid){\n  if (err) throw err;\n  img = new Image;\n  img.src = squid;\n  ctx.drawImage(img, 0, 0, img.width / 4, img.height / 4);\n});\n```\n\n Below is an example of a canvas drawing it-self as the source several time:\n\n```javascript\nvar img = new Image;\nimg.src = canvas.toBuffer();\nctx.drawImage(img, 0, 0, 50, 50);\nctx.drawImage(img, 50, 0, 50, 50);\nctx.drawImage(img, 100, 0, 50, 50);\n```\n\n### Image#dataMode\n\nnode-canvas adds `Image#dataMode` support, which can be used to opt-in to mime data tracking of images (currently only JPEGs).\n\nWhen mime data is tracked, in PDF mode JPEGs can be embedded directly into the output, rather than being re-encoded into PNG. This can drastically reduce filesize, and speed up rendering.\n\n```javascript\nvar img = new Image;\nimg.dataMode = Image.MODE_IMAGE; // Only image data tracked\nimg.dataMode = Image.MODE_MIME; // Only mime data tracked\nimg.dataMode = Image.MODE_MIME | Image.MODE_IMAGE; // Both are tracked\n```\n\nIf image data is not tracked, and the Image is drawn to an image rather than a PDF canvas, the output will be junk. Enabling mime data tracking has no benefits (only a slow down) unless you are generating a PDF.\n\n### Canvas#pngStream()\n\n  To create a `PNGStream` simply call `canvas.pngStream()`, and the stream will start to emit _data_ events, finally emitting _end_ when finished. If an exception occurs the _error_ event is emitted.\n\n```javascript\nvar fs = require('fs')\n  , out = fs.createWriteStream(__dirname + '/text.png')\n  , stream = canvas.pngStream();\n\nstream.on('data', function(chunk){\n  out.write(chunk);\n});\n\nstream.on('end', function(){\n  console.log('saved png');\n});\n```\n\nCurrently _only_ sync streaming is supported, however we plan on supporting async streaming as well (of course :) ). Until then the `Canvas#toBuffer(callback)` alternative is async utilizing `eio_custom()`.\n\n### Canvas#jpegStream() and Canvas#syncJPEGStream()\n\nYou can likewise create a `JPEGStream` by calling `canvas.jpegStream()` with\nsome optional parameters; functionality is otherwise identical to\n`pngStream()`. See `examples/crop.js` for an example.\n\n_Note: At the moment, `jpegStream()` is the same as `syncJPEGStream()`, both\nare synchronous_\n\n```javascript\nvar stream = canvas.jpegStream({\n    bufsize: 4096 // output buffer size in bytes, default: 4096\n  , quality: 75 // JPEG quality (0-100) default: 75\n  , progressive: false // true for progressive compression, default: false\n});\n```\n\n### Canvas#toBuffer()\n\nA call to `Canvas#toBuffer()` will return a node `Buffer` instance containing image data.\n\n```javascript\n// PNG Buffer, default settings\nvar buf = canvas.toBuffer();\n\n// PNG Buffer, zlib compression level 3 (from 0-9), faster but bigger\nvar buf2 = canvas.toBuffer(undefined, 3, canvas.PNG_FILTER_NONE);\n\n// ARGB32 Buffer, native-endian\nvar buf3 = canvas.toBuffer('raw');\nvar stride = canvas.stride;\n// In memory, this is `canvas.height * canvas.stride` bytes long.\n// The top row of pixels, in ARGB order, left-to-right, is:\nvar topPixelsARGBLeftToRight = buf3.slice(0, canvas.width * 4);\nvar row3 = buf3.slice(2 * canvas.stride, 2 * canvas.stride + canvas.width * 4);\n```\n\n### Canvas#toBuffer() async\n\nOptionally we may pass a callback function to `Canvas#toBuffer()`, and this process will be performed asynchronously, and will `callback(err, buf)`.\n\n```javascript\ncanvas.toBuffer(function(err, buf){\n\n});\n```\n\n### Canvas#toDataURL() sync and async\n\nThe following syntax patterns are supported:\n\n```javascript\nvar dataUrl = canvas.toDataURL(); // defaults to PNG\nvar dataUrl = canvas.toDataURL('image/png');\ncanvas.toDataURL(function(err, png){ }); // defaults to PNG\ncanvas.toDataURL('image/png', function(err, png){ });\ncanvas.toDataURL('image/jpeg', function(err, jpeg){ }); // sync JPEG is not supported\ncanvas.toDataURL('image/jpeg', {opts...}, function(err, jpeg){ }); // see Canvas#jpegStream for valid options\ncanvas.toDataURL('image/jpeg', quality, function(err, jpeg){ }); // spec-following; quality from 0 to 1\n```\n\n### Canvas.registerFont for bundled fonts\n\nIt can be useful to use a custom font file if you are distributing code that uses node-canvas and a specific font. Or perhaps you are using it to do automated tests and you want the renderings to be the same across operating systems regardless of what fonts are installed.\n\nTo do that, you should use `Canvas.registerFont`.\n\n**You need to call it before the Canvas is created**\n\n```javascript\nCanvas.registerFont('comicsans.ttf', {family: 'Comic Sans'});\n\nvar canvas = new Canvas(500, 500),\n  ctx = canvas.getContext('2d');\n\nctx.font = '12px \"Comic Sans\"';\nctx.fillText(250, 10, 'Everyone hates this font :(');\n```\n\nThe second argument is an object with properties that resemble the CSS properties that are specified in `@font-face` rules. You must specify at least `family`. `weight`, and `style` are optional (and default to \"normal\").\n\n### CanvasRenderingContext2D#patternQuality\n\nGiven one of the values below will alter pattern (gradients, images, etc) render quality, defaults to _good_.\n\n  - fast\n  - good\n  - best\n  - nearest\n  - bilinear\n\n### CanvasRenderingContext2D#textDrawingMode\n\nCan be either `path` or `glyph`. Using `glyph` is much faster than `path` for drawing, and when using a PDF context will embed the text natively, so will be selectable and lower filesize. The downside is that cairo does not have any subpixel precision for `glyph`, so this will be noticeably lower quality for text positioning in cases such as rotated text. Also, strokeText in `glyph` will act the same as fillText, except using the stroke style for the fill.\n\nDefaults to _path_.\n\nThis property is tracked as part of the canvas state in save/restore.\n\n### CanvasRenderingContext2D#filter\n\nLike `patternQuality`, but applies to transformations effecting more than just patterns. Defaults to _good_.\n\n  - fast\n  - good\n  - best\n  - nearest\n  - bilinear\n\n### Global Composite Operations\n\nIn addition to those specified and commonly implemented by browsers, the following have been added:\n\n  - multiply\n  - screen\n  - overlay\n  - hard-light\n  - soft-light\n  - hsl-hue\n  - hsl-saturation\n  - hsl-color\n  - hsl-luminosity\n\n## Anti-Aliasing\n\n Set anti-aliasing mode\n\n - default\n - none\n - gray\n - subpixel\n\n For example:\n\n```javascript\nctx.antialias = 'none';\n```\n\n## PDF Support\n\n  Basic PDF support was added in 0.11.0. Make sure to install cairo with `--enable-pdf=yes` for the PDF backend. node-canvas must know that it is creating\n  a PDF on initialization, using the \"pdf\" string:\n\n```js\nvar canvas = new Canvas(200, 500, 'pdf');\n```\n\n An additional method `.addPage()` is then available to create\n multiple page PDFs:\n\n```js\nctx.font = '22px Helvetica';\nctx.fillText('Hello World', 50, 80);\nctx.addPage();\n\nctx.font = '22px Helvetica';\nctx.fillText('Hello World 2', 50, 80);\nctx.addPage();\n\nctx.font = '22px Helvetica';\nctx.fillText('Hello World 3', 50, 80);\nctx.addPage();\n```\n\n## SVG support\n\n Just like PDF support, make sure to install cairo with `--enable-svg=yes`.\n You also need to tell node-canvas that it is working on SVG upon its initialization:\n\n```js\nvar canvas = new Canvas(200, 500, 'svg');\n// Use the normal primitives.\nfs.writeFile('out.svg', canvas.toBuffer());\n```\n\n## Benchmarks\n\n Although node-canvas is extremely new, and we have not even begun optimization yet it is already quite fast. For benchmarks vs other node canvas implementations view this [gist](https://gist.github.com/664922), or update the submodules and run `$ make benchmark` yourself.\n\n## Contribute\n\n Want to contribute to node-canvas? patches for features, bug fixes, documentation, examples and others are certainly welcome. Take a look at the [issue queue](https://github.com/Automattic/node-canvas/issues) for existing issues.\n\n## Examples\n\n Examples are placed in _./examples_, be sure to check them out! most produce a png image of the same name, and others such as _live-clock.js_ launch an http server to be viewed in the browser.\n\n## Testing\n\nIf you have not previously, init git submodules:\n\n    $ git submodule update --init\n\nInstall the node modules:\n\n    $ npm install\n\nBuild node-canvas:\n\n    $ node-gyp rebuild\n\nUnit tests:\n\n    $ make test\n\nVisual tests:\n\n    $ make test-server\n\n## Versions\n\nTested with and designed for:\n\n  - node 0.4.2\n  - cairo 1.8.6\n\nFor node 0.2.x `node-canvas` <= 0.4.3 may be used,\n0.5.0 and above are designed for node 0.4.x only.\n\n## License\n\n(The MIT License)\n\nCopyright (c) 2010 LearnBoost, and contributors &lt;dev@learnboost.com&gt;\n\nCopyright (c) 2014 Automattic, Inc and contributors &lt;dev@automattic.com&gt;\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n'Software'), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\nIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\nTORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE\nSOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
+  "readmeFilename": "Readme.md",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Automattic/node-canvas.git"
+  },
+  "scripts": {
+    "benchmark": "node benchmarks/run.js",
+    "install": "node-gyp rebuild",
+    "prebenchmark": "node-gyp build",
+    "pretest": "node-gyp build",
+    "pretest-server": "node-gyp build",
+    "test": "standard examples/*.js && mocha test/*.test.js",
+    "test-server": "node test/server.js"
+  },
+  "version": "1.6.0"
+}

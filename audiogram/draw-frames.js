@@ -1,12 +1,11 @@
 var fs = require("fs"),
-    path = require("path"),
-    Canvas = require("canvas"),
-    queue = require("d3").queue;
+  path = require("path"),
+  Canvas = require("../vendor/canvas"),
+  queue = require("d3").queue;
 
 function drawFrames(renderer, options, cb) {
-
   var frameQueue = queue(10),
-      canvases = [];
+    canvases = [];
 
   for (var i = 0; i < 10; i++) {
     canvases.push(new Canvas(options.width, options.height));
@@ -19,9 +18,8 @@ function drawFrames(renderer, options, cb) {
   frameQueue.awaitAll(cb);
 
   function drawFrame(frameNumber, frameCallback) {
-
     var canvas = canvases.pop(),
-        context = canvas.getContext("2d");
+      context = canvas.getContext("2d");
 
     renderer.drawFrame(context, {
       caption: options.caption,
@@ -31,36 +29,33 @@ function drawFrames(renderer, options, cb) {
       frame: frameNumber
     });
 
-    canvas.toBuffer(function(err, buf){
-
+    canvas.toBuffer(function(err, buf) {
       if (err) {
         return cb(err);
       }
 
-      fs.writeFile(path.join(options.frameDir, zeropad(frameNumber + 1, 6) + ".png"), buf, function(writeErr) {
+      fs.writeFile(
+        path.join(options.frameDir, zeropad(frameNumber + 1, 6) + ".png"),
+        buf,
+        function(writeErr) {
+          if (writeErr) {
+            return frameCallback(writeErr);
+          }
 
-        if (writeErr) {
-          return frameCallback(writeErr);
+          if (options.tick) {
+            options.tick();
+          }
+
+          canvases.push(canvas);
+
+          return frameCallback(null);
         }
-
-        if (options.tick) {
-          options.tick();
-        }
-
-        canvases.push(canvas);
-
-        return frameCallback(null);
-
-      });
-
+      );
     });
-
   }
-
 }
 
 function zeropad(str, len) {
-
   str = str.toString();
 
   while (str.length < len) {
@@ -68,7 +63,6 @@ function zeropad(str, len) {
   }
 
   return str;
-
 }
 
 module.exports = drawFrames;

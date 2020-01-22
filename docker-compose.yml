@@ -8,3 +8,4 @@ services:
       - "./settings:/usr/src/app/settings/"
       - "./lib:/usr/src/app/lib/"
       - "./server:/usr/src/app/server/"
+      - "./vendor:/usr/src/app/vendor/"

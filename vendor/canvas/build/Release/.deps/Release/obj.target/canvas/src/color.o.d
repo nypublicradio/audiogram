@@ -1,0 +1,4 @@
+cmd_Release/obj.target/canvas/src/color.o := g++ '-DNODE_GYP_MODULE_NAME=canvas' '-DUSING_UV_SHARED=1' '-DUSING_V8_SHARED=1' '-DV8_DEPRECATION_WARNINGS=1' '-D_LARGEFILE_SOURCE' '-D_FILE_OFFSET_BITS=64' '-DHAVE_JPEG' '-DHAVE_GIF' '-DBUILDING_NODE_EXTENSION' -I/root/.node-gyp/7.10.1/include/node -I/root/.node-gyp/7.10.1/src -I/root/.node-gyp/7.10.1/deps/uv/include -I/root/.node-gyp/7.10.1/deps/v8/include -I../../nan -I/usr/include/cairo -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/pango-1.0  -fPIC -pthread -Wall -Wextra -Wno-unused-parameter -m64 -O3 -fno-omit-frame-pointer -fno-rtti -fno-exceptions -std=gnu++0x -MMD -MF ./Release/.deps/Release/obj.target/canvas/src/color.o.d.raw   -c -o Release/obj.target/canvas/src/color.o ../src/color.cc
+Release/obj.target/canvas/src/color.o: ../src/color.cc ../src/color.h
+../src/color.cc:
+../src/color.h:

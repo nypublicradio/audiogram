@@ -74,7 +74,7 @@
     "labelText": "Dear Sugars"
   },
   "The Choice": {
-    "waveColor": "rgba(102, 102, 102, 0.25)",
+    "waveColor": "rgba(255, 255, 255, 0.50)",
     "foregroundColor": "#fff",
     "citationColor": "#fff",
     "backgroundColor": "#f4d7b9",
