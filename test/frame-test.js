@@ -71,7 +71,7 @@ tape.test("Square frame", tester({
 
 function checkFrame(test, options) {
 
-  var testCanvas = new Canvas(options.width, options.height),
+  var testCanvas = Canvas.createCanvas(options.width, options.height),
       context = testCanvas.getContext("2d");
 
   d3.queue()
@@ -81,7 +81,8 @@ function checkFrame(test, options) {
 
       test.error(e);
 
-      var img = new Canvas.Image;
+      const canvas = Canvas.createCanvas();
+      var img = canvas.Image;
       img.src = f1;
 
       var bg = getColor(options.backgroundColor || "#fff"),

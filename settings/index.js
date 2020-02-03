@@ -21,6 +21,8 @@ var path = require("path");
 module.exports = {
   workingDirectory: path.join(__dirname, "..", "tmp"),
   storagePath: path.join(__dirname, "..", "media"),
+  themeStoragePath: path.join(__dirname, "backgrounds"),
+  settingsPath: path.join(__dirname, "..", "settings"),
   fonts: [
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Regular.ttf") },
     { family: "Source Sans Pro", file: path.join(__dirname, "fonts", "SourceSansPro-Light.ttf"), weight: 300 },
