@@ -11,7 +11,8 @@ var logger = require("../lib/logger/"),
     render = require("./render.js"),
     status = require("./status.js"),
     fonts = require("./fonts.js"),
-    errorHandlers = require("./error.js");
+    errorHandlers = require("./error.js"),
+    fs = require("fs");;
 
 // Settings
 var serverSettings = require("../lib/settings/");
@@ -38,14 +39,58 @@ var fileOptions = {
   })
 };
 
+var newThemeFileOptions = {
+  storage: multer.diskStorage({
+    destination: function(req, file, cb) {
+
+      var dir = path.join(serverSettings.themeStoragePath);
+
+      mkdirp(dir, function(err) {
+        return cb(err, dir);
+      });
+    },
+    filename: function(req, file, cb) {
+      cb(null, file.originalname);
+    }
+  })
+};
+
 if (serverSettings.maxUploadSize) {
   fileOptions.limits = {
+    fileSize: +serverSettings.maxUploadSize
+  };
+  newThemeFileOptions.limits = {
     fileSize: +serverSettings.maxUploadSize
   };
 }
 
 // On submission, check upload, validate input, and start generating a video
 app.post("/submit/", [multer(fileOptions).single("audio"), render.validate, render.route]);
+
+// Upload new theme
+app.post("/theme/upload/", [multer(newThemeFileOptions).single("newTheme"), function (req, res) {
+  var themesFile = path.join(serverSettings.settingsPath, "themes.json");
+  fs.readFile(themesFile, "utf8", function readFileCallback(err, data) {
+    if (err) {
+      console.log('err', err);
+      return null;
+    } else {
+      var caption = req.body.newCaption;
+      var themes = JSON.parse(data);
+      themes[caption] = {
+        "backgroundImage": req.file.filename
+      };
+      var jt = JSON.stringify(themes);
+      fs.writeFile(themesFile, jt, "utf8", function (err) {
+        if (err) {
+          console.log(err);
+          return null;
+        }
+      });
+    }
+  });
+  res.end();
+}]);
 
 // If not using S3, serve videos locally
 if (!serverSettings.s3Bucket) {

@@ -11,7 +11,9 @@ var context = d3.select("canvas").node().getContext("2d");
 var theme,
     caption,
     file,
-    selection;
+    selection,
+    newTheme,
+    newCaption;
 
 function _file(_) {
   return arguments.length ? (file = _) : file;
@@ -27,6 +29,14 @@ function _caption(_) {
 
 function _selection(_) {
   return arguments.length ? (selection = _) : selection;
+}
+
+function _newTheme(_) {
+  return arguments.length ? (newTheme = _) : newTheme;
+}
+
+function _newCaption(_) {
+  return arguments.length ? (newCaption = _) : newCaption;
 }
 
 minimap.onBrush(function(extent){
@@ -106,10 +116,28 @@ function loadAudio(f, cb) {
 
 }
 
+function loadNewTheme(f, cb) {
+  d3.queue()
+  .await(function(err, data){
+
+      if (err) {
+        return cb(err);
+      }
+
+      newTheme = f;
+
+      cb(err);
+
+    });
+}
+
 module.exports = {
   caption: _caption,
   theme: _theme,
   file: _file,
   selection: _selection,
-  loadAudio: loadAudio
+  loadAudio: loadAudio,
+  newTheme: _newTheme,
+  newCaption: _newCaption,
+  loadNewTheme: loadNewTheme
 };

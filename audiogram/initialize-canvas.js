@@ -19,7 +19,8 @@ function initializeCanvas(theme, cb) {
       return cb(err);
     }
 
-    var bg = new Canvas.Image;
+    const canvas = Canvas.createCanvas();
+    var bg = canvas.Image;
     bg.src = raw;
     renderer.backgroundImage(bg);
 
