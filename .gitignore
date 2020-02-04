@@ -7,6 +7,3 @@ junk/
 media/
 *.log
 .jobs
-settings/backgrounds/*
-settings/fonts/*
-settings/themes.json
