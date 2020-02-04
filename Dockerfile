@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 # Install dependencies
 RUN apt-get update --yes && apt-get upgrade --yes
