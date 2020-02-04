@@ -1,16 +1,21 @@
-FROM ubuntu:18.04
+FROM alpine
 
-# Install dependencies
-RUN apt-get update --yes && apt-get upgrade --yes
-RUN apt-get install git nodejs npm \
-libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev libpng-dev build-essential g++ \
-ffmpeg \
-redis-server --yes
+RUN apk add --no-cache \
+	git \
+	nodejs \
+	npm \
+	cairo-dev \
+	jpeg-dev \
+	pango-dev \
+	giflib-dev \
+	libpng-dev \
+	g++ \
+	make \
+	autoconf \
+	ffmpeg \
+	redis
 
-RUN ln -s `which nodejs` /usr/bin/node
-
-# Non-privileged user
-RUN useradd -m audiogram
+RUN adduser -D --home=/home/audiogram audiogram
 USER audiogram
 WORKDIR /home/audiogram
 
