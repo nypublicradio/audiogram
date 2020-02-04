@@ -12,7 +12,7 @@ var logger = require("../lib/logger/"),
     status = require("./status.js"),
     fonts = require("./fonts.js"),
     errorHandlers = require("./error.js"),
-    fs = require("fs");;
+    fs = require("fs");
 
 // Settings
 var serverSettings = require("../lib/settings/");
