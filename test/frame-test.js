@@ -6,6 +6,8 @@ var tape = require("tape"),
     initializeCanvas = require("../audiogram/initialize-canvas.js"),
     drawFrames = require("../audiogram/draw-frames.js");
 
+const { Image } = require("canvas");
+
 require("mkdirp").sync(path.join(__dirname, "tmp", "frames"));
 
 var frameDir = path.join(__dirname, "tmp", "frames");
@@ -81,8 +83,7 @@ function checkFrame(test, options) {
 
       test.error(e);
 
-      const canvas = Canvas.createCanvas();
-      var img = canvas.Image;
+      const img = new Image();
       img.src = f1;
 
       var bg = getColor(options.backgroundColor || "#fff"),

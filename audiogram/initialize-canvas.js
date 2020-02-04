@@ -3,6 +3,8 @@ var fs = require("fs"),
     Canvas = require("canvas"),
     getRenderer = require("../renderer/");
 
+const { Image } = require("canvas");
+
 function initializeCanvas(theme, cb) {
 
   // Fonts pre-registered in bin/worker
@@ -19,9 +21,9 @@ function initializeCanvas(theme, cb) {
       return cb(err);
     }
 
-    const canvas = Canvas.createCanvas();
-    var bg = canvas.Image;
+    const bg = new Image();
     bg.src = raw;
+    
     renderer.backgroundImage(bg);
 
     return cb(null, renderer);
