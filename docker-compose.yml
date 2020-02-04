@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+  audiogram:
+    restart: always
+    container_name: audiogram
+    build: ./
+    ports:
+    - "8888:8888"
+    volumes:
+      - ./settings:/home/audiogram/audiogram/settings
+    command: npm start && tail -f /dev/null
