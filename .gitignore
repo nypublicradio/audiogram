@@ -7,3 +7,7 @@ junk/
 media/
 *.log
 .jobs
+.cache/
+.config/
+.npm/
+.ash_history
