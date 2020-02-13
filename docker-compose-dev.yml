@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  audiogram:
+    restart: always
+    container_name: audiogram
+    build: 
+      context: ./
+      dockerfile: Dockerfile-dev
+    volumes:
+      - ./:/home/audiogram
+    ports:
+    - "8888:8888"
+    command: npm run-script dev

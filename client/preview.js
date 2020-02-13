@@ -13,7 +13,8 @@ var theme,
     file,
     selection,
     newTheme,
-    newCaption;
+    newCaption,
+    subtitle;
 
 function _file(_) {
   return arguments.length ? (file = _) : file;
@@ -37,6 +38,10 @@ function _newTheme(_) {
 
 function _newCaption(_) {
   return arguments.length ? (newCaption = _) : newCaption;
+}
+
+function _subtitle(_) {
+  return arguments.length ? (subtitle = _) : subtitle;
 }
 
 minimap.onBrush(function(extent){
@@ -131,6 +136,21 @@ function loadNewTheme(f, cb) {
     });
 }
 
+function loadSubtitle(f, cb) {
+  d3.queue()
+  .await(function(err, data){
+
+      if (err) {
+        return cb(err);
+      }
+
+      subtitle = f;
+
+      cb(err);
+
+    });
+}
+
 module.exports = {
   caption: _caption,
   theme: _theme,
@@ -139,5 +159,7 @@ module.exports = {
   loadAudio: loadAudio,
   newTheme: _newTheme,
   newCaption: _newCaption,
-  loadNewTheme: loadNewTheme
+  loadNewTheme: loadNewTheme,
+  subtitle: _subtitle,
+  loadSubtitle: loadSubtitle
 };

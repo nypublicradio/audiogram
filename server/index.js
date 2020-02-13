@@ -11,30 +11,33 @@ var logger = require("../lib/logger/"),
     render = require("./render.js"),
     status = require("./status.js"),
     fonts = require("./fonts.js"),
-    errorHandlers = require("./error.js"),
-    fs = require("fs");
+    errorHandlers = require("./error.js");
 
 // Settings
 var serverSettings = require("../lib/settings/");
+
+var fs = require("fs");
 
 var app = express();
 
 app.use(compression());
 app.use(logger.morgan());
 
+const uid = uuid.v1();
+
 // Options for where to store uploaded audio and max size
 var fileOptions = {
   storage: multer.diskStorage({
     destination: function(req, file, cb) {
 
-      var dir = path.join(serverSettings.workingDirectory, uuid.v1());
+      var dir = path.join(serverSettings.workingDirectory, uid);
 
       mkdirp(dir, function(err) {
         return cb(err, dir);
       });
     },
     filename: function(req, file, cb) {
-      cb(null, "audio");
+      cb(null, file.fieldname);
     }
   })
 };
@@ -65,9 +68,11 @@ if (serverSettings.maxUploadSize) {
 }
 
 // On submission, check upload, validate input, and start generating a video
-app.post("/submit/", [multer(fileOptions).single("audio"), render.validate, render.route]);
+const mt = multer(fileOptions).fields([{name: 'audio'}, {name: 'subtitle'}]);
+app.post("/submit/", [mt, render.validate, render.route]);
 
 // Upload new theme
+
 app.post("/theme/upload/", [multer(newThemeFileOptions).single("newTheme"), function (req, res) {
   var themesFile = path.join(serverSettings.settingsPath, "themes.json");
   fs.readFile(themesFile, "utf8", function readFileCallback(err, data) {
@@ -91,6 +96,9 @@ app.post("/theme/upload/", [multer(newThemeFileOptions).single("newTheme"), func
   });
   res.end();
 }]);
+
+// Theme editor
+app.use("/theme/", express.static(path.join(__dirname, "..", "editor/theme.html")));
 
 // If not using S3, serve videos locally
 if (!serverSettings.s3Bucket) {

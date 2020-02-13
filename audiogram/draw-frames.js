@@ -23,8 +23,19 @@ function drawFrames(renderer, options, cb) {
     var canvas = canvases.pop(),
         context = canvas.getContext("2d");
 
+    let ms = (options.trimStart*1000)+((frameNumber/20)*1000);
+    let subt = '';
+
+    options.subtitle.forEach(function (sub) {
+      if (ms >= sub.start && ms <= sub.end) {
+        subt = sub.text;
+        return;
+      }
+    }); 
+
     renderer.drawFrame(context, {
       caption: options.caption,
+      subtitle: subt,
       waveform: options.waveform[frameNumber],
       frame: frameNumber
     });

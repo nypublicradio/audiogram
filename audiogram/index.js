@@ -11,7 +11,8 @@ var path = require("path"),
     initializeCanvas = require("./initialize-canvas.js"),
     drawFrames = require("./draw-frames.js"),
     combineFrames = require("./combine-frames.js"),
-    trimAudio = require("./trim.js");
+    trimAudio = require("./trim.js"),
+    getSubtitle = require("./subtitle.js");
 
 function Audiogram(id) {
 
@@ -22,6 +23,7 @@ function Audiogram(id) {
   this.dir = path.join(serverSettings.workingDirectory, this.id);
 
   this.audioPath = path.join(this.dir, "audio");
+  this.subtitlePath = path.join(this.dir, "subtitle");
   this.videoPath = path.join(this.dir, "video.mp4");
   this.frameDir = path.join(this.dir, "frames");
 
@@ -67,6 +69,14 @@ Audiogram.prototype.getWaveform = function(cb) {
 
 };
 
+Audiogram.prototype.getSubtitle = function(cb) {
+  var self = this;
+  
+  getSubtitle(self.subtitlePath, function (err, subtitle) {
+    return cb(err, self.subtitle = subtitle);
+  });
+}
+
 // Trim the audio by the start and end time specified
 Audiogram.prototype.trimAudio = function(start, end, cb) {
 
@@ -109,13 +119,21 @@ Audiogram.prototype.drawFrames = function(cb) {
 
     self.status("frames");
 
+    let start = 0;
+    if (self.settings.start > 0) {
+      start = self.settings.start;
+    }
+
     drawFrames(renderer, {
       width: self.settings.theme.width,
       height: self.settings.theme.height,
       numFrames: self.numFrames,
       frameDir: self.frameDir,
       caption: self.settings.caption,
+      subtitle: self.subtitle,
       waveform: self.waveform,
+      trimStart: start,
+      fps: self.settings.theme.framesPerSecond || 20,
       tick: function() {
         transports.incrementField(self.id, "framesComplete");
       }
@@ -160,6 +178,9 @@ Audiogram.prototype.render = function(cb) {
 
   // Get the audio waveform data
   q.defer(this.getWaveform.bind(this));
+
+  // Get the subtitles data
+  q.defer(this.getSubtitle.bind(this));
 
   // Draw all the frames
   q.defer(this.drawFrames.bind(this));

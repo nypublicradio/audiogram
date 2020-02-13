@@ -3,7 +3,8 @@ var d3 = require("d3"),
     preview = require("./preview.js"),
     video = require("./video.js"),
     audio = require("./audio.js"),
-    newTheme = null;
+    newTheme = null,
+    subtitle = null;
 
 d3.json("/settings/themes.json", function(err, themes){
 
@@ -43,7 +44,8 @@ function submitted() {
   var theme = preview.theme(),
       caption = preview.caption(),
       selection = preview.selection(),
-      file = preview.file();
+      file = preview.file(),
+      subtitle = preview.subtitle();    
 
   if (!file) {
     d3.select("#row-audio").classed("error", true);
@@ -71,22 +73,27 @@ function submitted() {
   formData.append("theme", JSON.stringify($.extend({}, theme, { backgroundImageFile: null })));
   formData.append("caption", caption);
 
+  if (subtitle) {
+    formData.append("subtitle", subtitle);
+  }
+
   setClass("loading");
   d3.select("#loading-message").text("Uploading audio...");
-
-	$.ajax({
-		url: "/submit/",
-		type: "POST",
-		data: formData,
-		contentType: false,
+  
+  $.ajax({
+    url: "/submit/",
+    type: "POST",
+    data: formData,
+    contentType: false,
     dataType: "json",
-		cache: false,
-		processData: false,
-		success: function(data){
-      poll(data.id, 0);
-		},
-    error: error
-
+    cache: false,
+    processData: false,
+    success: function (res) {
+      poll(res.id, 0);
+    },
+    error: function (err) {
+      error(err)
+    }
   });
 
 }
@@ -98,9 +105,9 @@ function uploadTheme() {
   formData.append("newTheme", file);
 
   var newCaption = preview.newCaption();
-  console.log('new theme', newCaption);
+
   formData.append("newCaption", newCaption);
-  console.log(formData);
+
   $.ajax({
     url: "/theme/upload",
     type: "POST",
@@ -172,7 +179,9 @@ function poll(id) {
         } else if (result.status === "error") {
           error(result.error);
         } else {
-          d3.select("#loading-message").text(statusMessage(result));
+          if (result !== 'unknown') {
+            d3.select("#loading-message").text(statusMessage(result));  
+          }          
           poll(id);
         }
       }
@@ -254,6 +263,8 @@ function initialize(err, themesWithImages) {
 
   d3.select("#input-new-caption").on("change keyup", updateNewCaption).each(updateNewCaption);
 
+  d3.select("#input-subtitle").on("change", updateSubtitleFile).each(updateSubtitleFile);
+
   d3.select("#submit").on("click", submitted);
 
 }
@@ -277,7 +288,9 @@ function updateAudioFile() {
 
   setClass("loading");
 
-  preview.loadAudio(this.files[0], function(err){
+  const audioFile = this.files[0];
+
+  preview.loadAudio(audioFile, function(err){
 
     if (err) {
       d3.select("#row-audio").classed("error", true);
@@ -295,6 +308,7 @@ function updateAudioFile() {
 function updateNewThemeFile() {
   if (!this.files || !this.files[0]) {
     preview.newTheme(null);
+    setClass(null);
     return true;
   }
 
@@ -302,6 +316,23 @@ function updateNewThemeFile() {
   preview.loadNewTheme(newTheme, function (err) {
     if (err) {
       setClass("error", "Error updating new theme file");
+    } else {
+      setClass(null);
+    }
+  });
+}
+
+function updateSubtitleFile() {
+  if (!this.files || !this.files[0]) {
+    preview.subtitle(null);
+    setClass(null);
+    return true;
+  }
+
+  subtitle = this.files[0];
+  preview.loadSubtitle(subtitle, function (err) {
+    if (err) {
+      setClass("error", "Error during loading subtitle file");
     } else {
       setClass(null);
     }
@@ -387,7 +418,7 @@ function statusMessage(result) {
       }
       return msg;
     case "combine":
-      return "Combining frames with audio";
+      return "Combining frames with audio (it can take a while)";
     case "ready":
       return "Cleaning up";
     default:

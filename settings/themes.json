@@ -1,1 +1,115 @@
-{"default":{"width":1280,"height":720,"framesPerSecond":20,"maxDuration":300,"samplesPerFrame":128,"pattern":"wave","waveTop":150,"waveBottom":420,"captionTop":470,"captionFont":"300 52px 'Source Sans Pro'","captionLineHeight":52,"captionLineSpacing":7,"captionLeft":200,"captionRight":1080},"Basic":{"backgroundColor":"#eee","foregroundColor":"#de1e3d"},"Neon":{"backgroundColor":"#556270","foregroundColor":"#c7f464"},"Three colors":{"backgroundColor":"#eee","captionColor":"#515151","waveColor":"#00b4ff"},"Background image with top right text":{"captionAlign":"right","captionTop":60,"captionRight":1220,"captionLeft":640,"backgroundImage":"subway.jpg","foregroundColor":"#fc0","waveBottom":660,"waveTop":320},"Bars":{"pattern":"bars","foregroundColor":"#d84a4a"},"Rounded bars with bottom left text":{"pattern":"roundBars","foregroundColor":"#d84a4a","captionAlign":"left","captionLeft":60,"captionRight":640,"captionBottom":660,"captionTop":null},"Line":{"backgroundColor":"#edc951","foregroundColor":"#00a0b0","pattern":"line"},"Curve":{"backgroundColor":"#00a0b0","foregroundColor":"#edc951","pattern":"curve"},"Bricks":{"backgroundColor":"#8771aa","foregroundColor":"#fff","pattern":"bricks"},"Equalizer on the bottom":{"backgroundColor":"#222","foregroundColor":"#fff","pattern":"equalizer","captionTop":40,"captionBottom":380,"waveTop":420,"waveBottom":720},"Bold italic orange":{"captionAlign":"right","captionTop":null,"captionBottom":660,"captionRight":1220,"captionLeft":640,"backgroundColor":"#fd5a1e","waveColor":"#fff","captionFont":"bold italic 52px 'Source Sans Pro'"},"Pixelated":{"backgroundColor":"#ecd078","foregroundColor":"#c02942","pattern":"pixel"},"Square with background image":{"width":640,"height":640,"samplesPerFrame":64,"waveTop":20,"waveBottom":300,"captionTop":340,"captionLeft":20,"captionRight":620,"foregroundColor":"#0eb8ba","backgroundImage":"nyc.png"},"Nypost":{"backgroundImage":"nyp.png"}}
+{
+  "default": {
+    "width": 1280,
+    "height": 720,
+    "framesPerSecond": 20,
+    "maxDuration": 1200,
+    "samplesPerFrame": 128,
+    "pattern": "wave",
+    "waveTop": 150,
+    "waveBottom": 420,
+    "captionTop": 470,
+    "captionFont": "300 52px 'Source Sans Pro'",
+    "captionLineHeight": 52,
+    "captionLineSpacing": 7,
+    "captionLeft": 200,
+    "captionRight": 1080,
+    "subtitleTop": 60,
+    "subtitleFont": "300 44px 'Source Sans Pro'",
+    "subtitleLineHeight": 44,
+    "subtitleLineSpacing": 5,
+    "subtitleLeft": 640,
+    "subtitleRight": 1220,
+    "subtitleAlign": "right"
+  },
+  "Basic": {
+    "backgroundColor": "#eee",
+    "foregroundColor": "#de1e3d"
+  },
+  "Neon": {
+    "backgroundColor": "#556270",
+    "foregroundColor": "#c7f464"
+  },
+  "Three colors": {
+    "backgroundColor": "#eee",
+    "captionColor": "#515151",
+    "waveColor": "#00b4ff"
+  },
+  "Background image with top right text": {
+    "captionAlign": "right",
+    "captionTop": 60,
+    "captionRight": 1220,
+    "captionLeft": 640,
+    "backgroundImage": "subway.jpg",
+    "foregroundColor": "#fc0",
+    "waveBottom": 660,
+    "waveTop": 320
+  },
+  "Bars": {
+    "pattern": "bars",
+    "foregroundColor": "#d84a4a"
+  },
+  "Rounded bars with bottom left text": {
+    "pattern": "roundBars",
+    "foregroundColor": "#d84a4a",
+    "captionAlign": "left",
+    "captionLeft": 60,
+    "captionRight": 640,
+    "captionBottom": 660,
+    "captionTop": null
+  },
+  "Line": {
+    "backgroundColor": "#edc951",
+    "foregroundColor": "#00a0b0",
+    "pattern": "line"
+  },
+  "Curve": {
+    "backgroundColor": "#00a0b0",
+    "foregroundColor": "#edc951",
+    "pattern": "curve"
+  },
+  "Bricks": {
+    "backgroundColor": "#8771aa",
+    "foregroundColor": "#fff",
+    "pattern": "bricks"
+  },
+  "Equalizer on the bottom": {
+    "backgroundColor": "#222",
+    "foregroundColor": "#fff",
+    "pattern": "equalizer",
+    "captionTop": 40,
+    "captionBottom": 380,
+    "waveTop": 420,
+    "waveBottom": 720
+  },
+  "Bold italic orange": {
+    "captionAlign": "right",
+    "captionTop": null,
+    "captionBottom": 660,
+    "captionRight": 1220,
+    "captionLeft": 640,
+    "backgroundColor": "#fd5a1e",
+    "waveColor": "#fff",
+    "captionFont": "bold italic 52px 'Source Sans Pro'"
+  },
+  "Pixelated": {
+    "backgroundColor": "#ecd078",
+    "foregroundColor": "#c02942",
+    "pattern": "pixel"
+  },
+  "Square with background image": {
+    "width": 640,
+    "height": 640,
+    "samplesPerFrame": 64,
+    "waveTop": 20,
+    "waveBottom": 300,
+    "captionTop": 340,
+    "captionLeft": 20,
+    "captionRight": 620,
+    "foregroundColor": "#0eb8ba",
+    "backgroundImage": "nyc.png"
+  },
+  "Nypost": {
+    "backgroundImage": "nyp.png"
+  }
+}

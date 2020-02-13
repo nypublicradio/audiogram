@@ -1,0 +1,35 @@
+FROM alpine
+
+RUN apk add --no-cache \
+	git \
+	nodejs \
+	npm \
+	cairo-dev \
+	jpeg-dev \
+	pango-dev \
+	giflib-dev \
+	libpng-dev \
+	g++ \
+	make \
+	autoconf \
+	ffmpeg \
+	redis
+
+RUN adduser -D --home=/home/audiogram audiogram
+WORKDIR /home/audiogram
+
+ADD audiogram /home/audiogram/audiogram
+ADD bin /home/audiogram/bin
+ADD client /home/audiogram/client
+ADD editor /home/audiogram/editor
+ADD lib /home/audiogram/lib
+ADD renderer /home/audiogram/renderer
+ADD server /home/audiogram/server
+ADD settings /home/audiogram/settings
+ADD editor/css /home/audiogram/editor/css
+ADD editor/index.html /home/audiogram/editor/index.html
+ADD editor/theme.html /home/audiogram/editor/theme.html
+ADD package.json /home/audiogram/package.json
+
+# Install dependencies
+RUN npm install

@@ -57,6 +57,10 @@ module.exports = function(t) {
     if (options.caption) {
       wrapText(context, options.caption);
     }
+    // Write subtitle
+    if (options.subtitle) {
+      wrapText(context, null, options.subtitle);
+    }
 
     return this;
 
