@@ -3,7 +3,7 @@ var d3 = require("d3"),
     preview = require("./preview.js"),
     video = require("./video.js"),
     audio = require("./audio.js"),
-    newTheme = null,
+    editorEditor = require("./theme-editor.js"),
     subtitle = null;
 
 d3.json("/settings/themes.json", function(err, themes){
@@ -34,6 +34,10 @@ d3.json("/settings/themes.json", function(err, themes){
   }
 
   preloadImages(themes);
+
+  if (location.pathname === '/theme') {
+    editorEditor.initialize();
+  }
 
 });
 
@@ -93,73 +97,6 @@ function submitted() {
     },
     error: function (err) {
       error(err)
-    }
-  });
-
-}
-
-function uploadTheme() {
-  var formData = new FormData();
-  var file = preview.newTheme();
-
-  formData.append("newTheme", file);
-
-  var newCaption = preview.newCaption();
-
-  formData.append("newCaption", newCaption);
-
-  $.ajax({
-    url: "/theme/upload",
-    type: "POST",
-    data: formData,
-    contentType: false,
-    cache: false,
-    processData: false,
-    success: function () {
-      d3.json("/settings/themes.json", function(err, themes){
-
-        var errorMessage;
-
-        // Themes are missing or invalid
-        if (err || !d3.keys(themes).filter(function(d){ return d !== "default"; }).length) {
-          if (err instanceof SyntaxError) {
-            errorMessage = "Error in settings/themes.json:<br/><code>" + err.toString() + "</code>";
-          } else if (err instanceof ProgressEvent) {
-            errorMessage = "Error: no settings/themes.json.";
-          } else if (err) {
-            errorMessage = "Error: couldn't load settings/themes.json.";
-          } else {
-            errorMessage = "No themes found in settings/themes.json.";
-          }
-          d3.select("#loading-bars").remove();
-          d3.select("#loading-message").html(errorMessage);
-          if (err) {
-            throw err;
-          }
-          return;
-        }
-
-        for (var key in themes) {
-          themes[key] = $.extend({}, themes.default, themes[key]);
-        }
-
-        preloadImages(themes);
-
-        d3.select("#input-theme")
-          .selectAll("option")
-          .each(function (d) {
-            if (d.name === newCaption) {
-              this["selected"] = "selected";
-              d3.select("#input-new-theme").property("value", "");
-              d3.select("#input-new-caption").property("value", "");
-              return;
-            }
-          });
-
-      });
-    },
-    error: function (error) {
-      console.log('error', error);
     }
   });
 
@@ -257,12 +194,6 @@ function initialize(err, themesWithImages) {
     setClass(null);
   });
 
-  d3.select("#btn-new-theme").on("click", uploadTheme);
-
-  d3.select("#input-new-theme").on("change", updateNewThemeFile).each(updateNewThemeFile);
-
-  d3.select("#input-new-caption").on("change keyup", updateNewCaption).each(updateNewCaption);
-
   d3.select("#input-subtitle").on("change", updateSubtitleFile).each(updateSubtitleFile);
 
   d3.select("#submit").on("click", submitted);
@@ -305,23 +236,6 @@ function updateAudioFile() {
 
 }
 
-function updateNewThemeFile() {
-  if (!this.files || !this.files[0]) {
-    preview.newTheme(null);
-    setClass(null);
-    return true;
-  }
-
-  newTheme = this.files[0];
-  preview.loadNewTheme(newTheme, function (err) {
-    if (err) {
-      setClass("error", "Error updating new theme file");
-    } else {
-      setClass(null);
-    }
-  });
-}
-
 function updateSubtitleFile() {
   if (!this.files || !this.files[0]) {
     preview.subtitle(null);
@@ -345,10 +259,6 @@ function updateCaption() {
 
 function updateTheme() {
   preview.theme(d3.select(this.options[this.selectedIndex]).datum());
-}
-
-function updateNewCaption() {
-  preview.newCaption(this.value);
 }
 
 function preloadImages(themes) {

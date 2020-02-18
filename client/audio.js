@@ -44,6 +44,10 @@ function restart() {
 
 function update() {
 
+  if (!audio) {
+    return;
+  }
+
   if (audio.duration) {
 
     var pos = audio.currentTime / audio.duration;

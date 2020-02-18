@@ -1,8 +1,10 @@
-<html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Audiogram::Theme Editor</title>
+    <title>Audiogram / Theme Editor</title>
     <meta charset="utf-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600" rel="stylesheet" type="text/css">
@@ -10,7 +12,89 @@
     <link href="/css/editor.css" rel="stylesheet" type="text/css">
     <link href="/fonts/fonts.css" rel="stylesheet" type="text/css">
   </head>
-  <body>
-  	
+  <body class="loading">
+
+    <div class="container">
+
+      <h1>Theme Editor</h1>
+      <div>
+        <a href="/">Go back</a>
+      </div>
+      <div id="loading">
+        <div id="loading-bars">
+          <div class="r1"></div><div class="r2"></div><div class="r3"></div><div class="r4"></div><div class="r5"></div>
+        </div>
+        <div id="loading-message">Loading...</div>
+      </div>
+
+      <div id="loaded">
+
+        <div class="row form-row" id="row-theme">
+          <label for="input-theme">Theme</label>
+          <select id="input-theme" name="theme"></select>
+        </div>
+
+        <div class="row form-row" style="padding-bottom: 40px">
+          <button type="button" id="btn-delete-theme" class="left" data-confirm="Are you sure you want to delete this theme?"><i class="fa fa-trash"></i>Delete</button>
+        </div>
+
+        <div id="preview">
+          <div style="background-color: black;">
+            <div id="canvas">
+              <canvas width="640" height="360"></canvas>
+              <div id="preview-label">Preview</div>
+            </div>
+          </div>
+          <div id="minimap" class="hidden">
+            <svg width="640" height="80" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <clipPath id="clip">
+                  <rect height="80" width="640" x="0" y="0"></rect>
+                </clipPath>
+              </defs>
+              <g class="waveform background">
+                <line x1="0" x2="640" y1="40" y2="40"></line>
+                <path></path>
+              </g>
+              <g class="waveform foreground" clip-path="url(#clip)">
+                <line x1="0" x2="640" y1="40" y2="40"></line>
+                <path></path>
+              </g>
+              <g class="brush"></g>
+              <g class="time">
+                <line x1="0" x2="0" y1="0" y2="80"></line>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <div class="row form-row" style="padding: 20px 0 10px 0">
+          <p>
+            Please note: Theme assets can be only of png or jpeg file format
+          </p>
+        </div>
+
+        <div class="row form-row" id="row-new-theme" style="padding: 0 0 20px 0">
+          <label for="input-new-theme">New theme</label>
+          <input id="input-new-theme" name="new-theme" type="file" />
+        </div>
+
+        <div class="row form-row" id="row-caption">
+          <label for="input-caption">
+            Theme Name
+          </label>
+          <input id="input-new-caption" name="new-caption" type="text" autocomplete="off" placeholder="Add a new theme name" />
+        </div>
+        <div class="row form-row">
+          <button type="button" id="btn-new-theme" class="left"><i class="fa fa-arrow-circle-up"></i>Add</button>
+        </div>
+        
+
+      </div>
+
+    </div>
+
+    <script src="/js/bundle.js"></script>
+    <script src="/fonts/fonts.js"></script>
   </body>
 </html>

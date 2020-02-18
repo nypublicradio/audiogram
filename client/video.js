@@ -4,6 +4,10 @@ var video = document.querySelector("video");
 
 function kill() {
 
+  if (!video) {
+    return;
+  }
+
   // Pause the video if it's playing
   if (!video.paused && !video.ended && 0 < video.currentTime) {
     video.pause();

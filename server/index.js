@@ -16,9 +16,13 @@ var logger = require("../lib/logger/"),
 // Settings
 var serverSettings = require("../lib/settings/");
 
-var fs = require("fs");
+var fs = require("fs"),
+    bodyParser = require("body-parser");
 
 var app = express();
+
+var jsonParser = bodyParser.json();
+// var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.use(compression());
 app.use(logger.morgan());
@@ -72,13 +76,12 @@ const mt = multer(fileOptions).fields([{name: 'audio'}, {name: 'subtitle'}]);
 app.post("/submit/", [mt, render.validate, render.route]);
 
 // Upload new theme
-
 app.post("/theme/upload/", [multer(newThemeFileOptions).single("newTheme"), function (req, res) {
   var themesFile = path.join(serverSettings.settingsPath, "themes.json");
   fs.readFile(themesFile, "utf8", function readFileCallback(err, data) {
     if (err) {
       console.log('err', err);
-      return null;
+      res.send(JSON.stringify({status: 500, error: err}));
     } else {
       var caption = req.body.newCaption;
       var themes = JSON.parse(data);
@@ -89,13 +92,54 @@ app.post("/theme/upload/", [multer(newThemeFileOptions).single("newTheme"), func
       fs.writeFile(themesFile, jt, "utf8", function (err) {
         if (err) {
           console.log(err);
-          return null;
+          res.send(JSON.stringify({status: 500, error: err}));
         }
+        res.send(JSON.stringify({status: 200, success: "success"}));
       });
     }
   });
-  res.end();
 }]);
+
+// Delete theme
+app.post("/theme/delete/", jsonParser, function (req, res) {
+  var themesFile = path.join(serverSettings.settingsPath, "themes.json");
+  fs.readFile(themesFile, "utf8", function readFileCallback(err, data) {
+    if (err) {
+      console.log('err', err);
+      res.send(JSON.stringify({status: 500, error: err}));
+    } else {
+      var theme = req.body.theme;
+      var themes = JSON.parse(data);
+      
+      if (themes[theme]) {
+        var background = themes[theme]["backgroundImage"];
+        if (background) {
+          var asset = path.join(serverSettings.themeStoragePath, background);
+          try {
+            fs.unlink(asset, function(err) {
+              if (err) {
+                console.log('err', error);
+                res.send(JSON.stringify({status: 500, error: err}));
+              }
+              delete themes[theme];
+              var jt = JSON.stringify(themes);
+              fs.writeFile(themesFile, jt, "utf8", function (err) {
+                if (err) {
+                  console.log(err);
+                  res.send(JSON.stringify({status: 500, error: err}));
+                }
+                res.send(JSON.stringify({status: 200, success: "success"}));
+              });
+            });
+          } catch (err) {
+            console.log(err);
+            res.send(JSON.stringify({status: 500, error: err}));
+          }  
+        }
+      }
+    }
+  });
+});
 
 // Theme editor
 app.use("/theme/", express.static(path.join(__dirname, "..", "editor/theme.html")));
