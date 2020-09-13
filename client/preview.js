@@ -99,6 +99,11 @@ function redraw() {
     frame: 0
   });
 
+  if (location.pathname === "/theme") {
+    const tf = (theme.noPattern === undefined) ? false : theme.noPattern;
+    d3.select("#chkNoPattern").property("checked", tf);
+  }
+
 }
 
 function loadAudio(f, cb) {

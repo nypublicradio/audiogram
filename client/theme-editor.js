@@ -7,6 +7,8 @@ function _initialize() {
   	d3.select("#input-new-theme").on("change", updateNewThemeFile).each(updateNewThemeFile);
   	d3.select("#input-new-caption").on("change keyup", updateNewCaption).each(updateNewCaption);
   	d3.select("#btn-delete-theme").on("click", deleteTheme);
+    d3.select("#btn-save-theme").on("click", saveTheme);
+    d3.select("#chkNoPattern").on("change", setNoPattern);
 }
 
 function setClass(cl, msg) {
@@ -112,6 +114,42 @@ function deleteTheme() {
   	}
 	});
 
+}
+
+function saveTheme() {
+  if(!confirm($("#btn-save-theme").data("confirm"))){
+      d3.event.stopImmediatePropagation();
+      d3.event.preventDefault();
+      return;
+  }
+
+  $.ajax({
+    url: "/theme/save",
+    type: "POST",
+    data: JSON.stringify({theme: theme}),
+    dataType: "json",
+    contentType: "application/json",
+    cache: false,
+    success: function () {
+      preview.theme(theme);
+    },
+    error: function (error) {
+      console.log('error', error);
+    }
+  });
+
+}
+
+function setNoPattern() {
+  if (!theme) {
+    return;
+  }
+  const checked = d3.select("#chkNoPattern").property("checked");
+  if (!theme.noPattern) {
+    theme['noPattern'] = checked;
+  } else {
+    theme.noPattern = checked;
+  }
 }
 
 module.exports = {

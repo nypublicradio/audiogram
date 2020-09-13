@@ -1,5 +1,5 @@
-var d3 = require("d3"),
-    patterns = require("./patterns.js"),
+// var d3 = require("d3"),
+var patterns = require("./patterns.js"),
     textWrapper = require("./text-wrapper.js");
 
 module.exports = function(t) {
@@ -31,6 +31,11 @@ module.exports = function(t) {
     if (typeof theme.waveLeft !== "number") theme.waveLeft = 0;
     if (typeof theme.waveRight !== "number") theme.waveRight = theme.width;
 
+    /*if (location.pathname === "/theme") {
+      const tf = (theme.noPattern === undefined) ? false : theme.noPattern;
+      d3.select("#chkNoPattern").property("checked", tf);
+    }*/
+
     wrapText = textWrapper(theme);
 
     return this;
@@ -51,7 +56,9 @@ module.exports = function(t) {
       context.drawImage(backgroundImage, 0, 0, theme.width, theme.height);
     }
 
-    patterns[theme.pattern || "wave"](context, options.waveform, theme);
+    if (!theme.noPattern) {
+      patterns[theme.pattern || "wave"](context, options.waveform, theme);
+    }
 
     // Write the caption
     if (options.caption) {

@@ -141,6 +141,30 @@ app.post("/theme/delete/", jsonParser, function (req, res) {
   });
 });
 
+// Save theme
+app.post("/theme/save/", jsonParser, function (req, res) {
+  var themesFile = path.join(serverSettings.settingsPath, "themes.json");
+  fs.readFile(themesFile, "utf8", function readFileCallback(err, data) {
+    if (err) {
+      console.log('err', err);
+      res.send(JSON.stringify({status: 500, error: err}));
+    } else {
+      var theme = req.body.theme;
+      var themes = JSON.parse(data);
+      themes[theme.name] = theme;
+      var jt = JSON.stringify(themes);
+      fs.writeFile(themesFile, jt, "utf8", function (err) {
+        if (err) {
+          console.log(err);
+          res.send(JSON.stringify({status: 500, error: err}));
+        }
+        res.send(JSON.stringify({status: 200, success: "success"}));
+      });
+    }
+  });
+  
+});
+
 // Theme editor
 app.use("/theme/", express.static(path.join(__dirname, "..", "editor/theme.html")));
 
