@@ -61,15 +61,20 @@ minimap.onBrush(function(extent){
 
 // Resize video and preview canvas to maintain aspect ratio
 function resize(width, height) {
-
-  var widthFactor = 640 / width,
-      heightFactor = 360 / height,
-      factor = Math.min(widthFactor, heightFactor);
+  var widthFactor, heightFactor;
+  if (height > width) {
+    widthFactor = 360 / width;
+    heightFactor = 640 / height;
+  } else {
+    widthFactor = 640 / width;
+    heightFactor = 360 / height;
+  }
+  var factor = Math.min(widthFactor, heightFactor);
 
   d3.select("canvas")
     .attr("width", factor * width)
     .attr("height", factor * height);
-
+    
   d3.select("#canvas")
     .style("width", (factor * width) + "px");
 

@@ -31,11 +31,6 @@ module.exports = function(t) {
     if (typeof theme.waveLeft !== "number") theme.waveLeft = 0;
     if (typeof theme.waveRight !== "number") theme.waveRight = theme.width;
 
-    /*if (location.pathname === "/theme") {
-      const tf = (theme.noPattern === undefined) ? false : theme.noPattern;
-      d3.select("#chkNoPattern").property("checked", tf);
-    }*/
-
     wrapText = textWrapper(theme);
 
     return this;

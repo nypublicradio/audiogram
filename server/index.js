@@ -84,9 +84,13 @@ app.post("/theme/upload/", [multer(newThemeFileOptions).single("newTheme"), func
       res.send(JSON.stringify({status: 500, error: err}));
     } else {
       var caption = req.body.newCaption;
+      var width = req.body.newWidth;
+      var height = req.body.newHeight;
       var themes = JSON.parse(data);
       themes[caption] = {
-        "backgroundImage": req.file.filename
+        "backgroundImage": req.file.filename,
+        "width": parseInt(width),
+        "height": parseInt(height)
       };
       var jt = JSON.stringify(themes);
       fs.writeFile(themesFile, jt, "utf8", function (err) {
