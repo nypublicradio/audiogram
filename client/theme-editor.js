@@ -33,6 +33,7 @@ function uploadTheme() {
     };
     URL.revokeObjectURL(this.src);
 
+    var subtitleLeft, subtitleRight;
     if (sizes.width > sizes.height) {
       if (sizes.width > 1280) {
         sizes.width = 1280;
@@ -46,6 +47,10 @@ function uploadTheme() {
       }
       if (sizes.width > 720) {
         sizes.width = 720;
+        subtitleLeft = sizes.width/2;
+        subtitleRight = sizes.width-20;
+        formData.append("newSubtitleLeft", subtitleLeft);
+        formData.append("newSubtitleRight", subtitleRight);
       }
     }
     
