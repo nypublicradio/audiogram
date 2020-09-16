@@ -105,8 +105,14 @@ function redraw() {
   });
 
   if (location.pathname === "/theme") {
-    const tf = (theme.noPattern === undefined) ? false : theme.noPattern;
-    d3.select("#chkNoPattern").property("checked", tf);
+    const noPattern = (theme.noPattern === undefined) ? false : theme.noPattern;
+    d3.select("#chkNoPattern").property("checked", noPattern);
+    const font = theme.subtitleFont;
+    if (font !== undefined) {
+      var fontName = font.substring(font.indexOf("'"));
+      fontName = fontName.substring(1, fontName.length-1);
+      d3.select("#input-font").property("value", fontName);
+    }
   }
 
 }

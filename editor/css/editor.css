@@ -301,3 +301,8 @@ g.time line {
     -webkit-transform: scaleY(1.0);
   }
 }
+
+.picker {
+  display: inline-block;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(3, 1, 1, 0.08);
+}

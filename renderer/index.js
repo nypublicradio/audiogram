@@ -24,6 +24,7 @@ module.exports = function(t) {
     theme.backgroundColor = theme.backgroundColor || "#fff";
     theme.waveColor = theme.waveColor || theme.foregroundColor || "#000";
     theme.captionColor = theme.captionColor || theme.foregroundColor || "#000";
+    theme.subtitleColor = theme.subtitleColor || theme.foregroundColor || "#000";
 
     // Default wave dimensions
     if (typeof theme.waveTop !== "number") theme.waveTop = 0;

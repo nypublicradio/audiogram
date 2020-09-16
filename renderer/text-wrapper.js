@@ -65,7 +65,7 @@ function wrapSubtitleText(theme, context, subtitle) {
     y = top;
   }
 
-  // context.fillStyle = theme.subtitleColor;
+  context.fillStyle = theme.subtitleColor;
   lines.forEach(function(line, i){
     context.fillText(line.join(" "), x, y + i * (theme.subtitleLineHeight + theme.subtitleLineSpacing));
   });

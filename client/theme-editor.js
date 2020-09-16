@@ -1,6 +1,9 @@
 var d3 = require("d3"),
     $ = require("jquery"),
-    preview = require("./preview.js");
+    preview = require("./preview.js"),
+    fonts = [{name: "Neue Haas Grotesk Text Pro"},
+      {name: "Source Sans Pro"}],
+    AColorPicker = require("a-color-picker");
 
 function _initialize() {
     d3.select("#btn-new-theme").on("click", uploadTheme);
@@ -8,6 +11,21 @@ function _initialize() {
   	d3.select("#input-new-caption").on("change keyup", updateNewCaption).each(updateNewCaption);
   	d3.select("#btn-delete-theme").on("click", deleteTheme);
     d3.select("#chkNoPattern").on("change", setNoPattern);
+
+    d3.select("#input-font")
+    .on("change", updateFont)
+    .selectAll("option")
+    .data(fonts)
+    .enter()
+    .append("option")
+      .text(function(d){
+        return d.name;
+      });
+
+    AColorPicker.from('.picker')
+    .on('change', (picker, color) => {
+      console.log(color);
+    });
 }
 
 function setClass(cl, msg) {
@@ -181,6 +199,21 @@ function setNoPattern() {
     theme.noPattern = checked;
   }
 
+  saveTheme();
+}
+
+function updateFont() {
+  var font = d3.select("#input-font").property("value");
+  if (theme.captionFont) {
+    theme.captionFont = "300 52px '" + font + "'";
+  } else {
+    theme['captionFont'] = "300 52px '" + font + "'";
+  }
+  if (theme.subtitleFont) {
+    theme.subtitleFont = "300 44px '" + font + "'";
+  } else {
+    theme['subtitleFont'] = "300 44px '" + font + "'";
+  }
   saveTheme();
 }
 
