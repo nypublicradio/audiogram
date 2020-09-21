@@ -24,7 +24,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "a-color-picker": "^1.2.1",
+    "@simonwep/pickr": "^1.7.4",
     "aws-sdk": "^2.2.39",
     "browserify": "^13.0.0",
     "canvas": "^2.6.1",

@@ -2,8 +2,7 @@ var d3 = require("d3"),
     $ = require("jquery"),
     preview = require("./preview.js"),
     fonts = [{name: "Neue Haas Grotesk Text Pro"},
-      {name: "Source Sans Pro"}],
-    AColorPicker = require("a-color-picker");
+      {name: "Source Sans Pro"}];
 
 function _initialize() {
     d3.select("#btn-new-theme").on("click", uploadTheme);
@@ -22,10 +21,6 @@ function _initialize() {
         return d.name;
       });
 
-    AColorPicker.from('.picker')
-    .on('change', (picker, color) => {
-      console.log(color);
-    });
 }
 
 function setClass(cl, msg) {
@@ -182,7 +177,7 @@ function saveTheme() {
       preview.theme(theme);
     },
     error: function (error) {
-      console.log('error', error);
+      // console.log('error', error);
     }
   });
 
@@ -198,7 +193,6 @@ function setNoPattern() {
   } else {
     theme.noPattern = checked;
   }
-
   saveTheme();
 }
 
