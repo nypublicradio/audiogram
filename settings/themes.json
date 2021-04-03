@@ -3,7 +3,7 @@
     "width": 1280,
     "height": 720,
     "framesPerSecond": 20,
-    "maxDuration": 300,
+    "maxDuration": 4000,
     "samplesPerFrame": 128,
     "pattern": "wave",
     "waveTop": 150,
