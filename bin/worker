@@ -4,7 +4,11 @@
 require("../lib/settings/");
 
 var dotenv = require("dotenv").config({silent: true}),
+    fs = require("fs"),
     Audiogram = require("../audiogram/"),
+    path = require("path"),
+    FormData = require("form-data"),
+    http = require("http"),
     transports = require("../lib/transports/");
 
 // Can only register fonts once, double-registering throws an error
@@ -47,6 +51,7 @@ function render(job) {
     }
 
     audiogram.status("ready");
+    uploadVideo(job);
 
     if (process.env.SPAWNED) {
       return transports.quit();
@@ -55,6 +60,47 @@ function render(job) {
     setTimeout(pluckJob, delay());
 
   });
+
+}
+
+function uploadVideo(job) {
+
+    var videoURL = transports.getURL(job.id)
+    var videoPath = path.join(__dirname, "..", "media", videoURL)
+
+    const form = new FormData();
+
+    form.append('audiogram[media]', fs.createReadStream(videoPath));
+    form.append('audiogram[transcript]', "NICE")
+
+    form.submit('https://operatorapp.com/v1/audiograms', function(err, res) {
+  //form.submit('http://localhost:3000/v1/audiograms', function(err, res) {
+
+      if (err) {
+        console.log(err)
+        throw err
+      }
+
+      console.log("FORM.SUBMIT DIDNT BREAK")
+      // res – response object (http.IncomingMessage)  //
+      res.resume();
+    });
+
+    /*
+
+    var request = http.request({
+      method: 'post',
+      host: 'operatorapp.com',
+      path: '/v1/audiograms',
+      headers: form.getHeaders()
+    });
+    
+    form.pipe(request);
+    
+    request.on('response', function(res) {
+      console.log(res.statusCode);
+    });
+    */
 
 }
 

@@ -30,6 +30,7 @@
     "d3": "4.10.0",
     "dotenv": "^2.0.0",
     "express": "^4.13.3",
+    "form-data": "^4.0.0",
     "image-downloader": "^4.3.0",
     "jquery": "^2.2.1",
     "mkdirp": "^0.5.1",
